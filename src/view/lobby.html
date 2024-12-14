@@ -1,0 +1,292 @@
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/lobby.css" />
+    <link rel="stylesheet" href="../css/lobby/user/friends.css" />
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/lobby/user/level.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="lobby-container">
+      <header>
+        <div class="header">
+          <div class="user-profile-box">
+            <div class="display-name">usernameeeeeeeeeeee</div>
+            <div class="online-state-box">
+              <div class="online-state"></div>
+              <div class="state-triangle"></div>
+              <div class="state-drop-down">
+                <div
+                  class="state-option"
+                  data-state="online"
+                  data-title="30072"
+                ></div>
+                <div
+                  class="state-option"
+                  data-state="busy"
+                  data-title="30073"
+                ></div>
+                <div
+                  class="state-option"
+                  data-state="away"
+                  data-title="30074"
+                ></div>
+                <div
+                  class="state-option"
+                  data-state="in-game"
+                  data-title="30075"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div id="MainTab" class="tabctrl">
+            <div class="tab-item selected">
+              <div class="tab-item-text" data-key="60091"></div>
+              <div class="tab-bg"></div>
+            </div>
+            <div class="tab-item">
+              <div class="tab-item-text" data-key="30020"></div>
+              <div class="tab-bg"></div>
+            </div>
+          </div>
+          <div class="buttons">
+            <div class="gift"></div>
+            <div class="game"></div>
+            <div class="notice"><div class="overlay new"></div></div>
+            <div class="spliter"></div>
+            <div class="menu">
+              <div class="menu-drop-down hidden">
+                <div
+                  class="menu-option"
+                  data-type="system-setting"
+                  data-key="30066"
+                ></div>
+                <div
+                  class="menu-option"
+                  data-type="message-history"
+                  data-key="30136"
+                ></div>
+                <div
+                  class="menu-option"
+                  data-type="change-theme"
+                  data-key="60028"
+                ></div>
+                <div
+                  class="menu-option"
+                  data-type="feed-back"
+                  data-key="30039"
+                ></div>
+                <div
+                  class="menu-option has-submenu"
+                  data-type="language-select"
+                >
+                  <span data-key="30374"></span>
+                  <div class="submenu hidden">
+                    <div class="submenu-option" data-lang="tw">繁體中文</div>
+                    <div class="submenu-option" data-lang="cn">简体中文</div>
+                    <div class="submenu-option" data-lang="en">English</div>
+                    <div class="submenu-option" data-lang="jp">日本語</div>
+                    <div class="submenu-option" data-lang="ru">
+                      русский язык
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="menu-option"
+                  data-type="logout"
+                  data-key="30060"
+                ></div>
+                <div
+                  class="menu-option"
+                  data-type="exit"
+                  data-key="30061"
+                ></div>
+              </div>
+            </div>
+            <div class="minimize"></div>
+            <div class="maxsize"></div>
+            <div class="close"></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="friends-wrapper">
+        <div class="me-wrapper">
+          <div class="me-contain">
+            <div class="avatar-box">
+              <div class="avatar-border"></div>
+              <div class="avatar-picture"></div>
+            </div>
+            <div class="base-info-wrapper">
+              <div class="base-info-contain">
+                <div class="base-info-level"></div>
+                <div class="base-info-levels lv-1"></div>
+                <div class="base-info-weath"></div>
+                <label class="base-info-weaths">0</label>
+                <div class="base-info-vip"></div>
+              </div>
+            </div>
+            <div class="sign-widget">
+              <div id="signwidgetex">
+                <textarea
+                  class="individual-signature"
+                  spellcheck="false"
+                  data-placeholder="30018"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <main class="friends-main">
+          <aside class="friends-sidebar">
+            <div class="friends-main-contain">
+              <div class="friends-main-area">
+                <div class="friends-tab-control">
+                  <div
+                    class="friends-tab-item FriendTabItem selected"
+                    data-title="50012"
+                    data-target=".friends-box"
+                  >
+                    <div class="user-list-icon"></div>
+                  </div>
+
+                  <div
+                    class="friends-tab-item FriendTabItem"
+                    data-title="50013"
+                    data-target=".recents-box"
+                  >
+                    <div class="recently-list-icon"></div>
+                  </div>
+                </div>
+                <div class="friends-box">
+                  <div class="friends-search-bar">
+                    <div class="search-icon"></div>
+                    <input
+                      type="text"
+                      data-placeholder="50011"
+                      class="friend-search-input"
+                    />
+                    <div class="search-pre"></div>
+                    <div class="search-next"></div>
+                  </div>
+                  <div id="friendwidget" class="widget friend-widget">
+                    <div class="user-list friends">
+                      <div class="user-group">
+                        <div class="group-header">
+                          <div class="toggle-icon"></div>
+                          <span data-key="50027"></span>
+                          <span class="number"> (4/17)</span>
+                        </div>
+                        <ul class="group-users">
+                          <li class="user-box">
+                            <div class="group-avatar-border"></div>
+                            <div class="group-user-pic"></div>
+                            <div class="group-user-info">
+                              <span class="group-user-name">小秘書</span>
+                              <span class="group-user-status"
+                                >app首頁展示的：錯過此下載點</span
+                              >
+                            </div>
+                          </li>
+                          <li class="user-box">
+                            <div class="group-avatar-border"></div>
+                            <div class="group-user-pic"></div>
+                            <div class="group-user-info">
+                              <span class="group-user-name">小秘書</span>
+                              <span class="group-user-status"
+                                >app首頁展示的：錯過此下載點</span
+                              >
+                            </div>
+                          </li>
+                          <li class="user-box">
+                            <div class="group-avatar-border"></div>
+                            <div class="group-user-pic"></div>
+                            <div class="group-user-info">
+                              <span class="group-user-name">小秘書</span>
+                              <span class="group-user-status"
+                                >app首頁展示的：錯過此下載點</span
+                              >
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="user-list strangers">
+                      <div class="user-group">
+                        <div class="group-header">
+                          <div class="toggle-icon"></div>
+                          <span data-key="50028"></span>
+                          <span class="number"> (1/1)</span>
+                        </div>
+                        <ul class="group-users">
+                          <li class="user-box">
+                            <div class="group-avatar-border"></div>
+                            <div class="group-user-pic"></div>
+                            <div class="group-user-info">
+                              <span class="group-user-name">小秘書</span>
+                              <span class="group-user-status"
+                                >app首頁展示的：錯過此下載點</span
+                              >
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="user-list blocks">
+                      <div class="user-group">
+                        <div class="group-header">
+                          <div class="toggle-icon"></div>
+                          <span data-key="50140"></span>
+                          <span class="number"> (1/1)</span>
+                        </div>
+                        <ul class="group-users">
+                          <li class="user-box">
+                            <div class="group-avatar-border"></div>
+                            <div class="group-user-pic"></div>
+                            <div class="group-user-info">
+                              <span class="group-user-name">小秘書</span>
+                              <span class="group-user-status"
+                                >app首頁展示的：錯過此下載點</span
+                              >
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="recents-box hidden">
+                  <div class="widget recent-widget hidden">
+                    <!-- 最近聯絡人小工具區域 -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="friends-disconnected-wrapper">
+              <div class="friends-disconnected-contain">
+                <div class="firends-disconnected-text">重連中...</div>
+                <div class="friends-disconnected-button" data-key="30116">
+                  <span>立即連接</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+          <section class="content">
+            <div class="content-title">
+              <span data-key="50159"></span>
+            </div>
+            <div class="error-box"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="../js/require.js"></script>
+  <script type="text/javascript" src="../js/lobby.js"></script>
+  <script type="text/javascript" src="../js/key.js"></script>
+</html>

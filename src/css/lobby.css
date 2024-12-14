@@ -1,0 +1,566 @@
+@import url(./window.css);
+
+body {
+  margin: 0;
+  background-color: #ffffff00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  overflow: hidden;
+  font-family: "SimSun", sans-serif;
+  width: 100vw;
+  height: 99.7vh;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6d6d6d0f;
+  border-radius: 4px;
+  border: 1px solid #6d6d6d26;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6d6d6d38;
+}
+
+.lobby-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #858585;
+  background: #ffffff00;
+  margin-top: 1px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  -webkit-app-region: drag;
+  background-color: #0073c6;
+}
+
+.header {
+  height: 40px;
+  display: flex;
+  padding: 0 10px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  padding-right: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#MainTab,
+.user-profile-box,
+.buttons {
+  -webkit-app-region: no-drag;
+}
+
+.header:before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url("../image/rc_logo_small.png") no-repeat center center;
+  vertical-align: middle;
+  background-size: contain;
+}
+
+.buttons {
+  width: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.gift {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: url(../image/gift.png) no-repeat center center;
+  background-position: 0px 0;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.game {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: url(../image/game.png) no-repeat center center;
+  background-position: 0px 0;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.notice {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url(../image/icon_notice.png) no-repeat center center;
+  background-position: 0px 0;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.overlay {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url(../image/icon_notice_overlay.png) no-repeat center center;
+  background-position: 0 0;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.overlay.new {
+  background-position: -24px 0px;
+}
+
+.notice:hover,
+.game:hover,
+.gift:hover {
+  background-position: -28px 0;
+}
+
+.notice:hover {
+  background-position: -24px 0;
+}
+
+.notice:active,
+.game:active,
+.gift:active {
+  background-position: -56px 0;
+}
+
+.notice:active {
+  background-position: -48px 0;
+}
+
+.spliter {
+  display: inline-block;
+  width: 2px;
+  height: 19px;
+  background: url(../image/mf_spliter.png) no-repeat center center;
+  background-position: 0 0;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.menu {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/BtnMenu.png) no-repeat center center;
+  background-position: 0 0;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.menu-drop-down {
+  position: absolute;
+  top: 2.3rem;
+  width: auto;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  right: 1.5rem;
+  padding: 3px;
+  height: 17rem;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.menu-option {
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 7px;
+}
+
+.menu-option:before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-right: 10px;
+}
+
+.menu-option[data-type="system-setting"]:before {
+  background-image: url(../image/set.png);
+}
+
+.menu-option[data-type="message-history"]:before {
+  background-image: url(../image/message.png);
+}
+
+.menu-option[data-type="change-theme"]:before {
+  background-image: url(../image/skin.png);
+}
+
+.menu-option[data-type="exit"]:before {
+  background-image: url(../image/exit.png);
+}
+
+.menu-option[data-type="language-select"]:before {
+  background-image: url(../image/ctrl/icon_submenu.png);
+  width: 16px;
+  height: 10px;
+  transform: rotate(180deg);
+}
+
+.menu-option {
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  width: auto;
+}
+
+.menu-option:hover {
+  background: #eee;
+}
+
+.menu-option.has-submenu .submenu {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu-option.has-submenu {
+  position: relative;
+}
+
+.menu-option.has-submenu:hover .submenu {
+  display: block;
+}
+
+.submenu-option {
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.submenu-option:hover {
+  background: #eee;
+}
+
+.submenu-option.selected:before {
+  width: 13px;
+  height: 13px;
+  background: url(../image/user_state.png) no-repeat center center;
+  background-size: auto;
+  background-position: 0 0;
+}
+
+.footer {
+  padding: 10px 15px;
+  background-color: #f4f4f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e3e3e5;
+}
+
+.footer a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #838383;
+  display: flex;
+  align-items: flex-end;
+}
+
+.footer a:hover {
+  color: #0073c6;
+}
+
+.create-account:before,
+.forget-password:before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-size: cover;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.forget-password:before {
+  background: url("../image/icon_getpass.png") no-repeat center center;
+  background-size: contain;
+}
+
+.create-account:before {
+  background: url("../image/icon_createaccount.png") no-repeat center center;
+  background-size: contain;
+}
+
+.hidden {
+  display: none;
+}
+
+.user-profile-box {
+  display: flex;
+  justify-content: space-evenly;
+  width: auto;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  left: 2.5rem;
+}
+
+.display-name {
+  color: #000;
+  text-shadow: 0px 0px 4px #ffffff99;
+  font-size: 12px;
+  line-height: 16px;
+  margin-right: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  padding: 3px;
+}
+
+.display-name:hover {
+  color: #222222;
+  text-shadow: 0px 0px 4px #ffffff;
+  background: #ffffff1f;
+  border-radius: 3px;
+}
+
+.display-name:active {
+  color: #222222;
+  text-shadow: 0px 0px 4px #ffffff;
+  background: #ffffff36;
+}
+
+.state-triangle {
+  margin-left: 5px;
+}
+
+.state-triangle:before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 13px;
+  background: url(../image/state_triangle.png) no-repeat center center;
+  background-size: auto;
+  background-position: 0px 4px;
+}
+
+.online-state-box:hover:not(:has(.state-drop-down:hover))
+  .state-triangle:before {
+  background-position: -9px 4px;
+}
+
+.online-state-box:active:not(:has(.state-drop-down:active))
+  .state-triangle:before {
+  background-position: -18px 4px;
+}
+
+.online-state-box {
+  display: flex;
+  padding: 2px;
+}
+
+.online-state-box:hover:not(:has(.state-drop-down:hover)) {
+  text-shadow: 0px 0px 4px #ffffff;
+  background: #ffffff1f;
+  border-radius: 3px;
+}
+
+.online-state-box:active:not(:has(.state-drop-down:active)) {
+  text-shadow: 0px 0px 4px #ffffff;
+  background: #ffffff36;
+}
+
+.online-state:before {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background: url("../image/user_state.png") no-repeat center center;
+  background-size: auto;
+  background-position: 0 0;
+}
+
+.online-state.busy:before {
+  background-position: -13px 0 !important;
+}
+
+.online-state.away:before {
+  background-position: -26px 0 !important;
+}
+
+.online-state.in-game:before {
+  background-position: -39px 0 !important;
+}
+
+.state-drop-down {
+  position: absolute;
+  top: 1.4rem;
+  width: 12%;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  left: 8rem;
+  padding: 3px;
+  height: 4.9rem;
+  display: none;
+}
+
+.state-drop-down.visible {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.state-option {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 13px;
+  height: 13px;
+  padding: 3;
+}
+
+.state-option:hover {
+  background-color: #0073c6;
+  color: #fff;
+}
+
+.state-option:before {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background: url(../image/user_state.png) no-repeat center center;
+  background-size: auto;
+}
+
+.state-option[data-state="online"]:before {
+  background-position: 0 0;
+}
+
+.state-option[data-state="busy"]:before {
+  background-position: -13px 0;
+}
+
+.state-option[data-state="away"]:before {
+  background-position: -26px 0;
+}
+
+.state-option[data-state="in-game"]:before {
+  background-position: -39px 0;
+}
+
+#MainTab {
+  display: flex;
+  cursor: pointer;
+  width: auto;
+  height: 40px;
+  align-items: flex-end;
+  margin-left: 4rem;
+  -webkit-app-region: no-drag;
+}
+
+.tab-item {
+  flex: 0 0 100px;
+  background-size: auto;
+  background-position: 0 0;
+  font-family: Arial;
+  font-size: 15px;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 30px;
+  justify-content: center;
+}
+
+.selected .tab-bg {
+  font-family: Arial;
+  font-size: 15px;
+  color: rgb(55, 144, 206);
+  text-align: center;
+  padding: 5px 0px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+  background-color: #fff;
+  position: relative;
+  width: 95px;
+  height: 20px;
+}
+
+.selected .tab-item-text {
+  color: rgb(0 115 198);
+}
+
+.tab-bg {
+  font-family: Arial;
+  font-size: 15px;
+  text-align: center;
+  padding: 5px 0px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+  position: relative;
+  width: 80px;
+  height: 17px;
+}
+
+.tab-item-text {
+  z-index: 999;
+  color: rgb(255 255 255);
+  position: fixed;
+}

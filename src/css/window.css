@@ -1,0 +1,62 @@
+.minimize {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/Button_Minsize.png) no-repeat center center;
+  background-position: 0 0;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.restore {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/Button_Restore.png) no-repeat center center !important;
+  background-position: 0 0 !important;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.maxsize {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/Button_Maxsize.png) no-repeat center center;
+  background-position: 0 0;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.close {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/Button_Close.png) no-repeat center center;
+  background-position: 0 0;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.minimize:hover,
+.close:hover,
+.maxsize:hover,
+.menu:hover:not(:has(.menu-drop-down:hover)) {
+  background-position: -20px 0;
+}
+
+.restore:hover {
+  background-position: -20px 0 !important;
+}
+
+.minimize:active,
+.close:active,
+.maxsize:active,
+.restore:active,
+.menu:active:not(:has(.menu-drop-down:active)) {
+  background-position: -40px 0;
+}
+
+.restore:active {
+  background-position: -40px 0 !important;
+}

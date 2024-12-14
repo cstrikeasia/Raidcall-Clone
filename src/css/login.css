@@ -1,0 +1,285 @@
+@import url(./window.css);
+
+body {
+  margin: 0;
+  background-color: #ffffff00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  user-select: none;
+  overflow: hidden;
+  font-family: "SimSun", sans-serif;
+}
+
+.login-container {
+  width: 610px;
+  height: 450px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #858585;
+  background: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #0073c6;
+  -webkit-app-region: drag;
+}
+
+.header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.header:before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url("../image/rc_logo_small.png") no-repeat center center;
+  vertical-align: middle;
+  background-size: contain;
+}
+
+.header:after {
+  content: "";
+  display: inline-block;
+  width: 80px;
+  height: 24px;
+  background: url("../image/login_logo_title.png") no-repeat center center;
+  vertical-align: middle;
+  background-size: contain;
+}
+
+.logo {
+  margin: 40px auto 10px;
+  display: block;
+  width: 226px;
+  height: 54px;
+  background: url(../image/login_logo.png) no-repeat center center;
+  background-size: contain;
+}
+
+.buttons {
+  width: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  -webkit-app-region: no-drag;
+}
+
+.login-form {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form label {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+  width: auto;
+  text-align: left;
+}
+
+.remember,
+.sign-in {
+  width: 16px;
+  height: 16px;
+  background: url(../image/ctrl/checkbox_icon.png) no-repeat;
+  background-position: 0 0;
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.remember.checked,
+.sign-in.checked {
+  background-position: 0 -18px;
+}
+
+.remember-box:hover > .remember,
+.sign-in-box:hover > .sign-in {
+  background-position: -18px 0;
+}
+
+.remember-box:hover > .remember.checked,
+.sign-in-box:hover > .sign-in.checked {
+  background-position: -18px -18px;
+}
+
+.login-form input[type="text"] {
+  margin-bottom: 15px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  min-width: 230px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  background: #fcfcfc;
+  font-size: 12px;
+  font-family: "SimSun", sans-serif;
+  height: 29px;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+  outline: none;
+  background: #ffffff;
+}
+
+.warning-message-box span {
+  color: #ff0000;
+  font-size: 12px;
+  display: none;
+}
+
+.warning-message-box {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: auto;
+}
+
+.checkbox-group {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.checkbox-group label {
+  font-size: 12px;
+  color: #777777;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.login-btn,
+.cancel-btn {
+  width: 200px;
+  height: 42px;
+  background-color: #1680ce;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: "SimSun", sans-serif;
+}
+
+.login-btn:hover,
+.cancel-btn:hover {
+  background-color: #419ddd;
+}
+
+.login-btn:active,
+.cancel-btn:active {
+  background-color: #1680ce;
+}
+
+.cancel-btn {
+  margin-top: 3.5rem;
+}
+
+.login-gif-box {
+  margin-top: 1rem;
+}
+
+.login-loading {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.login-loading-username {
+  font-size: 13px;
+  color: #000000;
+  margin-bottom: 5px;
+  display: block;
+  width: auto;
+}
+
+.login-loading-text {
+  font-size: 12px;
+  font-weight: bold;
+  color: #3e3e3e;
+  margin-top: 0.5rem;
+}
+
+.login-gif {
+  background: url(../image/icon_loading.gif);
+  height: 12px;
+  width: 256px;
+}
+
+.footer {
+  padding: 10px 15px;
+  background-color: #f4f4f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e3e3e5;
+}
+
+.footer a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #838383;
+  display: flex;
+  align-items: flex-end;
+}
+
+.footer a:hover {
+  color: #0073c6;
+}
+
+.create-account:before,
+.forget-password:before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-size: cover;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.forget-password:before {
+  background: url("../image/icon_getpass.png") no-repeat center center;
+  background-size: contain;
+}
+
+.create-account:before {
+  background: url("../image/icon_createaccount.png") no-repeat center center;
+  background-size: contain;
+}
+
+.hidden {
+  display: none;
+}

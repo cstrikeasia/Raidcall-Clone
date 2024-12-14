@@ -1,0 +1,173 @@
+const langModule = require('../js/store');
+const path = require('path');
+const fs = require('fs');
+
+class Lobby {
+  constructor() {
+    this.minimizeBtn = document.querySelector('.minimize');
+    this.maxsizeBtn = document.querySelector('.maxsize');
+    this.closeBtn = document.querySelector('.close');
+    this.dragArea = document.querySelector('header');
+    this.onlineStateBox = document.querySelector('.online-state-box');
+    this.dropDown = document.querySelector('.state-drop-down');
+    this.stateDisplay = document.querySelector('.online-state');
+    this.groupHeader = document.querySelector('.group-header');
+    this.menuBtn = document.querySelector('.menu');
+    this.menuDropDown = document.querySelector('.menu-drop-down');
+    this.logOutBtn = document.querySelector('[data-type="logout"]');
+    this.errorBox = document.querySelector('.error-box');
+
+    this.groupHeaders = document.querySelectorAll('.group-header');
+    this.friendWidget = document.querySelectorAll('.friend-widget');
+    this.submenuOptions = document.querySelectorAll('.submenu-option');
+    this.friendTabItems = document.querySelectorAll('.FriendTabItem');
+    this.targetBox = document.querySelectorAll('.friends-box, .recents-box');
+    this.mainTabItems = document.querySelectorAll('#MainTab .tab-item');
+
+    this.errorPageDom = path.join(__dirname, 'error.html');
+    this.langData = null;
+    this.isMaximized = false;
+
+    langModule.initLanguage();
+    this.initEvents();
+    this.openGroup();
+    this.errorPage();
+    this.toggleDrag();
+  }
+
+  // 初始化
+  initEvents() {
+    this.minimizeBtn.addEventListener('click', () => this.minimizeWindow());
+    this.maxsizeBtn.addEventListener('click', () => this.toggleMaximizeWindow());
+    this.closeBtn.addEventListener('click', () => this.closeWindow());
+    this.onlineStateBox.addEventListener('click', () => this.changeOnlineState());
+    this.menuBtn.addEventListener('click', () => this.showMenu());
+    this.logOutBtn.addEventListener('click', () => this.logOut());
+    this.submenuOptions.forEach((option) => this.submenuOptionsEvent(option));
+    this.mainTabItems.forEach((item) => this.mainTabItemsEvent(item));
+    this.friendTabItems.forEach((item) => this.friendTabItemsEvent(item));
+  }
+
+  // 最小化視窗
+  minimizeWindow() {
+    ipcRenderer.send('minimize');
+  }
+
+  // 最大化/還原視窗
+  toggleMaximizeWindow() {
+    if (this.isMaximized) {
+      this.maxsizeBtn.classList.remove('restore');
+      ipcRenderer.send('restore');
+    }
+    else {
+      this.maxsizeBtn.classList.add('restore');
+      ipcRenderer.send('maximize');
+    }
+    this.isMaximized = !this.isMaximized;
+  }
+
+  // 關閉視窗
+  closeWindow() {
+    ipcRenderer.send('hide');
+  }
+
+  // 拖曳視窗
+  toggleDrag() {
+    ipcRenderer.removeAllListeners('toggle-drag');
+    ipcRenderer.on('toggle-drag', (_, enableDrag) => {
+      if (enableDrag) {
+        this.dragArea.style.webkitAppRegion = 'drag';
+      }
+      else {
+        this.dragArea.style.webkitAppRegion = 'no-drag';
+      }
+    });
+  }
+
+  // 選擇語言
+  submenuOptionsEvent(option) {
+    option.addEventListener('click', () => {
+      this.submenuOptions.forEach((item) => item.classList.remove('selected'));
+      option.classList.add('selected');
+      const selectedLang = option.getAttribute('data-lang');
+      localStorage.setItem('lang', selectedLang);
+      ipcRenderer.send('get-language', `lang_${selectedLang}`);
+    });
+  }
+
+  // 主Tab切換
+  mainTabItemsEvent(item) {
+    item.addEventListener('click', () => {
+      this.mainTabItems.forEach((tab) => tab.classList.remove('selected'));
+      item.classList.add('selected');
+    });
+  }
+
+  // 好友Tab切換
+  friendTabItemsEvent(item) {
+    item.addEventListener('click', () => {
+      this.friendTabItems.forEach((tab) => tab.classList.remove('selected'));
+      item.classList.add('selected');
+      const targetClass = item.getAttribute('data-target');
+      this.targetBox.forEach((box) => {
+        box.classList.add('hidden');
+      });
+      document.querySelector(targetClass).classList.remove('hidden');
+    });
+  }
+
+  // 修改在線狀態
+  changeOnlineState() {
+    this.dropDown.classList.toggle('visible');
+    this.dropDown.addEventListener('click', (event) => {
+      if (event.target.classList.contains('state-option')) {
+        const selectedState = event.target.getAttribute('data-state');
+        this.stateDisplay.classList.remove('online', 'busy', 'away', 'in-game');
+        this.stateDisplay.classList.add(selectedState.toLowerCase());
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!this.onlineStateBox.contains(event.target)) {
+        this.dropDown.classList.remove('visible');
+      }
+    });
+  }
+
+  // 好友列表點擊
+  openGroup() {
+    this.groupHeaders.forEach((header) => {
+      header.addEventListener('click', () => {
+        const groupUsers = header.nextElementSibling;
+        if (groupUsers) {
+          groupUsers.classList.toggle('expanded');
+          header.classList.toggle('expanded');
+        }
+      });
+    });
+  }
+
+  // 菜單點擊
+  showMenu() {
+    this.menuDropDown.classList.toggle('hidden');
+
+    document.addEventListener('click', (event) => {
+      if (!this.menuBtn.contains(event.target)) {
+        this.menuDropDown.classList.add('hidden');
+      }
+    });
+  }
+
+  // 錯誤頁面
+  errorPage() {
+    fs.readFile(this.errorPageDom, 'utf8', (err, data) => {
+      if (err) {
+        console.error('Failed to load error.html:', err);
+        return;
+      }
+      this.errorBox.innerHTML = data;
+      langModule.initLanguage();
+    });
+  }
+}
+new Lobby();

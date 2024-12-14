@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  background-color: #ffffff00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  user-select: none;
+  overflow: hidden;
+  font-family: "SimSun", sans-serif;
+}
+
+.login-container {
+  width: 410px;
+  height: 205px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #858585;
+  background: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #0073c6;
+  -webkit-app-region: drag;
+}
+
+.header {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.header:before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url("../image/rc_logo_small.png") no-repeat center center;
+  vertical-align: middle;
+  background-size: contain;
+}
+
+.header span {
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+.buttons {
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  -webkit-app-region: no-drag;
+}
+
+.close:hover {
+  background-position: -20px 0;
+}
+
+.close:active {
+  background-position: -40px 0;
+}
+
+.close {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/Button_Close.png) no-repeat center center;
+  background-position: 0 0;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.footer {
+  padding: 10px 15px;
+  background-color: #f4f4f5;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1px solid #e3e3e5;
+}
+
+.hidden {
+  display: none;
+}
+
+.dialog-message-wrapper {
+  height: 100%;
+  display: flex;
+  font-family: "SimSun", sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  background: url(../image/dialog_body_bg.png) no-repeat center center;
+  background-size: cover;
+}
+
+.dialog-message-contain div {
+  font-size: 13px;
+}
+
+.dialog-message-contain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+.dialog-msg {
+  max-width: 18rem;
+}
+
+.dialog-icon {
+  margin-right: 1rem;
+  content: "";
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background: url(../image/pic_alert.png) no-repeat center center;
+  vertical-align: middle;
+  background-size: contain;
+}
+
+.confirmed {
+  margin-right: 5px;
+  border: 1px solid #dbdde0;
+  width: 75px;
+  border-radius: 5px;
+  background: #fff;
+  text-align: center;
+  font-size: 13px;
+  height: 25px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}

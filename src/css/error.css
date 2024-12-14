@@ -1,0 +1,34 @@
+.title {
+  color: #0066cc;
+  font-size: 16px;
+  text-align: left;
+  font-weight: bold;
+  text-align: center;
+}
+
+.desc {
+  color: #666;
+  font-size: 12px;
+  text-align: left;
+}
+
+.btn {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.btnReload {
+  color: #336bcc;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.btnReload:hover {
+  color: #0066cc;
+}
+
+.btnReload img {
+  border: none;
+  margin-right: 3px;
+  vertical-align: middle;
+}
