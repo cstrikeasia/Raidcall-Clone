@@ -3,9 +3,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/lobby.css" />
-    <link rel="stylesheet" href="../css/lobby/user/friends.css" />
+    <link rel="stylesheet" href="../css/lobby/level.css" />
+    <link rel="stylesheet" href="../css/lobby/friends.css" />
+    <link rel="stylesheet" href="../css/lobby/groups.css" />
     <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/lobby/user/level.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
       rel="stylesheet"
@@ -115,27 +116,82 @@
         </div>
       </header>
       <div class="wrappers">
-        <div class="groups-wrapper"></div>
-        <div class="friends-wrapper">
-          <div class="me-header">
-            <div class="me-contain">
-              <div class="avatar-box">
-                <div class="avatar-border"></div>
-                <div class="avatar-picture"></div>
+        <div class="groups-wrapper direction">
+          <div class="groups-header">
+            <div class="groups-nav-left">
+              <button class="groups-back-btn"></button>
+              <button class="groups-forward-btn"></button>
+              <div class="groups-search-bar">
+                <input
+                  type="text"
+                  data-placeholder="60021"
+                  class="groups-search-input"
+                />
+                <div class="groups-search-icon"></div>
               </div>
-              <div class="base-info-wrapper">
-                <div class="base-info-contain">
-                  <div class="base-info-level"></div>
-                  <div class="base-info-levels lv-1"></div>
-                  <div class="base-info-weath"></div>
-                  <label class="base-info-weaths">0</label>
-                  <div class="base-info-vip"></div>
+            </div>
+            <div class="groups-nav-center">
+              <button class="groups-nav-item active" data-key="60060">
+                <div></div>
+              </button>
+              <button class="groups-nav-item" data-key="40007">
+                <div></div>
+                遊戲
+              </button>
+              <button class="groups-nav-item" data-key="30375">
+                <div></div>
+                秀場
+              </button>
+            </div>
+            <div class="groups-nav-right">
+              <button class="groups-nav-item" data-key="30014">
+                <div></div>
+                創建語音群
+              </button>
+              <button class="groups-nav-item" data-key="60004">
+                <div></div>
+              </button>
+            </div>
+          </div>
+          <div class="live-anchors">
+            <webview
+              src="https://exptech.com.tw"
+              height="100%"
+              width="100%"
+            ></webview>
+            <div class="groups-my" style="display: none">
+              <div class="groups-my-view">
+                <div class="groups-my-last">最近訪問</div>
+                <div class="groups-my-owner">我的語音群</div>
+                <div class="groups-my-favorite">收藏的語音群</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="friends-wrapper">
+          <div class="friends-header">
+            <div class="friends-header-contain">
+              <div class="friends-header-avatar-box">
+                <div class="friends-header-avatar-border"></div>
+                <div class="friends-header-avatar-picture"></div>
+              </div>
+              <div class="friends-header-base-info-wrapper">
+                <div class="friends-header-base-info-contain">
+                  <div class="friends-header-base-info-level"></div>
+                  <div
+                    class="friends-header-friends-header-base-info-levels lv-1"
+                  ></div>
+                  <div class="friends-header-base-info-weath"></div>
+                  <label class="friends-header-friends-header-base-info-weaths"
+                    >0</label
+                  >
+                  <div class="friends-header-base-info-vip"></div>
                 </div>
               </div>
-              <div class="sign-widget">
+              <div class="friends-header-sign-widget">
                 <div id="signwidgetex">
                   <textarea
-                    class="individual-signature"
+                    class="friends-header-individual-signature"
                     spellcheck="false"
                     data-placeholder="30018"
                   ></textarea>
@@ -153,63 +209,75 @@
                       data-title="50012"
                       data-target=".friends-box"
                     >
-                      <div class="user-list-icon"></div>
+                      <div class="friends-user-list-icon"></div>
                     </div>
 
                     <div
                       class="friends-tab-item FriendTabItem"
                       data-title="50013"
-                      data-target=".recents-box"
+                      data-target=".friends-recents-box"
                     >
-                      <div class="recently-list-icon"></div>
+                      <div class="friends-recently-list-icon"></div>
                     </div>
                   </div>
                   <div class="friends-box">
                     <div class="friends-search-bar">
-                      <div class="search-icon"></div>
+                      <div class="friends-search-icon"></div>
                       <input
                         type="text"
                         data-placeholder="50011"
-                        class="friend-search-input"
+                        class="friends-search-input"
                       />
-                      <div class="search-pre"></div>
-                      <div class="search-next"></div>
+                      <div class="friends-search-pre"></div>
+                      <div class="friends-search-next"></div>
                     </div>
-                    <div id="friendwidget" class="widget friend-widget">
-                      <div class="user-list friends">
-                        <div class="user-group">
-                          <div class="group-header">
-                            <div class="toggle-icon"></div>
+                    <div id="friendwidget" class="widget friends-widget">
+                      <div class="friends-user-list friends">
+                        <div class="friends-user-groups">
+                          <div class="friends-groups-header">
+                            <div class="friends-toggle-icon"></div>
                             <span data-key="50027"></span>
-                            <span class="number"> (4/17)</span>
+                            <span class="friends-number"> (4/17)</span>
                           </div>
-                          <ul class="group-users">
-                            <li class="user-box">
-                              <div class="group-avatar-border"></div>
-                              <div class="group-user-pic"></div>
-                              <div class="group-user-info">
-                                <span class="group-user-name">小秘書</span>
-                                <span class="group-user-status"
+                          <ul class="friends-group-users">
+                            <li class="friends-user-box">
+                              <div
+                                class="friends-group-friends-header-avatar-border"
+                              ></div>
+                              <div class="friends-group-user-pic"></div>
+                              <div class="friends-group-user-info">
+                                <span class="friends-group-user-name"
+                                  >小秘書</span
+                                >
+                                <span class="friends-group-user-status"
                                   >app首頁展示的：錯過此下載點</span
                                 >
                               </div>
                             </li>
-                            <li class="user-box">
-                              <div class="group-avatar-border"></div>
-                              <div class="group-user-pic"></div>
-                              <div class="group-user-info">
-                                <span class="group-user-name">小秘書</span>
-                                <span class="group-user-status"
+                            <li class="friends-user-box">
+                              <div
+                                class="friends-group-friends-header-avatar-border"
+                              ></div>
+                              <div class="friends-group-user-pic"></div>
+                              <div class="friends-group-user-info">
+                                <span class="friends-group-user-name"
+                                  >小秘書</span
+                                >
+                                <span class="friends-group-user-status"
                                   >app首頁展示的：錯過此下載點</span
                                 >
                               </div>
                             </li>
-                            <li class="user-box">
-                              <div class="group-avatar-border"></div>
-                              <div class="group-user-pic"></div>
-                              <div class="group-user-info">
-                                <span class="group-user-name">小秘書</span>
-                                <span class="group-user-status"
+                            <li class="friends-user-box">
+                              <div
+                                class="friends-group-friends-header-avatar-border"
+                              ></div>
+                              <div class="friends-group-user-pic"></div>
+                              <div class="friends-group-user-info">
+                                <span class="friends-group-user-name"
+                                  >小秘書</span
+                                >
+                                <span class="friends-group-user-status"
                                   >app首頁展示的：錯過此下載點</span
                                 >
                               </div>
@@ -217,20 +285,24 @@
                           </ul>
                         </div>
                       </div>
-                      <div class="user-list strangers">
-                        <div class="user-group">
-                          <div class="group-header">
-                            <div class="toggle-icon"></div>
+                      <div class="friends-user-list strangers">
+                        <div class="friends-user-groups">
+                          <div class="friends-groups-header">
+                            <div class="friends-toggle-icon"></div>
                             <span data-key="50028"></span>
-                            <span class="number"> (1/1)</span>
+                            <span class="friends-number"> (1/1)</span>
                           </div>
-                          <ul class="group-users">
-                            <li class="user-box">
-                              <div class="group-avatar-border"></div>
-                              <div class="group-user-pic"></div>
-                              <div class="group-user-info">
-                                <span class="group-user-name">小秘書</span>
-                                <span class="group-user-status"
+                          <ul class="friends-group-users">
+                            <li class="friends-user-box">
+                              <div
+                                class="friends-group-friends-header-avatar-border"
+                              ></div>
+                              <div class="friends-group-user-pic"></div>
+                              <div class="friends-group-user-info">
+                                <span class="friends-group-user-name"
+                                  >小秘書</span
+                                >
+                                <span class="friends-group-user-status"
                                   >app首頁展示的：錯過此下載點</span
                                 >
                               </div>
@@ -238,20 +310,24 @@
                           </ul>
                         </div>
                       </div>
-                      <div class="user-list blocks">
-                        <div class="user-group">
-                          <div class="group-header">
-                            <div class="toggle-icon"></div>
+                      <div class="friends-user-list blocks">
+                        <div class="friends-user-groups">
+                          <div class="friends-groups-header">
+                            <div class="friends-toggle-icon"></div>
                             <span data-key="50140"></span>
-                            <span class="number"> (1/1)</span>
+                            <span class="friends-number"> (1/1)</span>
                           </div>
-                          <ul class="group-users">
-                            <li class="user-box">
-                              <div class="group-avatar-border"></div>
-                              <div class="group-user-pic"></div>
-                              <div class="group-user-info">
-                                <span class="group-user-name">小秘書</span>
-                                <span class="group-user-status"
+                          <ul class="friends-group-users">
+                            <li class="friends-user-box">
+                              <div
+                                class="friends-group-friends-header-avatar-border"
+                              ></div>
+                              <div class="friends-group-user-pic"></div>
+                              <div class="friends-group-user-info">
+                                <span class="friends-group-user-name"
+                                  >小秘書</span
+                                >
+                                <span class="friends-group-user-status"
                                   >app首頁展示的：錯過此下載點</span
                                 >
                               </div>
@@ -259,10 +335,20 @@
                           </ul>
                         </div>
                       </div>
+                    </div>
+                    <div class="friends-footer">
+                      <div
+                        class="friends-footer-button friends-add-group"
+                        data-key="30076"
+                      ></div>
+                      <div
+                        class="friends-footer-button friends-add-friend"
+                        data-key="30077"
+                      ></div>
                     </div>
                   </div>
-                  <div class="recents-box hidden">
-                    <div class="widget recent-widget hidden">
+                  <div class="friends-recents-box hidden">
+                    <div class="widget friends-recent-widget hidden">
                       <!-- 最近聯絡人小工具區域 -->
                     </div>
                   </div>
@@ -270,15 +356,15 @@
               </div>
               <div class="friends-disconnected-wrapper">
                 <div class="friends-disconnected-contain">
-                  <div class="firends-disconnected-text">重連中...</div>
+                  <div class="friends-disconnected-text">重連中...</div>
                   <div class="friends-disconnected-button" data-key="30116">
                     <span>立即連接</span>
                   </div>
                 </div>
               </div>
             </aside>
-            <section class="content">
-              <div class="content-title">
+            <section class="friends-content">
+              <div class="friends-content-title">
                 <span data-key="50159"></span>
               </div>
               <div class="error-box"></div>

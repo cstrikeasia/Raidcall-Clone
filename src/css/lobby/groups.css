@@ -1,0 +1,15 @@
+.groups-search-icon {
+  width: 17px;
+  height: 17px;
+  background: url("../../image/icon_search.png") no-repeat center center;
+  background-position: 0 0;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+.groups-search-bar:hover:not(
+    :has(.friends-search-pre:hover, .friends-search-next:hover)
+  )
+  .groups-search-icon {
+  background-position: -16px 0;
+}

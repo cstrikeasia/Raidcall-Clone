@@ -11,7 +11,7 @@ const fs = require('fs');
 const ini = require('ini');
 
 // 全局變量
-let LoginWindow, LobbyWindow, DialogWindow, tray = null, forceQuit = false;
+let LoginWindow, LobbyWindow, DialogWindow, CreateGroupWindow, tray = null, forceQuit = false;
 const hide = process.argv.includes('--start');
 const configDir = path.join(app.getPath('userData'), 'config.ini');
 
@@ -52,7 +52,7 @@ function createLoginWindow() {
 
   LoginWindow.loadFile('./src/view/login.html');
 
-  LoginWindow.webContents.on('did-finish-load', () => !hide && LoginWindow.show());
+  LoginWindow.webContents.on('did-finish-load', () => !hide && LoginWindow?.show());
 
   LoginWindow.on('close', (event) => {
     if (!forceQuit) {
@@ -156,6 +156,44 @@ function createDialogWindow(data) {
   DialogWindow.on('close', () => (DialogWindow = null));
 }
 
+// 創建語音群視窗
+function createCreateGroupWindow() {
+  if (CreateGroupWindow instanceof BrowserWindow) {
+    return CreateGroupWindow.focus();
+  }
+
+  CreateGroupWindow = new BrowserWindow({
+    title: 'Raidcall Dialog',
+    width: 480,
+    height: 435,
+    parent: LoginWindow,
+    modal: true,
+    show: false,
+    frame: false,
+    transparent: true,
+    resizable: false,
+    icon: 'raidcall.ico',
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
+      backgroundThrottling: false,
+      nativeWindowOpen: true,
+    },
+  });
+
+  require('@electron/remote/main').enable(CreateGroupWindow.webContents);
+
+  CreateGroupWindow.loadFile('./src/view/create_group.html');
+  CreateGroupWindow.setMenu(null);
+
+  CreateGroupWindow.webContents.on('did-finish-load', () => {
+    CreateGroupWindow.show();
+  });
+
+  CreateGroupWindow.on('close', () => (CreateGroupWindow = null));
+}
+
 // 托盤圖標設置
 function trayIcon(isGray = true) {
   if (tray) {
@@ -204,6 +242,7 @@ ipcMain.on('get-language', (event, lang) => {
   }
 });
 ipcMain.on('open-dialog-window', (event, data) => createDialogWindow(data));
+ipcMain.on('open-create-group-window', () => createCreateGroupWindow());
 ipcMain.on('open-lobby-window', () => {
   if (LoginWindow) {
     LoginWindow.close();

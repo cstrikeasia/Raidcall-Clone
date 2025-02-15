@@ -11,18 +11,21 @@ class Lobby {
     this.onlineStateBox = document.querySelector('.online-state-box');
     this.dropDown = document.querySelector('.state-drop-down');
     this.stateDisplay = document.querySelector('.online-state');
-    this.groupHeader = document.querySelector('.group-header');
+    this.groupHeader = document.querySelector('.friends-groups-header');
     this.menuBtn = document.querySelector('.menu');
     this.menuDropDown = document.querySelector('.menu-drop-down');
     this.logOutBtn = document.querySelector('[data-type="logout"]');
     this.errorBox = document.querySelector('.error-box');
 
-    this.groupHeaders = document.querySelectorAll('.group-header');
-    this.friendWidget = document.querySelectorAll('.friend-widget');
+    this.groupHeaders = document.querySelectorAll('.friends-groups-header');
+    this.friendWidget = document.querySelectorAll('.friends-widget');
     this.submenuOptions = document.querySelectorAll('.submenu-option');
     this.friendTabItems = document.querySelectorAll('.FriendTabItem');
-    this.targetBox = document.querySelectorAll('.friends-box, .recents-box');
+    this.targetBox = document.querySelectorAll('.friends-box, .friends-recents-box');
     this.mainTabItems = document.querySelectorAll('#MainTab .tab-item');
+
+    this.createGroupBtn = document.querySelector('.groups-header button[data-key="30014"]');
+    this.myBtn = document.querySelector('.groups-header button[data-key="60004"]');
 
     this.errorPageDom = path.join(__dirname, 'error.html');
     this.langData = null;
@@ -43,6 +46,8 @@ class Lobby {
     this.onlineStateBox.addEventListener('click', () => this.changeOnlineState());
     this.menuBtn.addEventListener('click', () => this.showMenu());
     this.logOutBtn.addEventListener('click', () => this.logOut());
+    this.createGroupBtn.addEventListener('click', () => this.createGroup());
+    this.myBtn.addEventListener('click', () => this.my());
     this.submenuOptions.forEach((option) => this.submenuOptionsEvent(option));
     this.mainTabItems.forEach((item) => this.mainTabItemsEvent(item));
     this.friendTabItems.forEach((item) => this.friendTabItemsEvent(item));
@@ -104,6 +109,7 @@ class Lobby {
         direction.classList.remove('direction');
       }
       item.classList.add('selected');
+      console.log(`.${item.dataset.tab}-wrapper`);
       document.querySelector(`.${item.dataset.tab}-wrapper`).classList.add('direction');
     });
   }
@@ -173,6 +179,19 @@ class Lobby {
       this.errorBox.innerHTML = data;
       langModule.initLanguage();
     });
+  }
+
+  // 創建語音群
+  createGroup() {
+    ipcRenderer.send('open-create-group-window');
+  }
+
+  // 個人專屬
+  my() {
+    const liveAnchor = document.querySelector('.live-anchors webview');
+    const my = document.querySelector('.groups-my');
+    liveAnchor.style.display = 'none';
+    my.style.display = 'block';
   }
 }
 new Lobby();
