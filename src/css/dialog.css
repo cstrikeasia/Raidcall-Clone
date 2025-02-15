@@ -131,7 +131,8 @@ header {
 .confirmed {
   margin-right: 5px;
   border: 1px solid #dbdde0;
-  width: 75px;
+  width: auto;
+  min-width: 70px;
   border-radius: 5px;
   background: #fff;
   text-align: center;
