@@ -17,7 +17,7 @@ class LanguageManager {
   }
 
   initLanguage() {
-    ipcRenderer.send('get-language', `lang_${localStorage.getItem('lang')}`);
+    ipcRenderer.send('get-language', `lang_${localStorage.getItem('lang') || 'tw'}`);
   }
 
   // 更新界面多語言內容

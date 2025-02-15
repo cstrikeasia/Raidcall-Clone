@@ -1,8 +1,7 @@
 .friends-wrapper {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
   background: #fff;
+  display: none;
 }
 
 .user-info {
@@ -505,4 +504,9 @@
   border-radius: 5px;
   background: #fff;
   color: #d7d9dd;
+}
+
+.direction {
+  display: flex;
+  flex-direction: column;
 }

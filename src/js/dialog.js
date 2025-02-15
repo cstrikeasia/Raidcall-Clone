@@ -18,7 +18,7 @@ class Dialog {
   }
 
   initLanguage() {
-    ipcRenderer.send('get-language', `lang_${localStorage.getItem('lang')}`);
+    ipcRenderer.send('get-language', `lang_${localStorage.getItem('lang') || 'tw'}`);
     ipcRenderer.removeAllListeners('language-response');
     ipcRenderer.on('language-response', (event, langData) => {
       if (langData.error) {

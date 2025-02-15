@@ -91,15 +91,20 @@ class Lobby {
       option.classList.add('selected');
       const selectedLang = option.getAttribute('data-lang');
       localStorage.setItem('lang', selectedLang);
-      ipcRenderer.send('get-language', `lang_${selectedLang}`);
+      ipcRenderer.send('get-language', `lang_${selectedLang || 'tw'}`);
     });
   }
 
   // 主Tab切換
   mainTabItemsEvent(item) {
     item.addEventListener('click', () => {
+      const direction = document.querySelector('.direction');
       this.mainTabItems.forEach((tab) => tab.classList.remove('selected'));
+      if (direction) {
+        direction.classList.remove('direction');
+      }
       item.classList.add('selected');
+      document.querySelector(`.${item.dataset.tab}-wrapper`).classList.add('direction');
     });
   }
 

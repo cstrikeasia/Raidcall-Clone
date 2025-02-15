@@ -195,7 +195,7 @@ function restart() {
 // IPC 處理
 ipcMain.on('get-language', (event, lang) => {
   try {
-    const langData = ini.parse(fs.readFileSync(path.join(__dirname, 'language', `${lang}.ini`), 'utf-8'));
+    const langData = ini.parse(fs.readFileSync(path.join(__dirname, 'language', `${lang || 'tw'}.ini`), 'utf-8'));
     event.reply('language-response', langData);
   }
   catch (error) {

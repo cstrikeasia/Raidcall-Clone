@@ -564,3 +564,9 @@ header {
   color: rgb(255 255 255);
   position: fixed;
 }
+
+.wrappers {
+  background: #fff;
+  height: 100%;
+  width: 100%;
+}
