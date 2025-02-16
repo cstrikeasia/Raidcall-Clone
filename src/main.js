@@ -215,6 +215,7 @@ ipcMain.on('logout', () => {
   }
   setTimeout(() => {
     createLoginWindow();
+    trayIcon(true);
   }, 500);
 });
 
