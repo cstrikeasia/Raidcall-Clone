@@ -172,6 +172,11 @@ class Lobby {
     });
   }
 
+  // 登出
+  logOut() {
+    ipcRenderer.send('logout');
+  }
+
   // 錯誤頁面
   errorPage() {
     fs.readFile(this.errorPageDom, 'utf8', (err, data) => {

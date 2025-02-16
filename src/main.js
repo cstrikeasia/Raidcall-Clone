@@ -9,11 +9,13 @@ const {
 const path = require('path');
 const fs = require('fs');
 const ini = require('ini');
+const remoteMain = require('@electron/remote/main');
 
 let LoginWindow, LobbyWindow, PopWindow, tray = null, forceQuit = false;
 const hide = process.argv.includes('--start');
 const configDir = path.join(app.getPath('userData'), 'config.ini');
 const PopWindows = new Map();
+remoteMain.initialize();
 
 // 更新開機啟動設定
 function updateAutoLaunchSetting(value) {
@@ -43,8 +45,7 @@ function createLoginWindow() {
       contextIsolation: false,
     },
   });
-  require('@electron/remote/main').initialize();
-  require('@electron/remote/main').enable(LoginWindow.webContents);
+  remoteMain.enable(LoginWindow.webContents);
   updateAutoLaunchSetting(true);
   LoginWindow.setMenu(null);
   LoginWindow.loadFile('./src/view/login.html');
@@ -197,6 +198,26 @@ ipcMain.on('get-language', (event, lang) => {
   }
 });
 ipcMain.on('open-pop-window', (event, data, height, width, type, resize) => createPopWindow(data, height, width, type, resize));
+ipcMain.on('logout', () => {
+  if (LobbyWindow) {
+    LobbyWindow.close();
+    LobbyWindow = null;
+  }
+  PopWindows.forEach((window, key) => {
+    if (window && !window.isDestroyed()) {
+      window.close();
+    }
+    PopWindows.delete(key);
+  });
+  if (LoginWindow) {
+    LoginWindow.close();
+    LoginWindow = null;
+  }
+  setTimeout(() => {
+    createLoginWindow();
+  }, 500);
+});
+
 ipcMain.on('open-lobby-window', () => {
   if (LoginWindow) {
     LoginWindow.close();
