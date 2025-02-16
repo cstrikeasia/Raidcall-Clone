@@ -239,6 +239,8 @@ header {
   cursor: pointer;
   position: relative;
   width: auto;
+  font-family: "SimSun", sans-serif;
+  font-weight: normal;
 }
 
 .menu-option:hover {
@@ -499,11 +501,12 @@ header {
 #MainTab {
   display: flex;
   cursor: pointer;
-  width: auto;
+  width: 100%;
   height: 45px;
   align-items: flex-end;
   margin-left: 4rem;
   -webkit-app-region: no-drag;
+  max-width: 280px;
 }
 
 .tab-item.selected {
@@ -536,7 +539,7 @@ header {
 }
 
 .tab-item {
-  flex: 0 0 100px;
+  /* flex: 0 0 100px; */
   background-size: auto;
   background-position: 0 0;
   font-family: Arial;
@@ -551,6 +554,7 @@ header {
   align-items: center;
   min-height: 30px;
   justify-content: center;
+  width: 100%;
 }
 
 .selected .tab-bg {
@@ -592,6 +596,8 @@ header {
   color: rgb(255 255 255);
   position: fixed;
   margin-bottom: 5px;
+  font-family: "SimSun", sans-serif;
+  font-size: 14px;
 }
 
 .wrappers {
@@ -651,6 +657,7 @@ header {
   outline: none;
   font-size: 12px;
   width: auto;
+  font-family: "SimSun", sans-serif;
 }
 
 .groups-back-btn,
@@ -712,6 +719,7 @@ header {
   border: 1px solid #ffffff00;
   width: auto;
   margin-right: 15px;
+  font-family: "SimSun", sans-serif;
 }
 
 .groups-nav-item.active::after {

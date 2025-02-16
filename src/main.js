@@ -16,7 +16,7 @@ const bcrypt = require('bcrypt');
 const sqlite3 = require('sqlite3').verbose();
 const dbPath = path.join(__dirname, './rc_data.db');
 
-let LoginWindow, LobbyWindow, tray = null, forceQuit = false;
+let LoginWindow, LobbyWindow, profileWindow, tray = null, forceQuit = false;
 const hide = process.argv.includes('--start');
 const configDir = path.join(app.getPath('userData'), 'config.ini');
 const PopWindows = new Map();
@@ -158,6 +158,41 @@ function createPopWindow(data, height, width, type, resize) {
     PopWindows.delete(type);
   });
   PopWindows.set(type, newPop);
+}
+
+// 建立profile
+function createProfileWindow() {
+  if (profileWindow && !profileWindow.isDestroyed()) {
+    profileWindow.show();
+    profileWindow.focus();
+    return;
+  }
+  profileWindow = new BrowserWindow({
+    title: 'Raidcall Pop',
+    width: 450,
+    height: 650,
+    parent: LoginWindow,
+    modal: true,
+    show: false,
+    frame: false,
+    transparent: true,
+    resizable: false,
+    icon: false,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
+      backgroundThrottling: false,
+      nativeWindowOpen: true,
+    },
+  });
+  require('@electron/remote/main').enable(profileWindow.webContents);
+  profileWindow.loadFile(`./src/view/my_profile.html`);
+  profileWindow.setMenu(null);
+  profileWindow.webContents.on('did-finish-load', () => {
+    profileWindow.show();
+    profileWindow.focus();
+  });
 }
 
 // 托盤圖標設定
@@ -365,6 +400,7 @@ ipcMain.on('get-language', (event, lang) => {
   }
 });
 ipcMain.on('open-pop-window', (event, data, height, width, type, resize) => createPopWindow(data, height, width, type, resize));
+ipcMain.on('open-my-profile-window', (event) => createProfileWindow(event));
 ipcMain.on('logout', () => restart());
 ipcMain.on('login', async (event, { username, password }) => {
   console.log('Receive login request:', username);

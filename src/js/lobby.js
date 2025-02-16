@@ -18,6 +18,8 @@ class Lobby {
     this.logOutBtn = document.querySelector('[data-type="logout"]');
     this.errorBox = document.querySelector('.error-box');
 
+    this.displayName = document.querySelector('.display-name');
+
     this.groupHeaders = document.querySelectorAll('.friends-groups-header');
     this.friendWidget = document.querySelectorAll('.friends-widget');
     this.submenuOptions = document.querySelectorAll('.submenu-option');
@@ -45,6 +47,7 @@ class Lobby {
     this.minimizeBtn.addEventListener('click', () => this.minimizeWindow());
     this.maxsizeBtn.addEventListener('click', () => this.toggleMaximizeWindow());
     this.closeBtn.addEventListener('click', () => this.closeWindow());
+    this.displayName.addEventListener('click', () => this.myProfile());
     this.onlineStateBox.addEventListener('click', () => this.changeOnlineState());
     this.menuBtn.addEventListener('click', () => this.showMenu());
     this.logOutBtn.addEventListener('click', () => this.logOut());
@@ -128,6 +131,11 @@ class Lobby {
       });
       document.querySelector(targetClass).classList.remove('hidden');
     });
+  }
+
+  // 個人檔案
+  myProfile() {
+    ipcRenderer.send('open-my-profile-window');
   }
 
   // 修改在線狀態
