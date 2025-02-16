@@ -26,6 +26,7 @@ class Lobby {
 
     this.createGroupBtn = document.querySelector('.groups-header button[data-key="30014"]');
     this.myBtn = document.querySelector('.groups-header button[data-key="60004"]');
+    this.changeThemeBtn = document.querySelector('.menu-option[data-key="60028"]');
 
     this.errorPageDom = path.join(__dirname, 'error.html');
     this.langData = null;
@@ -48,6 +49,7 @@ class Lobby {
     this.logOutBtn.addEventListener('click', () => this.logOut());
     this.createGroupBtn.addEventListener('click', () => this.createGroup());
     this.myBtn.addEventListener('click', () => this.my());
+    this.changeThemeBtn.addEventListener('click', () => this.changeTheme());
     this.submenuOptions.forEach((option) => this.submenuOptionsEvent(option));
     this.mainTabItems.forEach((item) => this.mainTabItemsEvent(item));
     this.friendTabItems.forEach((item) => this.friendTabItemsEvent(item));
@@ -183,7 +185,7 @@ class Lobby {
 
   // 創建語音群
   createGroup() {
-    ipcRenderer.send('open-create-group-window');
+    ipcRenderer.send('open-pop-window', null, 435, 480, 'create_group', false);
   }
 
   // 個人專屬
@@ -192,6 +194,11 @@ class Lobby {
     const my = document.querySelector('.groups-my');
     liveAnchor.style.display = 'none';
     my.style.display = 'block';
+  }
+
+  // 更換主題
+  changeTheme() {
+    ipcRenderer.send('open-pop-window', null, 435, 480, 'change_theme', false);
   }
 }
 new Lobby();

@@ -10,12 +10,12 @@ const path = require('path');
 const fs = require('fs');
 const ini = require('ini');
 
-// 全局變量
-let LoginWindow, LobbyWindow, DialogWindow, CreateGroupWindow, tray = null, forceQuit = false;
+let LoginWindow, LobbyWindow, PopWindow, tray = null, forceQuit = false;
 const hide = process.argv.includes('--start');
 const configDir = path.join(app.getPath('userData'), 'config.ini');
+const PopWindows = new Map();
 
-// 更新開機啟動設置
+// 更新開機啟動設定
 function updateAutoLaunchSetting(value) {
   app.setLoginItemSettings({
     openAtLogin: value,
@@ -24,7 +24,7 @@ function updateAutoLaunchSetting(value) {
   });
 }
 
-// 創建登錄視窗
+// 建立登錄視窗
 function createLoginWindow() {
   LoginWindow = new BrowserWindow({
     title: `Raidcall v${app.getVersion()}`,
@@ -80,7 +80,7 @@ function createLoginWindow() {
   });
 }
 
-// 創建大廳視窗
+// 建立大廳視窗
 function createLobbyWindow() {
   if (LobbyWindow instanceof BrowserWindow) {
     return LobbyWindow.focus();
@@ -116,23 +116,23 @@ function createLobbyWindow() {
   LobbyWindow.on('close', () => (LobbyWindow = null));
 }
 
-// 創建對話框視窗
-function createDialogWindow(data) {
-  if (DialogWindow instanceof BrowserWindow) {
-    return DialogWindow.focus();
-  }
+// 建立對話框
 
-  DialogWindow = new BrowserWindow({
-    title: 'Raidcall Dialog',
-    width: 412,
-    height: 207,
+function createPopWindow(data, height, width, type, resize) {
+  if (PopWindows.has(type)) {
+    return PopWindows.get(type).focus();
+  }
+  let newPop = new BrowserWindow({
+    title: 'Raidcall Pop',
+    width: width,
+    height: height,
     parent: LoginWindow,
     modal: true,
     show: false,
     frame: false,
     transparent: true,
-    resizable: false,
-    icon: 'raidcall.ico',
+    resizable: resize || false,
+    icon: path.join(__dirname, 'raidcall.ico'),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -141,57 +141,20 @@ function createDialogWindow(data) {
       nativeWindowOpen: true,
     },
   });
-
-  require('@electron/remote/main').enable(DialogWindow.webContents);
-
-  DialogWindow.loadFile('./src/view/dialog.html');
-  DialogWindow.setMenu(null);
-
-  DialogWindow.webContents.on('did-finish-load', () => {
-    DialogWindow.show();
-    DialogWindow.webContents.send('set-code', data.code);
-    LoginWindow.webContents.send('stop-loading');
+  require('@electron/remote/main').enable(newPop.webContents);
+  newPop.loadFile(`./src/view/${type}.html`);
+  newPop.setMenu(null);
+  newPop.webContents.on('did-finish-load', () => {
+    newPop.show();
+    if (data) {
+      newPop.webContents.send('set-code', data.code);
+      LoginWindow.webContents.send('stop-loading');
+    }
   });
-
-  DialogWindow.on('close', () => (DialogWindow = null));
-}
-
-// 創建語音群視窗
-function createCreateGroupWindow() {
-  if (CreateGroupWindow instanceof BrowserWindow) {
-    return CreateGroupWindow.focus();
-  }
-
-  CreateGroupWindow = new BrowserWindow({
-    title: 'Raidcall Dialog',
-    width: 480,
-    height: 435,
-    parent: LoginWindow,
-    modal: true,
-    show: false,
-    frame: false,
-    transparent: true,
-    resizable: false,
-    icon: 'raidcall.ico',
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-      enableRemoteModule: true,
-      backgroundThrottling: false,
-      nativeWindowOpen: true,
-    },
+  newPop.on('close', () => {
+    PopWindows.delete(type);
   });
-
-  require('@electron/remote/main').enable(CreateGroupWindow.webContents);
-
-  CreateGroupWindow.loadFile('./src/view/create_group.html');
-  CreateGroupWindow.setMenu(null);
-
-  CreateGroupWindow.webContents.on('did-finish-load', () => {
-    CreateGroupWindow.show();
-  });
-
-  CreateGroupWindow.on('close', () => (CreateGroupWindow = null));
+  PopWindows.set(type, newPop);
 }
 
 // 托盤圖標設置
@@ -204,10 +167,10 @@ function trayIcon(isGray = true) {
   tray = new Tray(nativeImage.createFromPath(iconPath));
 
   tray.on('click', () => {
-    if (!DialogWindow && LoginWindow && LoginWindow.isVisible()) {
+    if (!PopWindow && LoginWindow && LoginWindow.isVisible()) {
       LoginWindow.hide();
     }
-    else if (!DialogWindow && LobbyWindow && LobbyWindow.isVisible()) {
+    else if (!PopWindow && LobbyWindow && LobbyWindow.isVisible()) {
       LobbyWindow.hide();
     }
     else { (LoginWindow || LobbyWindow)?.show(); }
@@ -241,8 +204,7 @@ ipcMain.on('get-language', (event, lang) => {
     event.reply('language-response', { error: 'Failed to load language file' });
   }
 });
-ipcMain.on('open-dialog-window', (event, data) => createDialogWindow(data));
-ipcMain.on('open-create-group-window', () => createCreateGroupWindow());
+ipcMain.on('open-pop-window', (event, data, height, width, type, resize) => createPopWindow(data, height, width, type, resize));
 ipcMain.on('open-lobby-window', () => {
   if (LoginWindow) {
     LoginWindow.close();

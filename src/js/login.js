@@ -82,7 +82,7 @@ class Login {
     this.loadingUsername.textContent = `${this.usernameInput.value}@raidcall.com.tw`;
     this.loggingIn = true;
     setTimeout(() => {
-      // ipcRenderer.send('open-dialog-window', { code: 26 });
+      // ipcRenderer.send('open-pop-window', { code: 26 }, 207, 412, 'dialog', false);
       if (this.loggingIn) {
         logger.info('Login Success');
         ipcRenderer.send('open-lobby-window');
