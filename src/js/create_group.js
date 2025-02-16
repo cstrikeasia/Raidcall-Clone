@@ -1,4 +1,4 @@
-const langModule = require('../js/store');
+const StoreModule = require('../js/store');
 class CreateGroup {
   constructor() {
     this.closeBtn = document.querySelector('.close');
@@ -6,13 +6,13 @@ class CreateGroup {
     this.langData = null;
     this.initLanguage();
     this.initEvents();
-    langModule.initEventListeners();
+    StoreModule.initEventListeners();
   }
 
   initEvents() {
     this.closeBtn.addEventListener('click', () => this.closeWindow());
     this.confirmedBtn.addEventListener('click', () => this.closeWindow());
-    window.addEventListener('storage', () => langModule.initLanguage());
+    window.addEventListener('storage', () => StoreModule.initLanguage());
   }
 
   initLanguage() {

@@ -123,9 +123,32 @@ header {
   display: inline-block;
   width: 36px;
   height: 36px;
-  background: url(../image/pic_alert.png) no-repeat center center;
   vertical-align: middle;
   background-size: contain;
+}
+
+.dialog-icon-alert {
+  background: url(../image/pic_alert.png) no-repeat center center;
+}
+
+.dialog-icon-alert2 {
+  background: url(../image/pic_alert2.png) no-repeat center center;
+}
+
+.dialog-icon-error {
+  background: url(../image/pic_error.png) no-repeat center center;
+}
+
+.dialog-icon-warning {
+  background: url(../image/pic_warning.png) no-repeat center center;
+}
+
+.dialog-icon-information {
+  background: url(../image/pic_information.png) no-repeat center center;
+}
+
+.dialog-icon-success {
+  background: url(../image/pic_ok.png) no-repeat center center;
 }
 
 .confirmed {

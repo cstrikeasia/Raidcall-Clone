@@ -1,4 +1,5 @@
-class LanguageManager {
+const logger = require('../js/core/logger');
+class StoreManager {
   constructor() {
     this.lang = localStorage.getItem('lang');
     this.initEventListeners();
@@ -9,7 +10,7 @@ class LanguageManager {
     ipcRenderer.removeAllListeners('language-response');
     ipcRenderer.on('language-response', (event, langData) => {
       if (langData.error) {
-        console.error(langData.error);
+        logger.error(langData.error);
         return;
       }
       this.updateElementsWithLanguage(langData);
@@ -43,4 +44,4 @@ class LanguageManager {
     });
   }
 }
-module.exports = new LanguageManager();
+module.exports = new StoreManager();

@@ -5,11 +5,16 @@ const {
   Tray,
   nativeImage,
   Menu,
+  session,
 } = require('electron');
+
 const path = require('path');
 const fs = require('fs');
 const ini = require('ini');
 const remoteMain = require('@electron/remote/main');
+const bcrypt = require('bcrypt');
+const sqlite3 = require('sqlite3').verbose();
+const dbPath = path.join(__dirname, './rc_data.db');
 
 let LoginWindow, LobbyWindow, PopWindow, tray = null, forceQuit = false;
 const hide = process.argv.includes('--start');
@@ -144,7 +149,7 @@ function createPopWindow(data, height, width, type, resize) {
     newPop.show();
     newPop.focus();
     if (data) {
-      newPop.webContents.send('set-code', data.code);
+      newPop.webContents.send('set-code', data.code, data.textCode, data.icon);
       LoginWindow.webContents.send('stop-loading');
     }
   });
@@ -186,6 +191,100 @@ function restart() {
   app.quit();
 }
 
+// 取得使用者資訊
+function getUserDatabase(username) {
+  return new Promise((resolve, reject) => {
+    const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
+      if (err) {
+        console.error('Unable to open database:', err.message);
+        return reject(err);
+      }
+    });
+
+    const sql = `SELECT * FROM users WHERE username = ?`;
+    db.get(sql, [username], (err, row) => {
+      if (err) {
+        console.error('Failed to search:', err.message);
+        reject(err);
+      }
+      else {
+        resolve(row);
+      }
+      db.close();
+    });
+  });
+}
+
+// 更新使用者資訊
+function setUserDatabase(username, updateFields) {
+  return new Promise((resolve, reject) => {
+    if (!username || typeof updateFields !== 'object' || Object.keys(updateFields).length === 0) {
+      return reject(new Error('Invalid parameters: username or updateFields is missing.'));
+    }
+    const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
+      if (err) {
+        console.error('Unable to open database:', err.message);
+        return reject(err);
+      }
+    });
+    const fields = Object.keys(updateFields).map((field) => `${field} = ?`).join(', ');
+    const values = Object.values(updateFields);
+    values.push(username);
+    const sql = `UPDATE users SET ${fields} WHERE username = ?`;
+    db.run(sql, values, function (err) {
+      if (err) {
+        console.error('Failed to update user data:', err.message);
+        reject(err);
+      }
+      else {
+        console.log(`User ${username} updated:`, updateFields);
+        resolve(true);
+      }
+      db.close();
+    });
+  });
+}
+
+// 驗證登入
+async function verifyLogin(username, inputPassword) {
+  try {
+    const user = await getUserDatabase(username);
+    if (!user) {
+      console.warn('Accounts do not exist');
+      return { success: false, code: null, textCode: 20114, icon: 'warning' };
+    }
+    if (user.block_status === '1') {
+      console.warn(`Account has been blocked`);
+      return { success: false, code: 26, textCode: 20119, icon: 'warning' };
+    }
+    const isMatch = await bcrypt.compare(inputPassword, user.password);
+    if (isMatch) {
+      console.info(`Login Successful`);
+      await setUserDatabase(username, { online_status: 'online' });
+      const cookie = {
+        url: 'http://localhost',
+        name: 'user_session',
+        value: JSON.stringify({ username, loginTime: Date.now() }),
+        expirationDate: Math.floor(Date.now() / 1000) + 86400,
+        httpOnly: true,
+        secure: false,
+      };
+      session.defaultSession.cookies.set(cookie)
+        .then(() => console.log(`✅ Cookie set for user: ${username}`))
+        .catch((error) => console.error('❌ Failed to set cookie:', error));
+      return { success: true };
+    }
+    else {
+      console.warn(`Wrong password`);
+      return { success: false, code: null, textCode: 20115, icon: 'warning' };
+    }
+  }
+  catch (error) {
+    console.error('Error in validation:', error);
+    return { success: false, code: 20119, textCode: 20117, icon: 'error' };
+  }
+}
+
 // IPC 處理
 ipcMain.on('get-language', (event, lang) => {
   try {
@@ -199,7 +298,11 @@ ipcMain.on('get-language', (event, lang) => {
 });
 ipcMain.on('open-pop-window', (event, data, height, width, type, resize) => createPopWindow(data, height, width, type, resize));
 ipcMain.on('logout', () => restart());
-
+ipcMain.on('login', async (event, { username, password }) => {
+  console.log('Receive login request:', username);
+  const result = await verifyLogin(username, password);
+  event.reply('login-reply', result);
+});
 ipcMain.on('open-lobby-window', () => {
   if (LoginWindow) {
     LoginWindow.close();

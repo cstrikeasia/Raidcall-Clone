@@ -1,4 +1,5 @@
-const langModule = require('../js/store');
+const logger = require('../js/core/logger');
+const StoreModule = require('../js/store');
 const path = require('path');
 const fs = require('fs');
 
@@ -36,7 +37,7 @@ class Lobby {
     this.openGroup();
     this.errorPage();
     this.toggleDrag();
-    langModule.initLanguage();
+    StoreModule.initLanguage();
   }
 
   // 初始化
@@ -53,7 +54,7 @@ class Lobby {
     this.submenuOptions.forEach((option) => this.submenuOptionsEvent(option));
     this.mainTabItems.forEach((item) => this.mainTabItemsEvent(item));
     this.friendTabItems.forEach((item) => this.friendTabItemsEvent(item));
-    window.addEventListener('storage', () => langModule.initLanguage());
+    window.addEventListener('storage', () => StoreModule.initLanguage());
   }
 
   // 最小化視窗
@@ -112,7 +113,6 @@ class Lobby {
         direction.classList.remove('direction');
       }
       item.classList.add('selected');
-      console.log(`.${item.dataset.tab}-wrapper`);
       document.querySelector(`.${item.dataset.tab}-wrapper`).classList.add('direction');
     });
   }
@@ -181,11 +181,11 @@ class Lobby {
   errorPage() {
     fs.readFile(this.errorPageDom, 'utf8', (err, data) => {
       if (err) {
-        console.error('Failed to load error.html:', err);
+        logger.error('Failed to load error.html:', err);
         return;
       }
       this.errorBox.innerHTML = data;
-      langModule.initLanguage();
+      StoreModule.initLanguage();
     });
   }
 

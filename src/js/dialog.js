@@ -1,3 +1,4 @@
+const logger = require('../js/core/logger');
 class Dialog {
   constructor() {
     this.closeBtn = document.querySelector('.close');
@@ -11,9 +12,10 @@ class Dialog {
     this.closeBtn.addEventListener('click', () => this.closeWindow());
     this.confirmedBtn.addEventListener('click', () => this.closeWindow());
     ipcRenderer.removeAllListeners('set-code');
-    ipcRenderer.on('set-code', (event, code) => {
-      console.log('Received code:', code);
-      this.updateTextWithCode(code);
+    ipcRenderer.on('set-code', (event, code, textCode, icon) => {
+      logger.info('code:', code, 'textCode:', textCode);
+      this.initLanguage();
+      this.updateTextWithCode(code, textCode, icon);
     });
   }
 
@@ -22,14 +24,16 @@ class Dialog {
     ipcRenderer.removeAllListeners('language-response');
     ipcRenderer.on('language-response', (event, langData) => {
       if (langData.error) {
-        console.error(langData.error);
+        logger.error(langData.error);
         return;
       }
       this.langData = langData;
     });
   }
 
-  updateTextWithCode(code) {
+  updateTextWithCode(code, textCode, icon) {
+    document.querySelector('.dialog-msg').setAttribute('data-key', textCode);
+    document.querySelector('.dialog-icon').classList.add(`dialog-icon-${icon}`);
     document.querySelectorAll('[data-key]').forEach((element) => {
       const key = element.getAttribute('data-key');
       const textTemplate = this.langData.STRING[key];

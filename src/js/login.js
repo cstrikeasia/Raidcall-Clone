@@ -1,5 +1,5 @@
 const logger = require('../js/core/logger');
-const langModule = require('../js/store');
+const StoreModule = require('../js/store');
 
 class Login {
   constructor() {
@@ -18,7 +18,7 @@ class Login {
     this.loadingUsername = document.querySelector('.login-loading-username');
     this.loggingIn = false;
     this.initEvents();
-    langModule.initLanguage();
+    StoreModule.initLanguage();
   }
 
   // 初始化
@@ -63,38 +63,54 @@ class Login {
   }
 
   // 登入
-  login() {
-    this.usernameWarningMessage.style.display = 'none';
-    this.passwordWarningMessage.style.display = 'none';
-
-    if (!this.usernameInput.value.trim()) {
-      this.usernameWarningMessage.style.display = 'block';
-      return;
-    }
-
-    if (!this.passwordInput.value.trim()) {
-      this.passwordWarningMessage.style.display = 'block';
-      return;
-    }
-
-    this.loginForm.classList.add('hidden');
-    this.loginLoading.classList.remove('hidden');
-    this.loadingUsername.textContent = `${this.usernameInput.value}@raidcall.com.tw`;
-    this.loggingIn = true;
-    setTimeout(() => {
-      // ipcRenderer.send('open-pop-window', { code: 26 }, 207, 412, 'dialog', false);
-      if (this.loggingIn) {
-        logger.info('Login Success');
-        ipcRenderer.send('open-lobby-window');
+  async login() {
+    try {
+      this.usernameWarningMessage.style.display = 'none';
+      this.passwordWarningMessage.style.display = 'none';
+      const username = this.usernameInput.value.trim().toLowerCase();
+      const password = this.passwordInput.value.trim();
+      if (!username) {
+        this.usernameWarningMessage.style.display = 'block';
+        return;
       }
-    }, 3000);
-
-    ipcRenderer.removeAllListeners('stop-loading');
-    ipcRenderer.on('stop-loading', () => {
-      logger.info('Login Success');
+      if (!password) {
+        this.passwordWarningMessage.style.display = 'block';
+        return;
+      }
+      this.loginForm.classList.add('hidden');
+      this.loginLoading.classList.remove('hidden');
+      this.loadingUsername.textContent = `${username}@raidcall.com.tw`;
+      this.loggingIn = true;
+      ipcRenderer.send('login', { username, password });
+      ipcRenderer.once('login-reply', (event, { success, code, textCode, icon }) => {
+        if (success) {
+          setTimeout(() => {
+            if (this.loggingIn) {
+              logger.info('Login Success');
+              ipcRenderer.send('open-lobby-window');
+            }
+          }, 3000);
+        }
+        else {
+          logger.info(`Login Failed with error code: ${code}`);
+          ipcRenderer.send('open-pop-window', { code: code, textCode: textCode, icon }, 207, 412, 'dialog', false);
+          this.loginForm.classList.remove('hidden');
+          this.loginLoading.classList.add('hidden');
+        }
+      });
+      ipcRenderer.removeAllListeners('stop-loading');
+      ipcRenderer.on('stop-loading', () => {
+        logger.info('Login Stopped');
+        this.loginForm.classList.remove('hidden');
+        this.loginLoading.classList.add('hidden');
+      });
+    }
+    catch (error) {
+      logger.error('A login error occurred:', error);
+      ipcRenderer.send('open-pop-window', { code: 1005, textCode: null, icon: 'warning' }, 207, 412, 'dialog', false);
       this.loginForm.classList.remove('hidden');
       this.loginLoading.classList.add('hidden');
-    });
+    }
   }
 
   // 取消登入
