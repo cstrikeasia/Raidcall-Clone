@@ -24,7 +24,7 @@ function updateAutoLaunchSetting(value) {
   });
 }
 
-// 建立登錄視窗
+// 建立登入視窗
 function createLoginWindow() {
   LoginWindow = new BrowserWindow({
     title: `Raidcall v${app.getVersion()}`,
@@ -43,17 +43,12 @@ function createLoginWindow() {
       contextIsolation: false,
     },
   });
-
   require('@electron/remote/main').initialize();
   require('@electron/remote/main').enable(LoginWindow.webContents);
-
   updateAutoLaunchSetting(true);
   LoginWindow.setMenu(null);
-
   LoginWindow.loadFile('./src/view/login.html');
-
   LoginWindow.webContents.on('did-finish-load', () => !hide && LoginWindow?.show());
-
   LoginWindow.on('close', (event) => {
     if (!forceQuit) {
       event.preventDefault();
@@ -63,7 +58,6 @@ function createLoginWindow() {
       LoginWindow = null;
     }
   });
-
   LoginWindow.on('focus', () => {
     if (LoginWindow) {
       LoginWindow.webContents.send('focus');
@@ -85,7 +79,6 @@ function createLobbyWindow() {
   if (LobbyWindow instanceof BrowserWindow) {
     return LobbyWindow.focus();
   }
-
   LobbyWindow = new BrowserWindow({
     title: 'Raidcall Lobby',
     width: 1370,
@@ -106,21 +99,23 @@ function createLobbyWindow() {
       webviewTag: true,
     },
   });
-
   require('@electron/remote/main').enable(LobbyWindow.webContents);
-
   LobbyWindow.loadFile('./src/view/lobby.html');
   LobbyWindow.setMenu(null);
-
   LobbyWindow.webContents.on('did-finish-load', () => LobbyWindow.show());
   LobbyWindow.on('close', () => (LobbyWindow = null));
 }
 
 // 建立對話框
-
 function createPopWindow(data, height, width, type, resize) {
   if (PopWindows.has(type)) {
-    return PopWindows.get(type).focus();
+    let existingPop = PopWindows.get(type);
+    if (existingPop.isMinimized()) {
+      existingPop.restore();
+    }
+    existingPop.show();
+    existingPop.focus();
+    return;
   }
   let newPop = new BrowserWindow({
     title: 'Raidcall Pop',
@@ -146,6 +141,7 @@ function createPopWindow(data, height, width, type, resize) {
   newPop.setMenu(null);
   newPop.webContents.on('did-finish-load', () => {
     newPop.show();
+    newPop.focus();
     if (data) {
       newPop.webContents.send('set-code', data.code);
       LoginWindow.webContents.send('stop-loading');
@@ -157,15 +153,13 @@ function createPopWindow(data, height, width, type, resize) {
   PopWindows.set(type, newPop);
 }
 
-// 托盤圖標設置
+// 托盤圖標設定
 function trayIcon(isGray = true) {
   if (tray) {
     tray.destroy();
   }
-
   const iconPath = isGray ? 'raidcall_gray.ico' : 'raidcall.ico';
   tray = new Tray(nativeImage.createFromPath(iconPath));
-
   tray.on('click', () => {
     if (!PopWindow && LoginWindow && LoginWindow.isVisible()) {
       LoginWindow.hide();
@@ -175,19 +169,17 @@ function trayIcon(isGray = true) {
     }
     else { (LoginWindow || LobbyWindow)?.show(); }
   });
-
   const contextMenu = Menu.buildFromTemplate([
     { label: `Raidcall v${app.getVersion()}`, type: 'normal' },
     { type: 'separator' },
     { label: '重新啟動', type: 'normal', click: () => restart() },
     { label: '結束程式', type: 'normal', click: () => app.quit() },
   ]);
-
   tray.setToolTip(`Raidcall v${app.getVersion()}`);
   tray.setContextMenu(contextMenu);
 }
 
-// 重啟應用
+// 重啟程式
 function restart() {
   app.relaunch();
   app.quit();
@@ -263,7 +255,6 @@ ipcMain.on('restore', () => {
     currentWindow.webContents.send('toggle-drag', true);
   }
 });
-
 const loadConfig = () => {
   if (!fs.existsSync(configDir)) {
     const defaultConfig = ini.stringify({
@@ -276,7 +267,6 @@ const loadConfig = () => {
   }
   return ini.parse(fs.readFileSync(configDir, 'utf-8'));
 };
-
 const saveConfig = (data) => {
   const existingConfig = loadConfig();
   const mergeDeep = (target, source) =>
@@ -292,22 +282,16 @@ const saveConfig = (data) => {
       }
       return acc;
     }, { ...target });
-
   const updatedConfig = mergeDeep(existingConfig, data);
   fs.writeFileSync(configDir, ini.stringify(updatedConfig), 'utf-8');
-
   return { status: true };
 };
-
 ipcMain.on('get-config', (event) => {
   event.reply('get-config-res', loadConfig());
 });
-
 ipcMain.on('write-config', (event, data) => {
   event.reply('write-config-res', saveConfig(data));
 });
-
-// 單例應用處理
 const shouldQuit = app.requestSingleInstanceLock();
 if (!shouldQuit) {
   app.quit();
@@ -319,13 +303,11 @@ else {
     createLoginWindow();
   });
 }
-
 app.on('window-all-closed', (event) => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
   else { event.preventDefault(); }
 });
-
 app.on('activate', () => LoginWindow?.show() || createLoginWindow());
 app.on('before-quit', () => (forceQuit = true));
