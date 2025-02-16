@@ -198,26 +198,7 @@ ipcMain.on('get-language', (event, lang) => {
   }
 });
 ipcMain.on('open-pop-window', (event, data, height, width, type, resize) => createPopWindow(data, height, width, type, resize));
-ipcMain.on('logout', () => {
-  if (LobbyWindow) {
-    LobbyWindow.close();
-    LobbyWindow = null;
-  }
-  PopWindows.forEach((window, key) => {
-    if (window && !window.isDestroyed()) {
-      window.close();
-    }
-    PopWindows.delete(key);
-  });
-  if (LoginWindow) {
-    LoginWindow.close();
-    LoginWindow = null;
-  }
-  setTimeout(() => {
-    createLoginWindow();
-    trayIcon(true);
-  }, 500);
-});
+ipcMain.on('logout', () => restart());
 
 ipcMain.on('open-lobby-window', () => {
   if (LoginWindow) {
