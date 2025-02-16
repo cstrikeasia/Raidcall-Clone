@@ -16,7 +16,7 @@ const bcrypt = require('bcrypt');
 const sqlite3 = require('sqlite3').verbose();
 const dbPath = path.join(__dirname, './rc_data.db');
 
-let LoginWindow, LobbyWindow, PopWindow, tray = null, forceQuit = false;
+let LoginWindow, LobbyWindow, tray = null, forceQuit = false;
 const hide = process.argv.includes('--start');
 const configDir = path.join(app.getPath('userData'), 'config.ini');
 const PopWindows = new Map();
@@ -168,10 +168,10 @@ function trayIcon(isGray = true) {
   const iconPath = isGray ? 'raidcall_gray.ico' : 'raidcall.ico';
   tray = new Tray(nativeImage.createFromPath(iconPath));
   tray.on('click', () => {
-    if (!PopWindow && LoginWindow && LoginWindow.isVisible()) {
+    if (LoginWindow && LoginWindow.isVisible()) {
       LoginWindow.hide();
     }
-    else if (!PopWindow && LobbyWindow && LobbyWindow.isVisible()) {
+    else if (LobbyWindow && LobbyWindow.isVisible()) {
       LobbyWindow.hide();
     }
     else { (LoginWindow || LobbyWindow)?.show(); }
@@ -256,9 +256,9 @@ function createUserDatabase(username, hashedPassword, email) {
       }
     });
 
-    const sql = 'INSERT INTO users (username, password, picture, bio, level, vip, coin, block_status, online_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    const sql = 'INSERT INTO users (username, password, email, picture, bio, level, vip, coin, block_status, online_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
-    db.run(sql, [username, hashedPassword, email, '', 1, 0, 0, 0, 'offline'], function (err) {
+    db.run(sql, [username, hashedPassword, email, '', '', 1, 0, 0, 0, 'offline'], function (err) {
       if (err) {
         console.error('新增使用者失敗:', err.message);
         reject(err);
@@ -382,6 +382,12 @@ ipcMain.on('open-lobby-window', () => {
     LoginWindow.close();
     LoginWindow = null;
   }
+  PopWindows.forEach((window) => {
+    if (window && typeof window.close === 'function') {
+      window.close();
+    }
+  });
+  PopWindows.clear();
   createLobbyWindow();
   trayIcon(false);
 });
