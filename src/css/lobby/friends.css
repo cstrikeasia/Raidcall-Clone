@@ -490,13 +490,15 @@
   background: #fff;
   text-align: center;
   font-size: 12px;
-  height: 25px;
+  height: auto;
   align-items: center;
   display: flex;
   justify-content: center;
   cursor: pointer;
   color: #6e7c7e;
   padding: 5px;
+  max-height: 30px;
+  min-height: 19px;
 }
 
 .friends-add-group:before {
