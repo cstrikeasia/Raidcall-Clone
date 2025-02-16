@@ -6,12 +6,13 @@ class CreateGroup {
     this.langData = null;
     this.initLanguage();
     this.initEvents();
+    langModule.initEventListeners();
   }
 
   initEvents() {
     this.closeBtn.addEventListener('click', () => this.closeWindow());
     this.confirmedBtn.addEventListener('click', () => this.closeWindow());
-    langModule.initEventListeners();
+    window.addEventListener('storage', () => langModule.initLanguage());
   }
 
   initLanguage() {

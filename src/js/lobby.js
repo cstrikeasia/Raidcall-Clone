@@ -32,11 +32,11 @@ class Lobby {
     this.langData = null;
     this.isMaximized = false;
 
-    langModule.initLanguage();
     this.initEvents();
     this.openGroup();
     this.errorPage();
     this.toggleDrag();
+    langModule.initLanguage();
   }
 
   // 初始化
@@ -53,6 +53,7 @@ class Lobby {
     this.submenuOptions.forEach((option) => this.submenuOptionsEvent(option));
     this.mainTabItems.forEach((item) => this.mainTabItemsEvent(item));
     this.friendTabItems.forEach((item) => this.friendTabItemsEvent(item));
+    window.addEventListener('storage', () => langModule.initLanguage());
   }
 
   // 最小化視窗

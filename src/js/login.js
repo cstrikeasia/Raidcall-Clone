@@ -16,9 +16,9 @@ class Login {
     this.minimizeBtn = document.querySelector('.minimize');
     this.closeBtn = document.querySelector('.close');
     this.loadingUsername = document.querySelector('.login-loading-username');
-    langModule.initLanguage();
     this.loggingIn = false;
     this.initEvents();
+    langModule.initLanguage();
   }
 
   // 初始化
