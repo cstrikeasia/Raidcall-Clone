@@ -194,7 +194,8 @@ body {
   margin-top: 1px;
   width: 100%;
 }
-.theme-colors div {
+.theme-colors div,
+.theme-images div {
   cursor: pointer;
 }
 .color-box {
