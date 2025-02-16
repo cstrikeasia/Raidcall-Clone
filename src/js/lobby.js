@@ -198,7 +198,7 @@ class Lobby {
 
   // 更換主題
   changeTheme() {
-    ipcRenderer.send('open-pop-window', null, 435, 480, 'change_theme', false);
+    ipcRenderer.send('open-pop-window', null, 371, 480, 'change_theme', false);
   }
 }
 new Lobby();
