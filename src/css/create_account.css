@@ -260,7 +260,7 @@ header {
 
 .create-account-input-text,
 .create-account-input-wrapper:first-child {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .create-account-form input[type="text"],
@@ -325,6 +325,6 @@ header {
 }
 
 .create-account-input-text {
-  margin-top: 3px;
+  margin-top: 5px;
   width: 24%;
 }
