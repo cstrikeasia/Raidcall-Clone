@@ -12,10 +12,11 @@ class Dialog {
     this.closeBtn.addEventListener('click', () => this.closeWindow());
     this.confirmedBtn.addEventListener('click', () => this.closeWindow());
     ipcRenderer.removeAllListeners('set-code');
-    ipcRenderer.on('set-code', (event, code, textCode, icon) => {
+    ipcRenderer.on('set-code', (event, code, titleCode, textCode, icon) => {
+      console.log(code, titleCode, textCode, icon);
       logger.info('code:', code, 'textCode:', textCode);
       this.initLanguage();
-      this.updateTextWithCode(code, textCode, icon);
+      this.updateTextWithCode(code, titleCode, textCode, icon);
     });
   }
 
@@ -31,7 +32,8 @@ class Dialog {
     });
   }
 
-  updateTextWithCode(code, textCode, icon) {
+  updateTextWithCode(code, titleCode, textCode, icon) {
+    document.querySelector('header span').setAttribute('data-key', titleCode);
     document.querySelector('.dialog-msg').setAttribute('data-key', textCode);
     document.querySelector('.dialog-icon').classList.add(`dialog-icon-${icon}`);
     document.querySelectorAll('[data-key]').forEach((element) => {

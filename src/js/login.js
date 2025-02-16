@@ -86,7 +86,7 @@ class Login {
       this.loadingUsername.textContent = `${username}@raidcall.com.tw`;
       this.loggingIn = true;
       ipcRenderer.send('login', { username, password });
-      ipcRenderer.once('login-reply', (event, { success, code, textCode, icon }) => {
+      ipcRenderer.once('login-reply', (event, { success, code, titleCode, textCode, icon }) => {
         if (success) {
           setTimeout(() => {
             if (this.loggingIn) {
@@ -97,7 +97,7 @@ class Login {
         }
         else {
           logger.info(`Login Failed with error code: ${code}`);
-          ipcRenderer.send('open-pop-window', { code: code, textCode: textCode, icon }, 207, 412, 'dialog', false);
+          ipcRenderer.send('open-pop-window', { code, titleCode, textCode: textCode, icon }, 207, 412, 'dialog', false);
           this.loginForm.classList.remove('hidden');
           this.loginLoading.classList.add('hidden');
         }
@@ -111,7 +111,7 @@ class Login {
     }
     catch (error) {
       logger.error('A login error occurred:', error);
-      ipcRenderer.send('open-pop-window', { code: 1005, textCode: null, icon: 'warning' }, 207, 412, 'dialog', false);
+      ipcRenderer.send('open-pop-window', { code: 1005, titleCode: 30051, textCode: null, icon: 'warning' }, 207, 412, 'dialog', false);
       this.loginForm.classList.remove('hidden');
       this.loginLoading.classList.add('hidden');
     }
@@ -119,7 +119,6 @@ class Login {
 
   // 創建帳號
   createAccount() {
-    console.log(true);
     ipcRenderer.send('open-pop-window', null, 450, 600, 'create_account', false);
   }
 

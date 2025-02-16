@@ -149,7 +149,8 @@ function createPopWindow(data, height, width, type, resize) {
     newPop.show();
     newPop.focus();
     if (data) {
-      newPop.webContents.send('set-code', data.code, data.textCode, data.icon);
+      console.log(data);
+      newPop.webContents.send('set-code', data.code, data.titleCode, data.textCode, data.icon);
       LoginWindow.webContents.send('stop-loading');
     }
   });
@@ -245,17 +246,43 @@ function setUserDatabase(username, updateFields) {
   });
 }
 
+// 新增使用者資訊
+function createUserDatabase(username, hashedPassword, email) {
+  return new Promise((resolve, reject) => {
+    const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
+      if (err) {
+        console.error('無法開啟資料庫:', err.message);
+        return reject(err);
+      }
+    });
+
+    const sql = 'INSERT INTO users (username, password, picture, bio, level, vip, coin, block_status, online_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+
+    db.run(sql, [username, hashedPassword, email, '', 1, 0, 0, 0, 'offline'], function (err) {
+      if (err) {
+        console.error('新增使用者失敗:', err.message);
+        reject(err);
+      }
+      else {
+        console.log(`使用者 ${username} 註冊成功`);
+        resolve(true);
+      }
+      db.close();
+    });
+  });
+}
+
 // 驗證登入
 async function verifyLogin(username, inputPassword) {
   try {
     const user = await getUserDatabase(username);
     if (!user) {
       console.warn('Accounts do not exist');
-      return { success: false, code: null, textCode: 20114, icon: 'warning' };
+      return { success: false, code: null, titleCode: 30051, textCode: 20114, icon: 'warning' };
     }
     if (user.block_status === '1') {
       console.warn(`Account has been blocked`);
-      return { success: false, code: 26, textCode: 20119, icon: 'warning' };
+      return { success: false, code: 26, titleCode: 30051, textCode: 20119, icon: 'warning' };
     }
     const isMatch = await bcrypt.compare(inputPassword, user.password);
     if (isMatch) {
@@ -276,12 +303,53 @@ async function verifyLogin(username, inputPassword) {
     }
     else {
       console.warn(`Wrong password`);
-      return { success: false, code: null, textCode: 20115, icon: 'warning' };
+      return { success: false, code: null, titleCode: 30051, textCode: 20115, icon: 'warning' };
     }
   }
   catch (error) {
     console.error('Error in validation:', error);
-    return { success: false, code: 20119, textCode: 20117, icon: 'error' };
+    return { success: false, code: 20119, titleCode: 30051, textCode: 20117, icon: 'error' };
+  }
+}
+
+// 驗證註冊
+async function verifyRegister(username, password, checkPassword, email) {
+  if (!username) {
+    return { success: false, code: null, titleCode: 30051, textCode: 24418, icon: null };
+  }
+  else if (!password) {
+    return { success: false, code: null, titleCode: 30051, textCode: 24425, icon: null };
+  }
+  else if (!checkPassword) {
+    return { success: false, code: null, titleCode: 30051, textCode: 24426, icon: null };
+  }
+  else if (!email) {
+    return { success: false, code: null, titleCode: 30051, textCode: 24428, icon: null };
+  }
+  else if (checkPassword.includes(username)) {
+    return { success: false, code: null, titleCode: 30051, textCode: 24464, icon: null };
+  }
+  else if (password !== checkPassword) {
+    return { success: false, code: null, titleCode: 30051, textCode: 24440, icon: null };
+  }
+  else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+    return { success: false, code: null, titleCode: 30051, textCode: 24467, icon: null };
+  }
+  else if (!/^[A-Za-z\d]{6,20}$/.test(password)) {
+    return { success: false, code: null, titleCode: 30051, textCode: 24427, icon: null };
+  }
+  try {
+    const existingUser = await getUserDatabase(username);
+    if (existingUser) {
+      return { success: false, code: null, titleCode: 30051, textCode: 24416, icon: 'warning' };
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    await createUserDatabase(username, hashedPassword, email);
+    return { success: true, code: null, titleCode: 25026, textCode: 24490, icon: 'success' };
+  }
+  catch (error) {
+    console.error('Registration Error:', error);
+    return { success: false, code: null, titleCode: 30051, textCode: 24495, icon: 'error' };
   }
 }
 
@@ -302,6 +370,12 @@ ipcMain.on('login', async (event, { username, password }) => {
   console.log('Receive login request:', username);
   const result = await verifyLogin(username, password);
   event.reply('login-reply', result);
+});
+ipcMain.on('register', async (event, { username, password, checkPassword, email }) => {
+  console.log('Receive register request:', username);
+  const result = await verifyRegister(username, password, checkPassword, email);
+  console.log('register', result);
+  event.reply('register-reply', result);
 });
 ipcMain.on('open-lobby-window', () => {
   if (LoginWindow) {
