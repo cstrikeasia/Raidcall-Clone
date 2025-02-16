@@ -1,0 +1,330 @@
+body {
+  margin: 0;
+  background-color: #ffffff00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  user-select: none;
+  overflow: hidden;
+  font-family: "SimSun", sans-serif;
+}
+
+.login-container {
+  width: 100%;
+  height: 99%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #858585;
+  background: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #0073c6;
+  -webkit-app-region: drag;
+}
+
+.header {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.header:before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url("../image/rc_logo_small.png") no-repeat center center;
+  vertical-align: middle;
+  background-size: contain;
+}
+
+.header span {
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+.buttons {
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  -webkit-app-region: no-drag;
+}
+
+.close:hover {
+  background-position: -20px 0;
+}
+
+.close:active {
+  background-position: -40px 0;
+}
+
+.close {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/Button_Close.png) no-repeat center center;
+  background-position: 0 0;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.dialog-footer {
+  padding: 10px 15px;
+  background-color: #f4f4f5;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1px solid #e3e3e5;
+  border-bottom: 1px solid #858585;
+}
+
+.hidden {
+  display: none;
+}
+
+.dialog-message-wrapper {
+  height: 100%;
+  display: flex;
+  font-family: "SimSun", sans-serif;
+  flex-direction: column;
+  background: url(../image/dialog_body_bg.png) no-repeat center center;
+  background-size: cover;
+}
+
+.dialog-message-contain div {
+  font-size: 13px;
+}
+
+.dialog-message-contain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+.dialog-msg {
+  max-width: 18rem;
+}
+
+.dialog-icon {
+  margin-right: 1rem;
+  content: "";
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background: url(../image/pic_alert.png) no-repeat center center;
+  vertical-align: middle;
+  background-size: contain;
+}
+
+.confirmed {
+  margin-right: 5px;
+  border: 1px solid #dbdde0;
+  width: auto;
+  min-width: 70px;
+  border-radius: 5px;
+  background: #fff;
+  text-align: center;
+  font-size: 13px;
+  height: 25px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dialog-body {
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.dialog-message {
+  background: #fff8dc;
+  padding: 5px;
+  border: 1px solid #ffd700;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.dialog-message p {
+  margin: 0;
+  color: #666666;
+}
+
+.dialog-label {
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  color: #646464;
+  padding-top: 20px;
+}
+
+.dialog-button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.dialog-button-group .dialog-btn {
+  font-size: 13px;
+}
+
+.dialog-btn {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.dialog-dialog-footer {
+  padding: 10px;
+  text-align: right;
+}
+
+.cancel-btn {
+  padding: 8px 15px;
+  font-size: 14px;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cancel-btn:hover {
+  background: #bbb;
+}
+
+.dialog-header {
+  background: #f0f0f0;
+  height: 40px;
+}
+
+.dialog-header-button {
+  height: 100%;
+  width: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #a7c0e9;
+}
+
+.dialog-header-button span {
+  font-size: 12px;
+  text-align: center;
+}
+
+.create-account-form {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-account-form label {
+  font-size: 13px;
+  color: #333;
+  display: inline-block;
+  width: 80px;
+  text-align: right;
+}
+
+.create-account-form label:after {
+  content: "：";
+}
+
+.create-account-input-wrapper {
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+
+.create-account-input-text,
+.create-account-input-wrapper:first-child {
+  margin-bottom: 30px;
+}
+
+.create-account-form input[type="text"],
+.create-account-form input[type="password"],
+.create-account-form input[type="email"] {
+  flex: 1;
+  min-width: 230px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  background: #fcfcfc;
+  font-size: 12px;
+  font-family: "SimSun", sans-serif;
+  height: 32px;
+  text-align: left;
+}
+
+.warning-message-box {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: auto;
+}
+
+.warning-message-box span {
+  color: #ff0000;
+  font-size: 12px;
+  display: none;
+}
+
+.create-account-btn {
+  width: 200px;
+  height: 42px;
+  background-color: #1680ce;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "SimSun", sans-serif;
+}
+
+.create-account-btn:hover {
+  background-color: #419ddd;
+}
+
+.create-account-btn:active {
+  background-color: #1680ce;
+}
+
+.create-account-form input[type="text"]:focus,
+.create-account-form input[type="password"]:focus,
+.create-account-form input[type="email"]:focus {
+  outline: none;
+  background: #ffffff;
+}
+
+.create-account-input-text span {
+  font-size: 13px;
+  color: #777777;
+}
+
+.create-account-input-text {
+  margin-top: 3px;
+  width: 24%;
+}

@@ -5,6 +5,8 @@ class Login {
   constructor() {
     this.box = document.querySelectorAll('.remember-box, .sign-in-box');
 
+    this.createAccountBtn = document.querySelector('.create-account');
+
     this.loginBtn = document.querySelector('.login-btn');
     this.cancelBtn = document.querySelector('.cancel-btn');
     this.loginForm = document.querySelector('.login-form');
@@ -24,6 +26,8 @@ class Login {
   // 初始化
   initEvents() {
     this.box.forEach((element) => this.toggleCheckbox(element));
+
+    this.createAccountBtn.addEventListener('click', () => this.createAccount());
 
     this.usernameInput.addEventListener('keydown', (event) => this.Enter(event));
     this.passwordInput.addEventListener('keydown', (event) => this.Enter(event));
@@ -111,6 +115,12 @@ class Login {
       this.loginForm.classList.remove('hidden');
       this.loginLoading.classList.add('hidden');
     }
+  }
+
+  // 創建帳號
+  createAccount() {
+    console.log(true);
+    ipcRenderer.send('open-pop-window', null, 450, 600, 'create_account', false);
   }
 
   // 取消登入
