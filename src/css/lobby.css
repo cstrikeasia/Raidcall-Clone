@@ -515,12 +515,12 @@ header {
 }
 
 .tab-item.selected::before {
-  left: -20px;
+  left: -18px;
   clip-path: inset(50% -10px 0 50%);
 }
 
 .tab-item.selected::after {
-  right: -20px;
+  right: -18px;
   clip-path: inset(50% 50% 0 -10px);
 }
 
