@@ -262,7 +262,7 @@
 
 .server-channel-bottom {
   flex: 1;
-  max-height: calc(100vh - 153px);
+  max-height: calc(100vh - 300px);
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -404,4 +404,111 @@
   width: 170px;
   display: block;
   margin-top: 50px;
+}
+
+.server-channel-bottom-buttons {
+  height: 35px;
+  background: #edeff1;
+  display: flex;
+  width: 100%;
+}
+
+.server-channel-bottom-tabs {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.server-channel-bottom-buttons:before {
+  content: "";
+  background: url(../image/channel/spliter_SpecialMenu.png) no-repeat center
+    center;
+  height: 1px;
+  width: 27%;
+  display: block;
+  position: absolute;
+}
+
+.server-channel-tab-location.active .server-channel-tab-location-icon {
+  background-position: -18px 0;
+}
+
+.server-channel-tab-current-location,
+.server-channel-tab-all-channel {
+  font-size: 14px;
+  width: auto;
+  display: flex;
+  margin-right: 12px;
+  cursor: pointer;
+  height: 100%;
+  align-items: center;
+  font-size: 13px;
+}
+
+.server-channel-tab-current-location:hover::before,
+.server-channel-tab-all-channel:hover::before,
+.server-channel-tab-current-location.active::before,
+.server-channel-tab-all-channel.active::before {
+  background-position: -36px 0 !important;
+}
+
+.server-channel-tab-current-location.active,
+.server-channel-tab-all-channel.active {
+  border-top: 2px solid #c2c3c7;
+}
+
+.server-channel-tab-all-channel::before {
+  content: "";
+  background: url(../image/channel/rdb_all_channel.png) no-repeat center center;
+  height: 16px;
+  width: 16px;
+  background-position: 0 0;
+  margin-right: 5px;
+}
+
+.server-channel-tab-current-location::before {
+  content: "";
+  background: url(../image/channel/rdb_cur_channel.png) no-repeat center center;
+  height: 16px;
+  width: 16px;
+  background-position: 0 0;
+  margin-right: 5px;
+}
+
+.server-channel-bottom-first-level {
+  background: url(../image/channel/icon_mode_channel_firstlevel.png) no-repeat
+    center center;
+  height: 13px;
+  width: 12px;
+  background-position: 0 0;
+  right: 77.5%;
+  position: absolute;
+  bottom: 3%;
+  cursor: pointer;
+}
+
+.server-channel-bottom-first-level:hover {
+  background-position: -12px 0;
+}
+
+.server-channel-bottom-search {
+  background: url(../image/icon_search.png) no-repeat center center;
+  height: 15px;
+  width: 15px;
+  background-position: 0 0;
+  right: 74%;
+  position: absolute;
+  bottom: 2%;
+  cursor: pointer;
+}
+
+.server-channel-bottom-search:hover {
+  background-position: -16px 0;
+}
+
+.server-channel-bottom-search:active {
+  background-position: -32px 0;
 }
