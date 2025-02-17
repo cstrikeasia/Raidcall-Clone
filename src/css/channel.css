@@ -323,6 +323,12 @@
   border-radius: 2px;
 }
 
+.server-channel-bottom .server-channel-user {
+  margin-left: 15px;
+  width: 88%;
+  border-radius: 5px;
+}
+
 .play .server-channel-user-state {
   background-position: 0 0;
 }
