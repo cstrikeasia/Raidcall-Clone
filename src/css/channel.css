@@ -288,10 +288,11 @@
   display: none;
 }
 
-.server-channel-mic-queue-mode {
+.server-channel-mode {
   font-size: 13px;
   color: #a8a8a8;
   margin-left: 8px;
+  margin-bottom: 3px;
 }
 
 .server-channel-mic-queue-users {
