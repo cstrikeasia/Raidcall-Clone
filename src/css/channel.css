@@ -9,6 +9,7 @@
   width: 280px;
   min-width: 270px;
   border-right: 2px solid #e0e0e4;
+  background: #f1f2f5;
 }
 
 .server-right-items {
@@ -212,6 +213,7 @@
   padding: 2px;
   border-radius: 5px;
   max-width: 245px;
+  align-content: center;
 }
 
 .server-channel-name:hover {
@@ -242,9 +244,166 @@
   background-position: -42px 0;
 }
 
+.server-channel-name.on::before {
+  background-position: 0 0;
+}
+
+.server-channel-name.on:hover::before {
+  background-position: 0 -14px;
+}
+
+.server-channel-name.off::before {
+  background-position: -14px 0;
+}
+
+.server-channel-name.off:hover::before {
+  background-position: -14px -14px;
+}
+
 .server-channel-bottom {
   flex: 1;
   max-height: calc(100vh - 153px);
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.server-channel-number {
+  font-size: 12px;
+  color: #696969;
+  margin-left: 5px;
+  margin-top: 2px;
+}
+
+.server-channel-mic-queue {
+  height: 120px;
+}
+
+.server-channel-mic-queue-mode {
+  font-size: 13px;
+  color: #a8a8a8;
+  margin-left: 8px;
+}
+
+.server-channel-mic-queue-users {
+  height: 100%;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.server-channel-user-state {
+  background: url(../image/channel/mic_queue_state.png) no-repeat center center;
+  height: 12px;
+  width: 12px;
+  background-position: 0 0;
+  margin-right: 5px;
+}
+
+.server-channel-user {
+  width: 95%;
+  margin-left: 9px;
+  display: flex;
+  align-items: center;
+  height: 20px;
+  cursor: pointer;
+}
+
+.server-channel-user-state.play {
+  background-position: 0 0;
+}
+
+.server-channel-user-state.unplay {
+  background-position: -12px 0;
+}
+
+.server-channel-user-state.muted {
+  background-position: -24px 0;
+}
+
+.server-channel-user-role {
+  height: 15px;
+  width: 15px;
+  margin-right: 2px;
+}
+
+.member-icon-male {
+  background: url(../image/channel/UserIconsMale.png) no-repeat center center;
+  background-position: 0 0;
+}
+
+.member-icon-female {
+  background: url(../image/channel/UserIconsFemale.png) no-repeat center center;
+  background-position: 0 0;
+}
+
+.member-icon-guest {
+  background-position: 0px 0;
+}
+
+.member-icon-member {
+  background-position: -14px 0;
+}
+
+.member-icon-channel-manager {
+  background-position: -28px 0;
+}
+
+.member-icon-channel-server-manager {
+  background-position: -42px 0;
+}
+
+.member-icon-channel-manager {
+  background-position: -56px 0;
+}
+
+.member-icon-channel-owner {
+  background-position: -70px 0;
+}
+
+.member-icon-customer-service {
+  background-position: -84px 0;
+}
+
+.member-icon-super-manager {
+  background-position: -98px 0;
+}
+
+.server-channel-user-info {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.server-channel-user-name {
+  font-size: 14px;
+}
+
+.server-channel-user-name.in-mic {
+  color: #6e849b;
+}
+
+.server-channel-mic-queue-time {
+  height: 85%;
+  width: auto;
+  font-size: 13px;
+  background: #fffed3;
+  border: 1px solid #f9ce7d;
+  border-radius: 3px;
+  padding-right: 3px;
+  padding-left: 3px;
+  display: flex;
+  align-items: center;
+  color: #777777;
+  margin-left: auto;
+}
+
+.server-channel-mic-queue-users:after {
+  content: "";
+  background: url(../image/channel/spliter_SpecialMenu.png) no-repeat center
+    center;
+  height: 20px;
+  width: 170px;
+  display: block;
+  margin-top: 50px;
 }
