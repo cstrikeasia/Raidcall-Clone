@@ -341,3 +341,14 @@ header {
   align-items: center;
   justify-content: flex-end;
 }
+
+.profile-header-other-info {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.profile-header-other-info span:not(:last-child)::after {
+  content: "·";
+}
