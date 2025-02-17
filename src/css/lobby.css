@@ -499,12 +499,16 @@ header {
 #MainTab {
   display: flex;
   cursor: pointer;
-  width: 100%;
-  height: 45px;
-  align-items: flex-end;
-  margin-left: 4rem;
+  width: auto;
+  height: auto;
   -webkit-app-region: no-drag;
-  max-width: 235px;
+  max-width: 450px;
+  align-items: flex-end;
+  justify-content: center;
+  left: 6rem;
+  top: 7px;
+  position: relative;
+  width: 100%;
 }
 
 .tab-item.selected {
@@ -516,13 +520,15 @@ header {
 }
 
 .tab-item.selected::before {
-  left: -18px;
+  left: -16px;
   clip-path: inset(50% -10px 0 50%);
+  top: 12px;
 }
 
 .tab-item.selected::after {
-  right: -18px;
+  right: -16px;
   clip-path: inset(50% 50% 0 -10px);
+  top: 12px;
 }
 
 .tab-item.selected::before,
@@ -537,7 +543,6 @@ header {
 }
 
 .tab-item {
-  /* flex: 0 0 100px; */
   background-size: auto;
   background-position: 0 0;
   font-family: Arial;
@@ -545,14 +550,16 @@ header {
   text-align: center;
   white-space: nowrap;
   text-overflow: ellipsis;
-  border-radius: 5px 5px 0 0;
-  display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
+  min-height: 35px;
+  justify-content: flex-start;
+  position: relative;
+  display: flex;
   align-items: center;
-  min-height: 30px;
-  justify-content: center;
-  width: 100%;
+  border-radius: 5px;
+  min-width: 120px;
+  width: auto;
 }
 
 .selected .tab-bg {
@@ -569,6 +576,12 @@ header {
   position: relative;
   width: 95px;
   height: 20px;
+}
+
+div[data-tab="server"] .tab-bg:after {
+  background: url(../image/user_state.png) no-repeat center center;
+  background-size: auto;
+  background-position: 0 0;
 }
 
 .selected .tab-item-text {
@@ -592,9 +605,14 @@ header {
 .tab-item-text {
   z-index: 999;
   color: rgb(255 255 255);
-  position: fixed;
-  margin-bottom: 5px;
+  position: relative;
+  flex: 1;
   font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px;
+  padding-top: 0;
 }
 
 .wrappers {
@@ -826,4 +844,22 @@ header {
   width: 12px;
   height: 12px;
   margin-right: 5px;
+}
+
+.tab-close {
+  width: 13px;
+  height: 13px;
+  background: url(../image/im/icon_Close.png) no-repeat center center;
+  background-position: -13px 0;
+  background-size: cover;
+  border-radius: 50%;
+  position: relative;
+  right: 3px;
+  transform: translateY(-25%);
+  cursor: pointer;
+  background-color: #ffffff54;
+}
+
+.selected .tab-close {
+  background-color: #0073c6;
 }
