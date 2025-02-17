@@ -6,7 +6,7 @@
 
 .server-left-items {
   height: 100%;
-  width: 280px;
+  width: 20%;
   min-width: 270px;
   border-right: 2px solid #e0e0e4;
   background: #f1f2f5;
@@ -23,7 +23,7 @@
   width: 100%;
   align-items: center;
   border-bottom: 2px solid #e0e0e4;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .server-picture {
@@ -63,6 +63,7 @@
   justify-content: space-around;
   position: relative;
   color: #515151;
+  margin-left: 15px;
 }
 
 .server-number {
@@ -121,9 +122,9 @@
   background: url(../image/channel/icon_v_split.png) no-repeat center center;
   height: 20px;
   width: 2px;
-  position: absolute;
-  right: 34px;
   cursor: auto;
+  display: block;
+  margin-left: 27px;
 }
 
 .server-invitation:hover {
@@ -135,13 +136,25 @@
 }
 
 .server-operation {
+  bottom: -15px;
+  right: 5px;
   height: auto;
   width: 23%;
   display: flex;
   align-items: center;
-  bottom: -15px;
-  right: 5px;
   position: relative;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.server-operation {
+  height: auto;
+  width: 23%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: flex-end;
+  margin-left: auto;
 }
 
 .server-settings {
@@ -263,11 +276,12 @@
 
 .mic-mode .server-channel-bottom {
   max-height: calc(100vh - 320px);
+  margin-bottom: 2px;
 }
 
 .server-channel-bottom {
   flex: 1;
-  max-height: calc(100vh - 180px);
+  max-height: calc(100vh - 197px);
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -528,4 +542,213 @@
 
 .server-channel-bottom-search:active {
   background-position: -32px 0;
+}
+
+.server-notice-area {
+  height: 30%;
+  border-bottom: 1px solid #e0e0e4;
+  overflow: auto;
+}
+
+.server-chat-area {
+  height: 57%;
+}
+
+.server-mic-area {
+  height: 13%;
+  background: url(../image/channel/chn_toolbar_bg.png) no-repeat center center;
+  background-size: 100% 100%;
+  width: 100%;
+}
+
+.server-mic-menu {
+  width: 154px;
+  height: 50px;
+  background: url(../image/channel/mic_state_menu.png) no-repeat center center;
+  background-size: auto;
+  background-position: 0px 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  left: 38%;
+  position: relative;
+}
+
+.server-mic-wrapper {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.server-mic-text {
+  margin-left: 10px;
+  width: 80%;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.server-mic-bkg {
+  background: url(../image/channel/music_bkg.png) no-repeat center center;
+  height: 18px;
+  width: 18px;
+  background-position: 0 0;
+}
+
+.server-mic-bkg-wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.server-mic-bkg-text {
+  margin-left: 5px;
+  font-size: 14px;
+  color: #777777;
+}
+
+.server-mic-bkg-wrapper:after {
+  content: "";
+  background: url(../image/channel/icon_v_split.png) no-repeat center center;
+  height: 20px;
+  width: 2px;
+  cursor: auto;
+  display: block;
+  margin-left: 8px;
+}
+
+.server-mic-right {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.server-mic-m-mode {
+  background: url(../image/channel/Mic.png) no-repeat center center;
+  height: 18px;
+  width: 18px;
+  background-position: 0 0;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.server-mic-m-mode:hover:after {
+  background-position: -9px 0;
+}
+
+.server-mic-m-mode:active:after {
+  background-position: -18px 0;
+}
+
+.server-mic-m-mode:after {
+  content: "";
+  background: url(../image/channel/triangle.png) no-repeat center center;
+  height: 8px;
+  width: 8px;
+  background-position: 0 0;
+  display: block;
+  margin-left: 18px;
+  margin-top: 5px;
+}
+
+.server-mic-speaker-mode {
+  background: url(../image/channel/speaker.png) no-repeat center center;
+  height: 18px;
+  width: 18px;
+  background-position: 0 0;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.server-mic-recorder-mode {
+  background: url(../image/channel/recorder.png) no-repeat center center;
+  height: 18px;
+  width: 18px;
+  background-position: 0 0;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.server-mic-menu.queuing {
+  background: url(../image/channel/mic_state_queuing.png) no-repeat center
+    center;
+  background-position: 0px 2px;
+}
+
+.server-mic-menu.queuing.click {
+  background-position: -154px 2px;
+}
+
+.server-mic-menu.queuing.unclick {
+  background-position: -308px 2px;
+}
+
+.server-mic-menu.speaking {
+  background: url(../image/channel/mic_state_speaking.png) no-repeat center
+    center;
+  background-position: 0 2px;
+}
+
+.server-mic-menu.speaking.click {
+  background-position: -154px 2px;
+}
+
+.server-mic-menu.speaking.unclick {
+  background-position: -308px 2px;
+}
+
+.server-mic-icon {
+  width: 30px;
+  height: 30px;
+  background: url(../image/channel/icon_mic_state.png) no-repeat center center;
+  background-size: cover;
+  background-position: 0 0;
+  margin-left: 15px;
+  margin-bottom: 2px;
+}
+
+.server-mic-menu.speaking .server-mic-icon {
+  background: url(../image/channel/icon_speaking_vol.png) no-repeat center
+    center;
+  background-position: 0 0;
+  background-size: cover;
+}
+
+.server-mic-menu.speaking.voice-1 .server-mic-icon {
+  background-position: -24px 0;
+}
+
+.server-mic-menu.speaking.voice-2 .server-mic-icon {
+  background-position: -48px 0;
+}
+
+.server-mic-menu.speaking.voice-3 .server-mic-icon {
+  background-position: -72px 0;
+}
+
+.server-mic-menu.speaking.voice-4 .server-mic-icon {
+  background-position: -96px 0;
+}
+
+.server-mic-menu.speaking.voice-5 .server-mic-icon {
+  background-position: -120px 0;
+}
+
+.server-mic-menu.speaking.voice-6 .server-mic-icon {
+  background-position: -144px 0;
+}
+
+.server-mic-menu.speaking.voice-7 .server-mic-icon {
+  background-position: -168px 0;
+}
+
+.server-mic-menu.speaking.voice-8 .server-mic-icon {
+  background-position: -192px 0;
+}
+
+.server-mic-menu.speaking.voice-9 .server-mic-icon {
+  background-position: -216px 0;
 }
