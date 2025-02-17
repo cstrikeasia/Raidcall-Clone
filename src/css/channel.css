@@ -323,15 +323,15 @@
   border-radius: 2px;
 }
 
-.server-channel-user-state.play {
+.play .server-channel-user-state {
   background-position: 0 0;
 }
 
-.server-channel-user-state.unplay {
+.unplay .server-channel-user-state {
   background-position: -12px 0;
 }
 
-.server-channel-user-state.muted {
+.muted .server-channel-user-state {
   background-position: -24px 0;
 }
 
@@ -394,7 +394,7 @@
   color: #777777;
 }
 
-.server-channel-user-name.in-mic {
+.in-mic .server-channel-user-name {
   color: #6e849b;
 }
 
