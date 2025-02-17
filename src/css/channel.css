@@ -262,7 +262,7 @@
 }
 
 .mic-mode .server-channel-bottom {
-  max-height: calc(100vh - 300px);
+  max-height: calc(100vh - 320px);
 }
 
 .server-channel-bottom {
@@ -442,7 +442,7 @@
   background: url(../image/channel/spliter_SpecialMenu.png) no-repeat center
     center;
   height: 1px;
-  width: 27%;
+  width: 280px;
   display: block;
   position: absolute;
 }
@@ -499,9 +499,9 @@
   height: 13px;
   width: 12px;
   background-position: 0 0;
-  right: 77.5%;
-  position: absolute;
-  bottom: 2%;
+  right: 45px;
+  position: relative;
+  bottom: -10px;
   cursor: pointer;
 }
 
@@ -514,9 +514,9 @@
   height: 15px;
   width: 15px;
   background-position: 0 0;
-  right: 74%;
-  position: absolute;
-  bottom: 1.5%;
+  right: 5px;
+  position: relative;
+  bottom: 0;
   cursor: pointer;
 }
 
