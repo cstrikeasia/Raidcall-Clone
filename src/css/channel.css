@@ -302,7 +302,6 @@
 
 .server-channel-user {
   width: 95%;
-  margin-left: 9px;
   display: flex;
   align-items: center;
   height: 20px;
@@ -400,8 +399,7 @@
 
 .server-channel-mic-queue-users:after {
   content: "";
-  background: url(../image/channel/spliter_SpecialMenu.png) no-repeat center
-    center;
+  background: url(../image/channel/chn_tree_split.png) no-repeat center center;
   height: 20px;
   width: 170px;
   display: block;
