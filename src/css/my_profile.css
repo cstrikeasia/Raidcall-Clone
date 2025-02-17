@@ -163,17 +163,18 @@ header {
   cursor: pointer;
   position: fixed;
   top: 4%;
-  left: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .profile-header-avatar-border {
   position: absolute;
   z-index: 2;
   top: 0px;
-  left: 0;
+  left: 42%;
   width: 85px;
   height: 85px;
   background: url(../image/im/avatar_border.png) no-repeat center center;
@@ -188,7 +189,7 @@ header {
   position: absolute;
   top: 5px;
   width: 80px;
-  left: 6px;
+  left: 43%;
   height: 76px;
   background: url(../image/im/IMLogo.png) no-repeat center center;
   background-size: contain;
@@ -200,7 +201,6 @@ header {
   color: #fff;
   position: relative;
   top: 95px;
-  left: 0%;
   text-align: center;
   display: flex;
   flex-direction: column;
