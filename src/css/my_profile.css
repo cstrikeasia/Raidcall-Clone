@@ -66,7 +66,7 @@ header {
 }
 
 .dialog-footer {
-  padding: 5px 15px;
+  padding: 5px 10px;
   background-color: #f4f4f5;
   display: flex;
   justify-content: flex-end;
@@ -257,7 +257,7 @@ header {
 }
 
 .profile-tab {
-  height: 40px;
+  height: 45px;
   top: 15.9rem;
   position: absolute;
   width: 99.6%;
@@ -267,7 +267,7 @@ header {
 }
 
 .profile-tab div {
-  height: 80%;
+  height: 70%;
   width: 50%;
   background: #0000005c;
   display: flex;
@@ -276,7 +276,7 @@ header {
   color: #fff;
   top: -2rem;
   position: relative;
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
   -webkit-app-region: no-drag;
 }
@@ -307,20 +307,20 @@ header {
   margin-right: 3px;
 }
 
-.profile-input-area {
-  height: 48.5%;
+.profile-form-input-wrapper {
+  height: 43%;
   bottom: 40px;
   position: absolute;
   width: 100%;
 }
 
-.profile-input-area-wrapper {
+.profile-form-wrapper {
   height: 100%;
   width: 100%;
   z-index: 1;
 }
 
-.profile-button {
+.profile-form-button {
   margin-right: 5px;
   width: auto;
   min-width: 82px;
@@ -335,7 +335,12 @@ header {
   background: url(../image/im/btn-sliver.png) no-repeat center center;
 }
 
-.profile-buttons {
+.profile-form-button.blue {
+  background: url(../image/im/btn-blue.png) no-repeat center center;
+  color: #fff;
+}
+
+.profile-form-buttons {
   height: 12%;
   display: flex;
   align-items: center;
@@ -351,4 +356,95 @@ header {
 
 .profile-header-other-info span:not(:last-child)::after {
   content: "·";
+}
+
+.profile-form-input-wrapper {
+  width: 92%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  margin: 20px;
+}
+
+.profile-form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.profile-form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+label:after {
+  content: "：";
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+select:after {
+  content: "";
+  background: url(../image/im/vsplitter.png) no-repeat center center;
+  background-size: auto;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+}
+
+.profile-form-birthdate-group {
+  display: flex;
+  gap: 5px;
+}
+
+textarea {
+  height: 50px;
+  resize: none;
+}
+
+#profile-form-signature {
+  height: 35px;
+}
+
+select:focus,
+textarea:focus,
+input:focus {
+  outline: none;
+  background: #ffffff;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.select-wrapper::before {
+  content: "";
+  background: url(../image/im/vsplitter.png) no-repeat center center;
+  background-size: contain;
+  height: 20px;
+  width: 30px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
