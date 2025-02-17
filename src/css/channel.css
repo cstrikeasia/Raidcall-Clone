@@ -162,14 +162,17 @@
 }
 
 .server-channel-item {
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
 .server-channel-top {
-  height: 5%;
+  height: 35px;
   display: flex;
   align-items: center;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .server-channel-network-status {
@@ -237,4 +240,11 @@
 
 .server-channel-name.read::before {
   background-position: -42px 0;
+}
+
+.server-channel-bottom {
+  flex: 1;
+  max-height: calc(100vh - 153px);
+  overflow-x: hidden;
+  overflow-y: auto;
 }
