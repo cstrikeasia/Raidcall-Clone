@@ -162,7 +162,7 @@
   background-position: -48px 0;
 }
 
-.server-channel-item {
+.server-channel-items {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -216,6 +216,7 @@
   align-content: center;
 }
 
+.server-channel-user:hover,
 .server-channel-name:hover {
   background-color: #d1d5da5c;
 }
@@ -260,9 +261,13 @@
   background-position: -14px -14px;
 }
 
+.mic-mode .server-channel-bottom {
+  max-height: calc(100vh - 300px);
+}
+
 .server-channel-bottom {
   flex: 1;
-  max-height: calc(100vh - 300px);
+  max-height: calc(100vh - 180px);
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -274,8 +279,13 @@
   margin-top: 2px;
 }
 
+.mic-mode .server-channel-mic-queue {
+  display: block;
+}
+
 .server-channel-mic-queue {
   height: 120px;
+  display: none;
 }
 
 .server-channel-mic-queue-mode {
@@ -290,6 +300,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
+  max-height: 90px;
 }
 
 .server-channel-user-state {
@@ -306,6 +318,8 @@
   align-items: center;
   height: 20px;
   cursor: pointer;
+  padding: 3px;
+  border-radius: 2px;
 }
 
 .server-channel-user-state.play {
@@ -344,7 +358,7 @@
   background-position: -14px 0;
 }
 
-.member-icon-channel-manager {
+.member-icon-sub-channel-manager {
   background-position: -28px 0;
 }
 
@@ -376,6 +390,7 @@
 
 .server-channel-user-name {
   font-size: 14px;
+  color: #777777;
 }
 
 .server-channel-user-name.in-mic {
@@ -397,13 +412,12 @@
   margin-left: auto;
 }
 
-.server-channel-mic-queue-users:after {
+.server-channel-mic-queue:after {
   content: "";
   background: url(../image/channel/chn_tree_split.png) no-repeat center center;
-  height: 20px;
-  width: 170px;
+  height: 6px;
+  width: auto;
   display: block;
-  margin-top: 50px;
 }
 
 .server-channel-bottom-buttons {
@@ -486,7 +500,7 @@
   background-position: 0 0;
   right: 77.5%;
   position: absolute;
-  bottom: 3%;
+  bottom: 2%;
   cursor: pointer;
 }
 
@@ -501,7 +515,7 @@
   background-position: 0 0;
   right: 74%;
   position: absolute;
-  bottom: 2%;
+  bottom: 1.5%;
   cursor: pointer;
 }
 
