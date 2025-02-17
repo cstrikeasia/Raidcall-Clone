@@ -400,6 +400,10 @@ textarea {
   font-size: 13px;
 }
 
+select {
+  appearance: none;
+}
+
 select:after {
   content: "";
   background: url(../image/im/vsplitter.png) no-repeat center center;
@@ -447,4 +451,23 @@ input:focus {
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
+}
+
+.profile-form-select-drop-down-icon {
+  width: 25px;
+  height: 10px;
+  background: url(../image/login_combobox_triangle.png) no-repeat center center;
+  background-position: 0 0;
+  position: absolute;
+  top: 9px;
+  right: -1px;
+  pointer-events: none;
+}
+
+.select-wrapper:hover .profile-form-select-drop-down-icon {
+  background-position: -26px 0;
+}
+
+.select-wrapper:active .profile-form-select-drop-down-icon {
+  background-position: -53px 0;
 }
