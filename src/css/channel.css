@@ -564,14 +564,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .server-mic-area {
-  position: relative;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  height: 90px;
+  height: 60px;
   max-height: 90px;
   background: url(../image/channel/chn_toolbar_bg.png) no-repeat center center;
   background-size: 100% 100%;
@@ -783,16 +783,13 @@
   background-position: -216px 0;
 }
 
-.server-chat-text {
-  width: 100%;
-  height: 100%;
-}
-
 .server-chat-input-wrapper {
   width: 100%;
   height: auto;
   display: flex;
   align-items: flex-end;
+  bottom: 0px;
+  /* position: absolute; */
 }
 
 .server-chat-input {
@@ -845,13 +842,6 @@
   background-position: -36px 0;
 }
 
-.server-chat-area {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
 .server-chat-text {
   width: 100%;
   height: 100%;
@@ -859,7 +849,7 @@
   flex-direction: column;
   overflow: auto;
   overflow-x: hidden;
-  max-height: 95px;
+  max-height: calc(100vh - 310px);
 }
 .server-chat-text div {
   margin: 5px;
