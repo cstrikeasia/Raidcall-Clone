@@ -1,0 +1,397 @@
+body {
+  margin: 0;
+  background-color: #ffffff00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  user-select: none;
+  overflow: hidden;
+  font-family: "SimSun", sans-serif;
+}
+
+.login-container {
+  width: 100%;
+  height: 99%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #858585;
+  background: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #0073c6;
+  -webkit-app-region: drag;
+}
+
+.header {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 16px;
+  width: 100%;
+  color: #fff;
+}
+
+.header:before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url("../image/rc_logo_small.png") no-repeat center center;
+  vertical-align: middle;
+  background-size: contain;
+}
+
+.header span {
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+.buttons {
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  -webkit-app-region: no-drag;
+}
+
+.close:hover {
+  background-position: -20px 0;
+}
+
+.close:active {
+  background-position: -40px 0;
+}
+
+.close {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/Button_Close.png) no-repeat center center;
+  background-position: 0 0;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.dialog-footer {
+  padding: 10px 15px;
+  background-color: #f4f4f5;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1px solid #e3e3e5;
+}
+
+.hidden {
+  display: none;
+}
+
+.dialog-message-wrapper {
+  height: 100%;
+  display: flex;
+  font-family: "SimSun", sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  background: url(../image/dialog_body_bg.png) no-repeat center center;
+  background-size: cover;
+}
+
+.dialog-message-contain div {
+  font-size: 13px;
+}
+
+.dialog-message-contain {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.dialog-msg {
+  max-width: 18rem;
+}
+
+.dialog-icon {
+  margin-right: 1rem;
+  content: "";
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  vertical-align: middle;
+  background-size: contain;
+}
+
+.dialog-icon-alert {
+  background: url(../image/pic_alert.png) no-repeat center center;
+}
+
+.dialog-icon-alert2 {
+  background: url(../image/pic_alert2.png) no-repeat center center;
+}
+
+.dialog-icon-error {
+  background: url(../image/pic_error.png) no-repeat center center;
+}
+
+.dialog-icon-warning {
+  background: url(../image/pic_warning.png) no-repeat center center;
+}
+
+.dialog-icon-information {
+  background: url(../image/pic_information.png) no-repeat center center;
+}
+
+.dialog-icon-success {
+  background: url(../image/pic_ok.png) no-repeat center center;
+}
+
+.confirmed {
+  margin-right: 5px;
+  border: 1px solid #dbdde0;
+  width: auto;
+  min-width: 76px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 13px;
+  height: 24px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  background: url(../image/im/btn-sliver.png) no-repeat center center;
+}
+
+.server-setting-left {
+  height: 100%;
+  width: 160px;
+  background: url(../image/setting_left_bg.png) no-repeat center center;
+  background-size: cover;
+  border-right: 1px solid #b4dbec;
+}
+
+.server-setting-tabs-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.server-setting-tab {
+  height: 28px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.server-setting-tab.active {
+  border-top: 1px solid #b4dbec;
+  border-bottom: 1px solid #b4dbec;
+  border-right: 1px solid #ffffff00;
+  background-color: #f7f7f7;
+}
+
+.server-setting-tab:first-child {
+  margin-top: 15px;
+}
+
+.server-setting-right {
+  height: 100%;
+  width: 100%;
+}
+
+.server-setting-page {
+  height: 100%;
+  width: auto;
+}
+
+.server-setting-page[data-page="basic"] {
+  padding: 10px;
+}
+
+.server-setting-text {
+  width: auto;
+  padding: 3px;
+  margin-bottom: 1px;
+}
+
+.server-setting-input-border {
+  display: flex;
+  border: 1px solid #ddd;
+  padding-top: 0;
+  padding-bottom: 0;
+  background: #fff;
+}
+
+input {
+  flex: 1;
+  padding: 3px;
+  border: 1px solid #ffffff;
+  outline: none;
+  font-size: 12px;
+  width: auto;
+  font-family: "SimSun", sans-serif;
+  background: #fff;
+  color: #000;
+}
+
+.server-setting-wrapper {
+  margin-right: 8px;
+  height: auto;
+  width: 100%;
+}
+
+.server-setting-slogen-wrapper {
+  margin-right: 8px;
+  height: auto;
+  width: 100%;
+  margin: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.server-setting-slogen-wrapper .server-setting-input {
+  width: 100%;
+}
+
+.server-setting-page-item {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.server-setting-item-1 {
+}
+
+.server-setting-item-contain {
+  display: flex;
+}
+
+.server-setting-picture-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.server-setting-picture {
+  height: 85px;
+  width: 85px;
+  background: url(../image/logo_server_def.png);
+  background-size: cover;
+  border: 1px solid #b7cceb;
+  margin-bottom: 5px;
+}
+
+.server-setting-change-picture-button {
+  border: 1px solid #dbdde0;
+  width: 75px;
+  border-radius: 5px;
+  text-align: center;
+  height: 24px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  background: url(../image/im/btn-sliver.png) no-repeat center center;
+}
+
+.server-setting-select {
+  border-radius: 3px;
+  flex: 1;
+  padding: 3px;
+  border: 1px solid #ffffff;
+  outline: none;
+  font-size: 12px;
+  width: auto;
+  height: 22px;
+  font-family: "SimSun", sans-serif;
+  min-width: 90px;
+}
+
+select {
+  appearance: none;
+}
+
+.server-setting-input-border:has(.server-setting-select):before {
+  background: url(../image/channel/spliter.png) no-repeat center center;
+  content: "";
+  background-size: contain;
+  height: 20px;
+  width: 30px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.server-setting-input-border {
+  position: relative;
+  display: inline-block;
+  /* width: 100%; */
+}
+
+.server-setting-select-drop-down-icon {
+  width: 25px;
+  height: 10px;
+  background: url(../image/login_combobox_triangle.png) no-repeat center center;
+  background-position: 0 0;
+  position: absolute;
+  top: 6px;
+  right: -1px;
+  pointer-events: none;
+}
+
+.server-setting-name-wrapper {
+  margin: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+.server-setting-type-icon {
+  height: 18px;
+  width: 18px;
+  background: url(../image/rc_logo_small.png);
+  background-size: cover;
+  margin-left: 5px;
+}
+
+.server-setting-select-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.server-setting-type-text {
+  color: #3a91d0;
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+.server-setting-rich-coin-title {
+  display: flex;
+  align-items: center;
+}
+
+.server-setting-rich-coin {
+  height: 16px;
+  width: 16px;
+  background: url(../image/golden_pea.png);
+  background-size: cover;
+  margin-left: 3px;
+}

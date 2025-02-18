@@ -6,7 +6,9 @@ class Channel {
     this.settingsButton = document.querySelector('.server-settings');
     this.settingsMenu = document.querySelector('.server-settings-context-menu');
 
-    this.memberGroupChat = document.querySelector('li[data-key="30314"]'); ;
+    this.memberGroupChat = document.querySelector('li[data-key="30314"]');
+
+    this.serverPictureWrapper = document.querySelector('.server-picture-wrapper');
 
     this.initEvents();
   }
@@ -26,6 +28,10 @@ class Channel {
       event.stopPropagation();
       this.settingsMenu.style.display = 'none';
       ipcRenderer.send('open-pop-window', { code: 1005, titleCode: 30051, textCode: null, icon: 'warning' }, 550, 700, 'member_group_chat', false);
+    });
+
+    this.serverPictureWrapper.addEventListener('click', () => {
+      ipcRenderer.send('open-pop-window', { code: null, titleCode: null, textCode: null, icon: 'warning' }, 450, 650, 'server_setting', false);
     });
 
     document.addEventListener('click', (event) => {
