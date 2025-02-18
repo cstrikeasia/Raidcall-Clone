@@ -151,7 +151,9 @@ function createPopWindow(data, height, width, type, resize) {
     if (data) {
       console.log(data);
       newPop.webContents.send('set-code', data.code, data.titleCode, data.textCode, data.icon);
-      LoginWindow.webContents.send('stop-loading');
+      if (LoginWindow) {
+        LoginWindow.webContents.send('stop-loading');
+      }
     }
   });
   newPop.on('close', () => {
