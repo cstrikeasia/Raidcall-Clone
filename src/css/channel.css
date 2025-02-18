@@ -790,6 +790,7 @@
   margin: 8px;
   display: flex;
   transition: border-color 0.3s ease;
+  background: #fbfbfb;
 }
 
 .server-chat-input:focus-within {
