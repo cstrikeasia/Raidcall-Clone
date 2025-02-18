@@ -800,12 +800,13 @@
   border: none;
   outline: none;
   background: transparent;
-  padding: 5px;
+  padding: 8px;
   resize: none;
   height: auto;
-  margin-left: 10px;
   overflow: auto;
   font-size: 15px;
+  margin: 5px;
+  padding-top: 0;
 }
 
 .server-chat-emoji {
