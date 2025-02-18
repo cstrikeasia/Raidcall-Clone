@@ -577,6 +577,7 @@
   background-size: 100% 100%;
   z-index: 10;
   background-color: #dddddf;
+  padding-bottom: 35px;
 }
 
 .server-mic-menu {
@@ -788,11 +789,12 @@
   height: auto;
   display: flex;
   align-items: flex-end;
+  padding-bottom: 95px;
 }
 
 .server-chat-input-border {
   width: 100%;
-  height: 90px;
+  height: 50px;
   border: 1px solid #e0e0e1;
   border-radius: 5px;
   margin: 8px;
@@ -847,7 +849,6 @@
   flex-direction: column;
   overflow: auto;
   overflow-x: hidden;
-  max-height: calc(100vh - 310px);
 }
 .server-chat-text div {
   margin: 5px;
