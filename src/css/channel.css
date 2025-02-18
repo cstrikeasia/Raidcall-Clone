@@ -32,6 +32,8 @@
 .server-picture {
   height: 50px;
   width: 50px;
+  background: url(../image/logo_server_def.png);
+  background-size: cover;
 }
 
 .server-picture-border {
@@ -320,6 +322,7 @@
   align-items: center;
   overflow: auto;
   max-height: 90px;
+  margin-left: 5px;
 }
 
 .server-channel-user-state {
@@ -341,7 +344,7 @@
 }
 
 .server-channel-bottom .server-channel-user {
-  margin-left: 15px;
+  margin-left: 10px;
   width: 88%;
   border-radius: 5px;
 }
@@ -561,8 +564,8 @@
   position: absolute;
   bottom: -5px;
   width: 100%;
-  height: 13%;
-  max-height: 90px;
+  height: 70px;
+  max-height: 75px;
   background: url(../image/channel/chn_toolbar_bg.png) no-repeat center center;
   background-size: 100% 100%;
   z-index: 10;
