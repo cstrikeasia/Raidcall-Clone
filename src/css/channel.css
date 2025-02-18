@@ -625,7 +625,7 @@
   background-position: 0 0;
 }
 
-.server-mic-bkg-wrapper {
+.server-mic-bkg-mode {
   display: flex;
   align-items: center;
   margin-right: 10px;
@@ -638,7 +638,7 @@
   color: #777777;
 }
 
-.server-mic-bkg-wrapper:after {
+.server-mic-bkg-mode:after {
   content: "";
   background: url(../image/channel/icon_v_split.png) no-repeat center center;
   height: 20px;
