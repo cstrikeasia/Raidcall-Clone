@@ -589,6 +589,7 @@
   align-items: center;
   left: 38%;
   position: relative;
+  justify-content: center;
 }
 
 .server-mic-wrapper {
@@ -601,7 +602,7 @@
 
 .server-mic-text {
   margin-left: 5px;
-  width: 80%;
+  width: auto;
   font-size: 18px;
   max-width: 107px;
   color: #28a0da;
@@ -724,8 +725,6 @@
   height: 30px;
   background: url(../image/channel/icon_mic_state.png) no-repeat center center;
   background-size: cover;
-  margin-bottom: 2px;
-  margin-left: 15px;
 }
 
 .server-mic-menu.speaking .server-mic-icon {
