@@ -606,6 +606,7 @@
   font-weight: bold;
   font-size: 18px;
   max-width: 107px;
+  color: #28a0da;
 }
 
 .server-mic-bkg {
@@ -786,10 +787,11 @@
 
 .server-chat-input {
   width: 100%;
-  height: 50%;
+  height: 90px;
   border: 1px solid #e0e0e1;
   border-radius: 5px;
   margin: 8px;
+  display: flex;
 }
 
 .server-chat-textarea {
@@ -799,8 +801,29 @@
   outline: none;
   background: transparent;
   padding: 5px;
-  font-size: 14px;
   resize: none;
-  max-height: 130px;
-  min-height: 120px;
+  height: auto;
+  margin-left: 10px;
+  overflow: auto;
+  font-size: 15px;
+}
+
+.server-chat-emoji {
+  width: 18px;
+  height: 18px;
+  background: url(../image/channel/FaceButton.png) no-repeat center center;
+  background-size: auto;
+  background-position: 0 0;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+}
+
+.server-chat-emoji:hover {
+  background-position: -18px 0;
+}
+
+.server-chat-emoji:active {
+  background-position: -36px 0;
 }
