@@ -1,6 +1,8 @@
 const StoreModule = require('../js/store');
 class CreateGroup {
   constructor() {
+    this.userOperateMenu = document.querySelector('.member-group-operate-context-menu');
+    this.users = document.querySelectorAll('.member-group-user');
     this.closeBtn = document.querySelector('.close');
     this.langData = null;
     this.initLanguage();
@@ -11,6 +13,16 @@ class CreateGroup {
   initEvents() {
     this.closeBtn.addEventListener('click', () => this.closeWindow());
     window.addEventListener('storage', () => StoreModule.initLanguage());
+
+    this.users.forEach((user) => {
+      user.addEventListener('contextmenu', (event) => this.showContextMenu(event));
+    });
+
+    document.addEventListener('click', (event) => {
+      if (this.userOperateMenu && !this.userOperateMenu.contains(event.target)) {
+        this.userOperateMenu.style.display = 'none';
+      }
+    });
   }
 
   initLanguage() {
@@ -22,6 +34,14 @@ class CreateGroup {
       }
       this.langData = langData;
     });
+  }
+
+  // 顯示右鍵菜單
+  showContextMenu(event) {
+    event.preventDefault();
+    this.userOperateMenu.style.display = 'block';
+    this.userOperateMenu.style.left = `${event.pageX}px`;
+    this.userOperateMenu.style.top = `${event.pageY}px`;
   }
 
   closeWindow() {
