@@ -1,0 +1,361 @@
+body {
+  margin: 0;
+  background-color: #ffffff00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  user-select: none;
+  overflow: hidden;
+  font-family: "SimSun", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6d6d6d0f;
+  border-radius: 4px;
+  border: 1px solid #6d6d6d26;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6d6d6d38;
+}
+
+.login-container {
+  width: 100%;
+  height: 99%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #858585;
+  background: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #0073c6;
+  -webkit-app-region: drag;
+}
+
+.header {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 16px;
+  width: 100%;
+  color: #fff;
+}
+
+.header:before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url("../image/rc_logo_small.png") no-repeat center center;
+  vertical-align: middle;
+  background-size: contain;
+}
+
+.header span {
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+.buttons {
+  width: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  -webkit-app-region: no-drag;
+}
+
+.close:hover {
+  background-position: -20px 0;
+}
+
+.close:active {
+  background-position: -40px 0;
+}
+
+.close {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/Button_Close.png) no-repeat center center;
+  background-position: 0 0;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.hidden {
+  display: none;
+}
+
+.dialog-message-wrapper {
+  height: 100%;
+  display: flex;
+  font-family: "SimSun", sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  background: url(../image/dialog_body_bg.png) no-repeat center center;
+  background-size: cover;
+}
+
+.dialog-message-contain div {
+  font-size: 13px;
+  color: #777777;
+}
+
+.dialog-message-contain {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  flex-direction: row;
+}
+
+.dialog-msg {
+  max-width: 18rem;
+}
+
+.dialog-icon {
+  margin-right: 1rem;
+  content: "";
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  vertical-align: middle;
+  background-size: contain;
+}
+
+.dialog-icon-alert {
+  background: url(../image/pic_alert.png) no-repeat center center;
+}
+
+.dialog-icon-alert2 {
+  background: url(../image/pic_alert2.png) no-repeat center center;
+}
+
+.dialog-icon-error {
+  background: url(../image/pic_error.png) no-repeat center center;
+}
+
+.dialog-icon-warning {
+  background: url(../image/pic_warning.png) no-repeat center center;
+}
+
+.dialog-icon-information {
+  background: url(../image/pic_information.png) no-repeat center center;
+}
+
+.dialog-icon-success {
+  background: url(../image/pic_ok.png) no-repeat center center;
+}
+
+.member-group-chat-left-header {
+  height: 30px;
+  width: 100%;
+  border-bottom: 1px solid #e0e0e4;
+  display: flex;
+  align-items: center;
+  background: #f4fbfe;
+  justify-content: space-between;
+}
+
+.member-group-chat-left {
+  display: flex;
+  height: 100%;
+  width: 215px;
+  flex-direction: column;
+  border-right: 2px solid #e0e0e4;
+}
+
+.member-group-members {
+  height: 100%;
+  width: auto;
+  padding: 5;
+  max-height: 86vh;
+  overflow: auto;
+}
+
+.member-group-chat-left-header-title {
+  margin-left: 5px;
+}
+
+.member-group-chat-left-header-left {
+  display: flex;
+}
+
+.member-group-chat-left-header-search {
+  background: url(../image/channel/search.png) no-repeat center center;
+  background-position: 0 0;
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+}
+
+.member-group-bottom .member-group-user {
+  margin-left: 10px;
+  width: 88%;
+  border-radius: 5px;
+}
+
+.member-group-user-info {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.member-group-user-role {
+  height: 15px;
+  width: 15px;
+  margin-right: 2px;
+}
+
+.member-group-user-name.set-channel-name {
+  color: #6e849b;
+}
+
+.member-group-user {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 3px;
+  align-items: center;
+  margin-bottom: 5;
+  border-radius: 5px;
+}
+
+.member-group-user:hover,
+.member-group-name:hover {
+  background-color: #d1d5da5c;
+}
+
+.member-group-user-current-location {
+  background: url(../image/channel/location.png) no-repeat center center;
+  background-position: 0 0;
+  height: 16px;
+  width: 16px;
+}
+
+.member-group-chat-right {
+  height: 100%;
+  width: 100%;
+}
+
+.member-group-text-area {
+  width: 100%;
+  min-height: calc(100vh - 170px);
+}
+
+.member-group-input-area {
+  height: 135px;
+  width: 100%;
+}
+
+.member-group-input-top-bar {
+  height: 30px;
+  width: 100%;
+  display: flex;
+  background: url(../image/tool_bkg.png) no-repeat center center;
+  background-size: 100%;
+  border-bottom: 1px solid #e0e0e4;
+  border-top: 1px solid #e0e0e4;
+  justify-content: space-between;
+}
+
+.top-bar-left div {
+  background-position: 0 0;
+  height: 18px;
+  width: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.top-bar-font {
+  background: url(../image/FontButton.png) no-repeat center center;
+}
+
+.top-bar-emoji {
+  background: url(../image/FaceButton.png) no-repeat center center;
+}
+
+.top-bar-screen-shot {
+  background: url(../image/ScreenShot.png) no-repeat center center;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.top-bar-history {
+  height: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.top-bar-history:before {
+  content: "";
+  background: url(../image/history.png) no-repeat center center;
+  background-position: 0 0;
+  height: 18px;
+  width: 18px;
+  display: block;
+  margin-right: 3px;
+}
+
+.member-group-input-textarea {
+  height: 100%;
+  width: 100%;
+}
+
+.member-group-textarea {
+  width: 100%;
+  display: block;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 8px;
+  resize: none;
+  height: 68%;
+  overflow: auto;
+  font-size: 15px;
+  margin: 5px;
+  padding-top: 0;
+}
+
+.member-group-input-enter {
+  background: url(../image/icon_enter.png) no-repeat center center;
+  background-position: 0 0;
+  height: 31px;
+  width: 49px;
+  background-size: auto;
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.member-group-input-enter:hover {
+  background-position: -50px 0;
+}
+
+.member-group-input-enter:active {
+  background-position: -100px 0;
+}

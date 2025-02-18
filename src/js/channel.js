@@ -25,7 +25,7 @@ class Channel {
     this.memberGroupChat.addEventListener('click', (event) => {
       event.stopPropagation();
       this.settingsMenu.style.display = 'none';
-      ipcRenderer.send('open-pop-window', { code: 1005, titleCode: 30051, textCode: null, icon: 'warning' }, 207, 412, 'member_group_chat', false);
+      ipcRenderer.send('open-pop-window', { code: 1005, titleCode: 30051, textCode: null, icon: 'warning' }, 550, 700, 'member_group_chat', false);
     });
 
     document.addEventListener('click', (event) => {

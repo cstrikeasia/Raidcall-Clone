@@ -367,48 +367,6 @@
   margin-right: 2px;
 }
 
-.member-icon-male {
-  background: url(../image/channel/UserIconsMale.png) no-repeat center center;
-  background-position: 0 0;
-}
-
-.member-icon-female {
-  background: url(../image/channel/UserIconsFemale.png) no-repeat center center;
-  background-position: 0 0;
-}
-
-.member-icon-guest {
-  background-position: 0px 0;
-}
-
-.member-icon-member {
-  background-position: -14px 0;
-}
-
-.member-icon-sub-channel-manager {
-  background-position: -28px 0;
-}
-
-.member-icon-channel-server-manager {
-  background-position: -42px 0;
-}
-
-.member-icon-channel-manager {
-  background-position: -56px 0;
-}
-
-.member-icon-channel-owner {
-  background-position: -70px 0;
-}
-
-.member-icon-customer-service {
-  background-position: -84px 0;
-}
-
-.member-icon-super-manager {
-  background-position: -98px 0;
-}
-
 .server-channel-user-info {
   display: flex;
   align-items: center;

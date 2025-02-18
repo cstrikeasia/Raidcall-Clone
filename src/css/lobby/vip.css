@@ -1,0 +1,26 @@
+.server-channel-user-vip {
+  background: url(../../image/channel/vip_icons.png) no-repeat center center;
+  background-position: 0 0;
+  height: 14px;
+  width: 14px;
+}
+
+.vip-1 {
+  background-position: 0 0;
+}
+
+.vip-2 {
+  background-position: -14px 0;
+}
+
+.vip-3 {
+  background-position: -28px 0;
+}
+
+.vip-4 {
+  background-position: -42px 0;
+}
+
+.vip-5 {
+  background-position: -56px 0;
+}
