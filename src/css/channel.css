@@ -486,7 +486,6 @@
   height: 100%;
   align-items: center;
   font-size: 13px;
-  max-width: 105px;
 }
 
 .server-channel-tab-current-location:hover::before,
@@ -603,10 +602,10 @@
 .server-mic-text {
   margin-left: 5px;
   width: 80%;
-  font-weight: bold;
   font-size: 18px;
   max-width: 107px;
   color: #28a0da;
+  font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
 }
 
 .server-mic-bkg {
@@ -721,13 +720,12 @@
 }
 
 .server-mic-icon {
-  width: 30px;
+  width: 26px;
   height: 30px;
   background: url(../image/channel/icon_mic_state.png) no-repeat center center;
   background-size: cover;
-  background-position: 0 0;
-  margin-left: 15px;
   margin-bottom: 2px;
+  margin-left: 15px;
 }
 
 .server-mic-menu.speaking .server-mic-icon {
