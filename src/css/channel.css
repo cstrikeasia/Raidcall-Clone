@@ -569,7 +569,7 @@
 
 .server-mic-area {
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   width: 100%;
   height: 60px;
   max-height: 90px;
@@ -788,8 +788,6 @@
   height: auto;
   display: flex;
   align-items: flex-end;
-  bottom: 0px;
-  /* position: absolute; */
 }
 
 .server-chat-input {
