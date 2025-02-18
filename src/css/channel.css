@@ -844,3 +844,69 @@
 .server-chat-emoji:active {
   background-position: -36px 0;
 }
+
+.server-chat-area {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.server-chat-text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  overflow-x: hidden;
+  max-height: 95px;
+}
+.server-chat-text div {
+  margin: 5px;
+}
+.server-chat-system-msg {
+  font-size: 13px;
+  width: 100%;
+  height: auto;
+}
+.server-chat-input-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+}
+.server-chat-input {
+  width: 100%;
+  height: 90px;
+  border: 1px solid #e0e0e1;
+  border-radius: 5px;
+  margin: 8px;
+  display: flex;
+  transition: border-color 0.3s ease;
+  background: #fbfbfb;
+}
+.server-chat-emoji {
+  width: 18px;
+  height: 18px;
+  background: url(../image/channel/FaceButton.png) no-repeat center center;
+  background-size: auto;
+  background-position: 0 0;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+}
+.server-chat-textarea {
+  width: 100%;
+  display: block;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 8px;
+  resize: none;
+  height: auto;
+  overflow: auto;
+  font-size: 15px;
+  margin: 5px;
+  padding-top: 0;
+}
