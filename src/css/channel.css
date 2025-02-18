@@ -576,6 +576,7 @@
   background: url(../image/channel/chn_toolbar_bg.png) no-repeat center center;
   background-size: 100% 100%;
   z-index: 10;
+  background-color: #dddddf;
 }
 
 .server-mic-menu {
@@ -590,6 +591,14 @@
   left: 38%;
   position: relative;
   justify-content: center;
+}
+
+.server-mic-menu:hover {
+  background-position: -154px 2px;
+}
+
+.server-mic-menu:active {
+  background-position: -308px 2px;
 }
 
 .server-mic-wrapper {
@@ -690,6 +699,10 @@
   background-position: 0 0;
   cursor: pointer;
   margin-right: 20px;
+}
+
+.server-mic-recorder-mode.recoding {
+  background-position: -18px 0;
 }
 
 .server-mic-menu.queuing {
