@@ -789,6 +789,11 @@
   border-radius: 5px;
   margin: 8px;
   display: flex;
+  transition: border-color 0.3s ease;
+}
+
+.server-chat-input:focus-within {
+  border-color: #a1a1a1;
 }
 
 .server-chat-textarea {
