@@ -171,7 +171,7 @@ header {
 
 .server-setting-left {
   height: 100%;
-  width: 160px;
+  width: 100%;
   background: url(../image/setting_left_bg.png) no-repeat center center;
   background-size: cover;
   border-right: 1px solid #b4dbec;
@@ -179,7 +179,7 @@ header {
 
 .server-setting-tabs-wrapper {
   height: 100%;
-  width: 100%;
+  width: 145px;
   display: flex;
   flex-direction: column;
 }
@@ -287,9 +287,9 @@ input {
 }
 
 .server-setting-picture {
-  height: 85px;
-  width: 85px;
-  background: url(../image/logo_server_def.png);
+  height: 100px;
+  width: 100px;
+  background: url(../image/im/IMLogo.png);
   background-size: cover;
   border: 1px solid #b7cceb;
   margin-bottom: 5px;

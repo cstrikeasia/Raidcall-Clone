@@ -31,7 +31,7 @@ class Channel {
     });
 
     this.serverPictureWrapper.addEventListener('click', () => {
-      ipcRenderer.send('open-pop-window', { code: null, titleCode: null, textCode: null, icon: 'warning' }, 450, 650, 'server_setting', false);
+      ipcRenderer.send('open-pop-window', { code: null, titleCode: null, textCode: null, icon: 'warning' }, 450, 600, 'server_setting', false);
     });
 
     document.addEventListener('click', (event) => {
