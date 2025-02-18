@@ -841,6 +841,7 @@
   flex-direction: column;
   overflow: auto;
   overflow-x: hidden;
+  min-height: calc(100vh - 320px);
 }
 .server-chat-text div {
   margin: 5px;
@@ -849,4 +850,27 @@
   font-size: 13px;
   width: 100%;
   height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.server-chat-system-msg.msg-icon:before {
+  content: "";
+  background-size: cover;
+  height: 12px;
+  width: 12px;
+  display: block;
+  margin-right: 5px;
+}
+
+.server-chat-system-msg.msg-nt-notify:before {
+  background: url(../image/NT_NOTIFY.png) no-repeat center center;
+}
+
+.server-chat-system-msg.msg-nt-warning:before {
+  background: url(../image/NT_WARNING.png) no-repeat center center;
+}
+
+.server-chat-system-msg.msg-nt-announcement:before {
+  background: url(../image/NT_ANNOUNCEMENT.png) no-repeat center center;
 }

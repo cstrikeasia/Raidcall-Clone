@@ -1,562 +1,442 @@
 <html lang="zh-TW">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/lobby.css" />
-    <link rel="stylesheet" href="../css/lobby/level.css" />
-    <link rel="stylesheet" href="../css/lobby/friends.css" />
-    <link rel="stylesheet" href="../css/lobby/groups.css" />
-    <link rel="stylesheet" href="../css/channel.css" />
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanstc.css"></link>
-  </head>
-  <body>
-    <div class="lobby-container">
-      <header>
-        <div class="header">
-          <div class="user-profile-box">
-            <div class="display-name">usernameeeeeeeeeeee</div>
-            <div class="online-state-box">
-              <div class="online-state"></div>
-              <div class="state-triangle"></div>
-              <div class="state-drop-down">
-                <div
-                  class="state-option"
-                  data-state="online"
-                  data-title="30072"
-                ></div>
-                <div
-                  class="state-option"
-                  data-state="busy"
-                  data-title="30073"
-                ></div>
-                <div
-                  class="state-option"
-                  data-state="away"
-                  data-title="30074"
-                ></div>
-                <div
-                  class="state-option"
-                  data-state="in-game"
-                  data-title="30075"
-                ></div>
-              </div>
-            </div>
-          </div>
-          <div id="MainTab" class="tabctrl">
-            <div class="tab-item selected" data-tab="groups">
-              <div class="tab-item-text" data-key="60091"></div>
-            </div>
-            <div class="tab-item" data-tab="friends">
-              <div class="tab-item-text" data-key="30020"></div>
-            </div>
-            <div class="tab-item" data-tab="server">
-              <div class="tab-item-text">伺服器名稱12344567890</div>
-              <div class="tab-close"></div>
-            </div>
-          </div>
-          <div class="buttons">
-            <div class="gift"></div>
-            <div class="game"></div>
-            <div class="notice"><div class="overlay new"></div></div>
-            <div class="spliter"></div>
-            <div class="menu">
-              <div class="menu-drop-down hidden">
-                <div
-                  class="menu-option"
-                  data-type="system-setting"
-                  data-key="30066"
-                ></div>
-                <div
-                  class="menu-option"
-                  data-type="message-history"
-                  data-key="30136"
-                ></div>
-                <div
-                  class="menu-option"
-                  data-type="change-theme"
-                  data-key="60028"
-                ></div>
-                <div
-                  class="menu-option"
-                  data-type="feed-back"
-                  data-key="30039"
-                ></div>
-                <div
-                  class="menu-option has-submenu"
-                  data-type="language-select"
-                >
-                  <span data-key="30374"></span>
-                  <div class="submenu hidden">
-                    <div class="submenu-option" data-lang="tw">繁體中文</div>
-                    <div class="submenu-option" data-lang="cn">简体中文</div>
-                    <div class="submenu-option" data-lang="en">English</div>
-                    <div class="submenu-option" data-lang="jp">日本語</div>
-                    <div class="submenu-option" data-lang="ru">
-                      русский язык
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="menu-option"
-                  data-type="logout"
-                  data-key="30060"
-                ></div>
-                <div
-                  class="menu-option"
-                  data-type="exit"
-                  data-key="30061"
-                ></div>
-              </div>
-            </div>
-            <div class="minimize"></div>
-            <div class="maxsize"></div>
-            <div class="close"></div>
-          </div>
-        </div>
-      </header>
-      <div class="wrappers">
-        <div class="groups-wrapper direction">
-          <div class="groups-header">
-            <div class="groups-nav-left">
-              <button class="groups-back-btn"></button>
-              <button class="groups-forward-btn"></button>
-              <div class="groups-search-bar">
-                <input
-                  type="text"
-                  data-placeholder="60021"
-                  class="groups-search-input"
-                />
-                <div class="groups-search-icon"></div>
-              </div>
-            </div>
-            <div class="groups-nav-center">
-              <button class="groups-nav-item active" data-key="60060">
-                <div></div>
-              </button>
-              <button class="groups-nav-item" data-key="40007">
-                <div></div>
-                遊戲
-              </button>
-              <button class="groups-nav-item" data-key="30375">
-                <div></div>
-                秀場
-              </button>
-            </div>
-            <div class="groups-nav-right">
-              <button class="groups-nav-item" data-key="30014">
-                <div></div>
-                創建語音群
-              </button>
-              <button class="groups-nav-item" data-key="60004">
-                <div></div>
-              </button>
-            </div>
-          </div>
-          <div class="live-anchors">
-            <webview
-              src="https://exptech.com.tw"
-              height="100%"
-              width="100%"
-            ></webview>
-            <div class="groups-my" style="display: none">
-              <div class="groups-my-view">
-                <div class="groups-my-last">最近訪問</div>
-                <div class="groups-my-owner">我的語音群</div>
-                <div class="groups-my-favorite">收藏的語音群</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="friends-wrapper">
-          <div class="friends-header">
-            <div class="friends-header-contain">
-              <div class="friends-header-avatar-box">
-                <div class="friends-header-avatar-border"></div>
-                <div class="friends-header-avatar-picture"></div>
-              </div>
-              <div class="friends-header-base-info-wrapper">
-                <div class="friends-header-base-info-contain">
-                  <div class="friends-header-base-info-level"></div>
-                  <div
-                    class="friends-header-friends-header-base-info-levels lv-1"
-                  ></div>
-                  <div class="friends-header-base-info-weath"></div>
-                  <label class="friends-header-friends-header-base-info-weaths"
-                    >0</label
-                  >
-                  <div class="friends-header-base-info-vip"></div>
-                </div>
-              </div>
-              <div class="friends-header-sign-widget">
-                <div id="signwidgetex">
-                  <textarea
-                    class="friends-header-individual-signature"
-                    spellcheck="false"
-                    data-placeholder="30018"
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-          </div>
-          <main class="friends-main">
-            <aside class="friends-sidebar">
-              <div class="friends-main-contain">
-                <div class="friends-main-area">
-                  <div class="friends-tab-control">
-                    <div
-                      class="friends-tab-item FriendTabItem selected"
-                      data-title="50012"
-                      data-target=".friends-box"
-                    >
-                      <div class="friends-user-list-icon"></div>
-                    </div>
 
-                    <div
-                      class="friends-tab-item FriendTabItem"
-                      data-title="50013"
-                      data-target=".friends-recents-box"
-                    >
-                      <div class="friends-recently-list-icon"></div>
-                    </div>
-                  </div>
-                  <div class="friends-box">
-                    <div class="friends-search-bar">
-                      <div class="friends-search-icon"></div>
-                      <input
-                        type="text"
-                        data-placeholder="50011"
-                        class="friends-search-input"
-                      />
-                      <div class="friends-search-pre"></div>
-                      <div class="friends-search-next"></div>
-                    </div>
-                    <div id="friendwidget" class="widget friends-widget">
-                      <div class="friends-user-list friends">
-                        <div class="friends-user-groups">
-                          <div class="friends-groups-header">
-                            <div class="friends-toggle-icon"></div>
-                            <span data-key="50027"></span>
-                            <span class="friends-number"> (4/17)</span>
-                          </div>
-                          <ul class="friends-group-users">
-                            <li class="friends-user-box">
-                              <div
-                                class="friends-group-friends-header-avatar-border"
-                              ></div>
-                              <div class="friends-group-user-pic"></div>
-                              <div class="friends-group-user-info">
-                                <span class="friends-group-user-name"
-                                  >小秘書</span
-                                >
-                                <span class="friends-group-user-status"
-                                  >app首頁展示的：錯過此下載點</span
-                                >
-                              </div>
-                            </li>
-                            <li class="friends-user-box">
-                              <div
-                                class="friends-group-friends-header-avatar-border"
-                              ></div>
-                              <div class="friends-group-user-pic"></div>
-                              <div class="friends-group-user-info">
-                                <span class="friends-group-user-name"
-                                  >小秘書</span
-                                >
-                                <span class="friends-group-user-status"
-                                  >app首頁展示的：錯過此下載點</span
-                                >
-                              </div>
-                            </li>
-                            <li class="friends-user-box">
-                              <div
-                                class="friends-group-friends-header-avatar-border"
-                              ></div>
-                              <div class="friends-group-user-pic"></div>
-                              <div class="friends-group-user-info">
-                                <span class="friends-group-user-name"
-                                  >小秘書</span
-                                >
-                                <span class="friends-group-user-status"
-                                  >app首頁展示的：錯過此下載點</span
-                                >
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="friends-user-list strangers">
-                        <div class="friends-user-groups">
-                          <div class="friends-groups-header">
-                            <div class="friends-toggle-icon"></div>
-                            <span data-key="50028"></span>
-                            <span class="friends-number"> (1/1)</span>
-                          </div>
-                          <ul class="friends-group-users">
-                            <li class="friends-user-box">
-                              <div
-                                class="friends-group-friends-header-avatar-border"
-                              ></div>
-                              <div class="friends-group-user-pic"></div>
-                              <div class="friends-group-user-info">
-                                <span class="friends-group-user-name"
-                                  >小秘書</span
-                                >
-                                <span class="friends-group-user-status"
-                                  >app首頁展示的：錯過此下載點</span
-                                >
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="friends-user-list blocks">
-                        <div class="friends-user-groups">
-                          <div class="friends-groups-header">
-                            <div class="friends-toggle-icon"></div>
-                            <span data-key="50140"></span>
-                            <span class="friends-number"> (1/1)</span>
-                          </div>
-                          <ul class="friends-group-users">
-                            <li class="friends-user-box">
-                              <div
-                                class="friends-group-friends-header-avatar-border"
-                              ></div>
-                              <div class="friends-group-user-pic"></div>
-                              <div class="friends-group-user-info">
-                                <span class="friends-group-user-name"
-                                  >小秘書</span
-                                >
-                                <span class="friends-group-user-status"
-                                  >app首頁展示的：錯過此下載點</span
-                                >
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="friends-footer">
-                      <div
-                        class="friends-footer-button friends-add-group"
-                        data-key="30076"
-                      ></div>
-                      <div
-                        class="friends-footer-button friends-add-friend"
-                        data-key="30077"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="friends-recents-box hidden">
-                    <div class="widget friends-recent-widget hidden">
-                      <!-- 最近聯絡人小工具區域 -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="friends-disconnected-wrapper">
-                <div class="friends-disconnected-contain">
-                  <div class="friends-disconnected-text">重連中...</div>
-                  <div class="friends-disconnected-button" data-key="30116">
-                    <span>立即連接</span>
-                  </div>
-                </div>
-              </div>
-            </aside>
-            <section class="friends-content">
-              <div class="friends-content-title">
-                <span data-key="50159"></span>
-              </div>
-              <div class="error-box"></div>
-            </section>
-          </main>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/lobby.css" />
+  <link rel="stylesheet" href="../css/lobby/level.css" />
+  <link rel="stylesheet" href="../css/lobby/friends.css" />
+  <link rel="stylesheet" href="../css/lobby/groups.css" />
+  <link rel="stylesheet" href="../css/channel.css" />
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanstc.css">
+  </link>
+</head>
+
+<body>
+  <div class="lobby-container">
+    <header>
+      <div class="header">
+        <div class="user-profile-box">
+          <div class="display-name">usernameeeeeeeeeeee</div>
+          <div class="online-state-box">
+            <div class="online-state"></div>
+            <div class="state-triangle"></div>
+            <div class="state-drop-down">
+              <div class="state-option" data-state="online" data-title="30072"></div>
+              <div class="state-option" data-state="busy" data-title="30073"></div>
+              <div class="state-option" data-state="away" data-title="30074"></div>
+              <div class="state-option" data-state="in-game" data-title="30075"></div>
+            </div>
+          </div>
         </div>
-        <div class="server-wrapper direction">
-          <div class="server-left-items">
-            <div class="server-info-item">
-              <div class="server-picture-wrapper">
-                <div class="server-picture-border"></div>
-                <div class="server-picture"></div>
-              </div>
-              <div class="server-name-id-number">
-                <div class="server-name">這是頻道名稱</div>
-                <div class="server-id-number">
-                  <div class="server-id">101</div>
-                  <div class="server-number">5</div>
+        <div id="MainTab" class="tabctrl">
+          <div class="tab-item selected" data-tab="groups">
+            <div class="tab-item-text" data-key="60091"></div>
+          </div>
+          <div class="tab-item" data-tab="friends">
+            <div class="tab-item-text" data-key="30020"></div>
+          </div>
+          <div class="tab-item" data-tab="server">
+            <div class="tab-item-text">伺服器名稱12344567890</div>
+            <div class="tab-close"></div>
+          </div>
+        </div>
+        <div class="buttons">
+          <div class="gift"></div>
+          <div class="game"></div>
+          <div class="notice">
+            <div class="overlay new"></div>
+          </div>
+          <div class="spliter"></div>
+          <div class="menu">
+            <div class="menu-drop-down hidden">
+              <div class="menu-option" data-type="system-setting" data-key="30066"></div>
+              <div class="menu-option" data-type="message-history" data-key="30136"></div>
+              <div class="menu-option" data-type="change-theme" data-key="60028"></div>
+              <div class="menu-option" data-type="feed-back" data-key="30039"></div>
+              <div class="menu-option has-submenu" data-type="language-select">
+                <span data-key="30374"></span>
+                <div class="submenu hidden">
+                  <div class="submenu-option" data-lang="tw">繁體中文</div>
+                  <div class="submenu-option" data-lang="cn">简体中文</div>
+                  <div class="submenu-option" data-lang="en">English</div>
+                  <div class="submenu-option" data-lang="jp">日本語</div>
+                  <div class="submenu-option" data-lang="ru">
+                    русский язык
+                  </div>
                 </div>
               </div>
-              <div class="server-operation">
-                <div class="server-invitation"></div>
-                <div class="server-settings"></div>
+              <div class="menu-option" data-type="logout" data-key="30060"></div>
+              <div class="menu-option" data-type="exit" data-key="30061"></div>
+            </div>
+          </div>
+          <div class="minimize"></div>
+          <div class="maxsize"></div>
+          <div class="close"></div>
+        </div>
+      </div>
+    </header>
+    <div class="wrappers">
+      <div class="groups-wrapper direction">
+        <div class="groups-header">
+          <div class="groups-nav-left">
+            <button class="groups-back-btn"></button>
+            <button class="groups-forward-btn"></button>
+            <div class="groups-search-bar">
+              <input type="text" data-placeholder="60021" class="groups-search-input" />
+              <div class="groups-search-icon"></div>
+            </div>
+          </div>
+          <div class="groups-nav-center">
+            <button class="groups-nav-item active" data-key="60060">
+              <div></div>
+            </button>
+            <button class="groups-nav-item" data-key="40007">
+              <div></div>
+              遊戲
+            </button>
+            <button class="groups-nav-item" data-key="30375">
+              <div></div>
+              秀場
+            </button>
+          </div>
+          <div class="groups-nav-right">
+            <button class="groups-nav-item" data-key="30014">
+              <div></div>
+              創建語音群
+            </button>
+            <button class="groups-nav-item" data-key="60004">
+              <div></div>
+            </button>
+          </div>
+        </div>
+        <div class="live-anchors">
+          <webview src="https://exptech.com.tw" height="100%" width="100%"></webview>
+          <div class="groups-my" style="display: none">
+            <div class="groups-my-view">
+              <div class="groups-my-last">最近訪問</div>
+              <div class="groups-my-owner">我的語音群</div>
+              <div class="groups-my-favorite">收藏的語音群</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="friends-wrapper">
+        <div class="friends-header">
+          <div class="friends-header-contain">
+            <div class="friends-header-avatar-box">
+              <div class="friends-header-avatar-border"></div>
+              <div class="friends-header-avatar-picture"></div>
+            </div>
+            <div class="friends-header-base-info-wrapper">
+              <div class="friends-header-base-info-contain">
+                <div class="friends-header-base-info-level"></div>
+                <div class="friends-header-friends-header-base-info-levels lv-1"></div>
+                <div class="friends-header-base-info-weath"></div>
+                <label class="friends-header-friends-header-base-info-weaths">0</label>
+                <div class="friends-header-base-info-vip"></div>
               </div>
             </div>
-            <div class="server-channel-items mic-mode">
-              <div class="server-channel-top">
-                <div class="server-channel-network-status"></div>
-                <div class="server-channel-current-name">目前所在頻道名稱</div>
+            <div class="friends-header-sign-widget">
+              <div id="signwidgetex">
+                <textarea class="friends-header-individual-signature" spellcheck="false"
+                  data-placeholder="30018"></textarea>
               </div>
-              <div class="server-channel-mode" data-key="66009"></div>
-              <div class="server-channel-mic-queue">
-                <div class="server-channel-mic-queue-users">
-                  <div class="server-channel-user muted">
-                    <div class="server-channel-user-state"></div>
-                    <div class="server-channel-user-info">
-                      <div
-                        class="server-channel-user-role member-icon-male member-icon-customer-service"
-                      ></div>
-                      <div class="server-channel-user-name set-channel-name">
-                        123
+            </div>
+          </div>
+        </div>
+        <main class="friends-main">
+          <aside class="friends-sidebar">
+            <div class="friends-main-contain">
+              <div class="friends-main-area">
+                <div class="friends-tab-control">
+                  <div class="friends-tab-item FriendTabItem selected" data-title="50012" data-target=".friends-box">
+                    <div class="friends-user-list-icon"></div>
+                  </div>
+
+                  <div class="friends-tab-item FriendTabItem" data-title="50013" data-target=".friends-recents-box">
+                    <div class="friends-recently-list-icon"></div>
+                  </div>
+                </div>
+                <div class="friends-box">
+                  <div class="friends-search-bar">
+                    <div class="friends-search-icon"></div>
+                    <input type="text" data-placeholder="50011" class="friends-search-input" />
+                    <div class="friends-search-pre"></div>
+                    <div class="friends-search-next"></div>
+                  </div>
+                  <div id="friendwidget" class="widget friends-widget">
+                    <div class="friends-user-list friends">
+                      <div class="friends-user-groups">
+                        <div class="friends-groups-header">
+                          <div class="friends-toggle-icon"></div>
+                          <span data-key="50027"></span>
+                          <span class="friends-number"> (4/17)</span>
+                        </div>
+                        <ul class="friends-group-users">
+                          <li class="friends-user-box">
+                            <div class="friends-group-friends-header-avatar-border"></div>
+                            <div class="friends-group-user-pic"></div>
+                            <div class="friends-group-user-info">
+                              <span class="friends-group-user-name">小秘書</span>
+                              <span class="friends-group-user-status">app首頁展示的：錯過此下載點</span>
+                            </div>
+                          </li>
+                          <li class="friends-user-box">
+                            <div class="friends-group-friends-header-avatar-border"></div>
+                            <div class="friends-group-user-pic"></div>
+                            <div class="friends-group-user-info">
+                              <span class="friends-group-user-name">小秘書</span>
+                              <span class="friends-group-user-status">app首頁展示的：錯過此下載點</span>
+                            </div>
+                          </li>
+                          <li class="friends-user-box">
+                            <div class="friends-group-friends-header-avatar-border"></div>
+                            <div class="friends-group-user-pic"></div>
+                            <div class="friends-group-user-info">
+                              <span class="friends-group-user-name">小秘書</span>
+                              <span class="friends-group-user-status">app首頁展示的：錯過此下載點</span>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
-                      <div class="server-channel-user-badge"></div>
+                    </div>
+                    <div class="friends-user-list strangers">
+                      <div class="friends-user-groups">
+                        <div class="friends-groups-header">
+                          <div class="friends-toggle-icon"></div>
+                          <span data-key="50028"></span>
+                          <span class="friends-number"> (1/1)</span>
+                        </div>
+                        <ul class="friends-group-users">
+                          <li class="friends-user-box">
+                            <div class="friends-group-friends-header-avatar-border"></div>
+                            <div class="friends-group-user-pic"></div>
+                            <div class="friends-group-user-info">
+                              <span class="friends-group-user-name">小秘書</span>
+                              <span class="friends-group-user-status">app首頁展示的：錯過此下載點</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="friends-user-list blocks">
+                      <div class="friends-user-groups">
+                        <div class="friends-groups-header">
+                          <div class="friends-toggle-icon"></div>
+                          <span data-key="50140"></span>
+                          <span class="friends-number"> (1/1)</span>
+                        </div>
+                        <ul class="friends-group-users">
+                          <li class="friends-user-box">
+                            <div class="friends-group-friends-header-avatar-border"></div>
+                            <div class="friends-group-user-pic"></div>
+                            <div class="friends-group-user-info">
+                              <span class="friends-group-user-name">小秘書</span>
+                              <span class="friends-group-user-status">app首頁展示的：錯過此下載點</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                  <div class="server-channel-user muted">
-                    <div class="server-channel-user-state"></div>
-                    <div class="server-channel-user-info">
-                      <div
-                        class="server-channel-user-role member-icon-male member-icon-super-manager"
-                      ></div>
-                      <div class="server-channel-user-name">123</div>
-                      <div class="server-channel-user-badge"></div>
-                    </div>
+                  <div class="friends-footer">
+                    <div class="friends-footer-button friends-add-group" data-key="30076"></div>
+                    <div class="friends-footer-button friends-add-friend" data-key="30077"></div>
                   </div>
-                  <div class="server-channel-user in-mic">
-                    <div class="server-channel-user-state"></div>
-                    <div class="server-channel-user-info">
-                      <div
-                        class="server-channel-user-role member-icon-male member-icon-member"
-                      ></div>
-                      <div class="server-channel-user-name">123</div>
-                      <div class="server-channel-user-badge"></div>
-                    </div>
-                    <div class="server-channel-mic-queue-time">999s</div>
-                  </div>
-                  <div class="server-channel-user unplay">
-                    <div class="server-channel-user-state"></div>
-                    <div class="server-channel-user-info">
-                      <div
-                        class="server-channel-user-role member-icon-male member-icon-channel-server-manager"
-                      ></div>
-                      <div class="server-channel-user-name">123</div>
-                      <div class="server-channel-user-badge"></div>
-                    </div>
-                  </div>
-                  <div class="server-channel-user muted">
-                    <div class="server-channel-user-state"></div>
-                    <div class="server-channel-user-info">
-                      <div
-                        class="server-channel-user-role member-icon-male member-icon-sub-channel-manager"
-                      ></div>
-                      <div class="server-channel-user-name">123</div>
-                      <div class="server-channel-user-badge"></div>
-                    </div>
-                  </div>
-                  <div class="server-channel-user muted">
-                    <div class="server-channel-user-state"></div>
-                    <div class="server-channel-user-info">
-                      <div
-                        class="server-channel-user-role member-icon-male member-icon-channel-manager"
-                      ></div>
-                      <div class="server-channel-user-name">123</div>
-                      <div class="server-channel-user-badge"></div>
-                    </div>
-                  </div>
-                  <div class="server-channel-user muted">
-                    <div class="server-channel-user-state"></div>
-                    <div class="server-channel-user-info">
-                      <div
-                        class="server-channel-user-role member-icon-male member-icon-channel-owner"
-                      ></div>
-                      <div class="server-channel-user-name">123</div>
-                      <div class="server-channel-user-badge"></div>
-                    </div>
+                </div>
+                <div class="friends-recents-box hidden">
+                  <div class="widget friends-recent-widget hidden">
+                    <!-- 最近聯絡人小工具區域 -->
                   </div>
                 </div>
               </div>
-              <div class="server-channel-bottom">
-                <div class="server-channel-name main">
-                  頻道名稱
-                  <div class="server-channel-number">(1)</div>
+            </div>
+            <div class="friends-disconnected-wrapper">
+              <div class="friends-disconnected-contain">
+                <div class="friends-disconnected-text">重連中...</div>
+                <div class="friends-disconnected-button" data-key="30116">
+                  <span>立即連接</span>
                 </div>
-                <div class="server-channel-user unplay">
+              </div>
+            </div>
+          </aside>
+          <section class="friends-content">
+            <div class="friends-content-title">
+              <span data-key="50159"></span>
+            </div>
+            <div class="error-box"></div>
+          </section>
+        </main>
+      </div>
+      <div class="server-wrapper direction">
+        <div class="server-left-items">
+          <div class="server-info-item">
+            <div class="server-picture-wrapper">
+              <div class="server-picture-border"></div>
+              <div class="server-picture"></div>
+            </div>
+            <div class="server-name-id-number">
+              <div class="server-name">這是頻道名稱</div>
+              <div class="server-id-number">
+                <div class="server-id">101</div>
+                <div class="server-number">5</div>
+              </div>
+            </div>
+            <div class="server-operation">
+              <div class="server-invitation"></div>
+              <div class="server-settings"></div>
+            </div>
+          </div>
+          <div class="server-channel-items mic-mode">
+            <div class="server-channel-top">
+              <div class="server-channel-network-status"></div>
+              <div class="server-channel-current-name">目前所在頻道名稱</div>
+            </div>
+            <div class="server-channel-mode" data-key="66009"></div>
+            <div class="server-channel-mic-queue">
+              <div class="server-channel-mic-queue-users">
+                <div class="server-channel-user muted">
                   <div class="server-channel-user-state"></div>
                   <div class="server-channel-user-info">
-                    <div
-                      class="server-channel-user-role member-icon-male member-icon-channel-server-manager"
-                    ></div>
+                    <div class="server-channel-user-role member-icon-male member-icon-customer-service"></div>
+                    <div class="server-channel-user-name set-channel-name">
+                      123
+                    </div>
+                    <div class="server-channel-user-badge"></div>
+                  </div>
+                </div>
+                <div class="server-channel-user muted">
+                  <div class="server-channel-user-state"></div>
+                  <div class="server-channel-user-info">
+                    <div class="server-channel-user-role member-icon-male member-icon-super-manager"></div>
                     <div class="server-channel-user-name">123</div>
                     <div class="server-channel-user-badge"></div>
                   </div>
                 </div>
-                <div class="server-channel-name locked">頻道名稱</div>
-                <div class="server-channel-name read">頻道名稱</div>
-                <div class="server-channel-name on">頻道名稱</div>
-                <div class="server-channel-name off">頻道名稱</div>
+                <div class="server-channel-user in-mic">
+                  <div class="server-channel-user-state"></div>
+                  <div class="server-channel-user-info">
+                    <div class="server-channel-user-role member-icon-male member-icon-member"></div>
+                    <div class="server-channel-user-name">123</div>
+                    <div class="server-channel-user-badge"></div>
+                  </div>
+                  <div class="server-channel-mic-queue-time">999s</div>
+                </div>
+                <div class="server-channel-user unplay">
+                  <div class="server-channel-user-state"></div>
+                  <div class="server-channel-user-info">
+                    <div class="server-channel-user-role member-icon-male member-icon-channel-server-manager"></div>
+                    <div class="server-channel-user-name">123</div>
+                    <div class="server-channel-user-badge"></div>
+                  </div>
+                </div>
+                <div class="server-channel-user muted">
+                  <div class="server-channel-user-state"></div>
+                  <div class="server-channel-user-info">
+                    <div class="server-channel-user-role member-icon-male member-icon-sub-channel-manager"></div>
+                    <div class="server-channel-user-name">123</div>
+                    <div class="server-channel-user-badge"></div>
+                  </div>
+                </div>
+                <div class="server-channel-user muted">
+                  <div class="server-channel-user-state"></div>
+                  <div class="server-channel-user-info">
+                    <div class="server-channel-user-role member-icon-male member-icon-channel-manager"></div>
+                    <div class="server-channel-user-name">123</div>
+                    <div class="server-channel-user-badge"></div>
+                  </div>
+                </div>
+                <div class="server-channel-user muted">
+                  <div class="server-channel-user-state"></div>
+                  <div class="server-channel-user-info">
+                    <div class="server-channel-user-role member-icon-male member-icon-channel-owner"></div>
+                    <div class="server-channel-user-name">123</div>
+                    <div class="server-channel-user-badge"></div>
+                  </div>
+                </div>
               </div>
-              <div class="server-channel-bottom-buttons">
-                <div class="server-channel-bottom-tabs">
-                  <div
-                    class="server-channel-tab-current-location active"
-                    data-key="10043"
-                  ></div>
-                  <div
-                    class="server-channel-tab-all-channel"
-                    data-key="10044"
-                  ></div>
+            </div>
+            <div class="server-channel-bottom">
+              <div class="server-channel-name main">
+                頻道名稱
+                <div class="server-channel-number">(1)</div>
+              </div>
+              <div class="server-channel-user unplay">
+                <div class="server-channel-user-state"></div>
+                <div class="server-channel-user-info">
+                  <div class="server-channel-user-role member-icon-male member-icon-channel-server-manager"></div>
+                  <div class="server-channel-user-name">123</div>
+                  <div class="server-channel-user-badge"></div>
                 </div>
-                <div class="server-channel-bottom-button">
-                  <div class="server-channel-bottom-first-level"></div>
-                  <div class="server-channel-bottom-search"></div>
-                </div>
+              </div>
+              <div class="server-channel-name locked">頻道名稱</div>
+              <div class="server-channel-name read">頻道名稱</div>
+              <div class="server-channel-name on">頻道名稱</div>
+              <div class="server-channel-name off">頻道名稱</div>
+            </div>
+            <div class="server-channel-bottom-buttons">
+              <div class="server-channel-bottom-tabs">
+                <div class="server-channel-tab-current-location active" data-key="10043"></div>
+                <div class="server-channel-tab-all-channel" data-key="10044"></div>
+              </div>
+              <div class="server-channel-bottom-button">
+                <div class="server-channel-bottom-first-level"></div>
+                <div class="server-channel-bottom-search"></div>
               </div>
             </div>
           </div>
-          <div class="server-right-items">
-            <div class="server-notice-area">
-              <div>123</div>
-              <div>123</div>
-              <div>123</div>
-              <div>123</div>
-              <div>123</div>
-              <div>123</div>
-              <div>123</div>
-              <div>123</div>
-              <div>123</div>
+        </div>
+        <div class="server-right-items">
+          <div class="server-notice-area">
+            <div>123</div>
+            <div>123</div>
+            <div>123</div>
+            <div>123</div>
+            <div>123</div>
+            <div>123</div>
+            <div>123</div>
+            <div>123</div>
+            <div>123</div>
+          </div>
+
+          <div class="server-chat-text">
+            <div class="server-chat-system-msg msg-nt-notify msg-icon" data-key="10014">此頻道被設為自由發言</div>
+            <div class="server-chat-system-msg msg-nt-warning msg-icon" data-key="10014">此頻道被設為自由發言</div>
+            <div class="server-chat-system-msg msg-nt-announcement msg-icon" data-key="10014">此頻道被設為自由發言</div>
+          </div>
+          <div class="server-chat-input">
+            <div class="server-chat-input-border">
+              <div class="server-chat-emoji"></div>
+              <textarea class="server-chat-textarea" spellcheck="false"></textarea>
             </div>
-            
-              <div class="server-chat-text"><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div><div class="server-chat-system-msg">此頻道被設為自由發言</div></div>
-              <div class="server-chat-input">
-                <div class="server-chat-input-border">
-                  <div class="server-chat-emoji"></div>
-                  <textarea class="server-chat-textarea" spellcheck="false"></textarea>
+          </div>
+          <div class="server-mic-area">
+            <div class="server-mic-wrapper">
+              <div class="server-mic-menu">
+                <div class="server-mic-icon"></div>
+                <div class="server-mic-text" data-key="66013">拿麥發言</div>
+              </div>
+              <div class="server-mic-right">
+                <div class="server-mic-bkg-mode">
+                  <div class="server-mic-bkg"></div>
+                  <div class="server-mic-bkg-text" data-key="66029">混音</div>
                 </div>
-              </div><div class="server-mic-area">
-              <div class="server-mic-wrapper">
-                <div class="server-mic-menu">
-                  <div class="server-mic-icon"></div>
-                  <div class="server-mic-text" data-key="66013">拿麥發言</div>
-                </div>
-                <div class="server-mic-right">
-                  <div class="server-mic-bkg-mode">
-                    <div class="server-mic-bkg"></div>
-                    <div class="server-mic-bkg-text" data-key="66029">混音</div>
-                  </div>
-                  <div class="server-mic-m-mode"></div>
-                  <div class="server-mic-speaker-mode"></div>
-                  <div class="server-mic-recorder-mode"></div>
-                </div>
+                <div class="server-mic-m-mode"></div>
+                <div class="server-mic-speaker-mode"></div>
+                <div class="server-mic-recorder-mode"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </body>
-  <script type="text/javascript" src="../js/require.js"></script>
-  <script type="text/javascript" src="../js/lobby.js"></script>
-  <script type="text/javascript" src="../js/key.js"></script>
+  </div>
+</body>
+<script type="text/javascript" src="../js/require.js"></script>
+<script type="text/javascript" src="../js/lobby.js"></script>
+<script type="text/javascript" src="../js/key.js"></script>
+
 </html>
