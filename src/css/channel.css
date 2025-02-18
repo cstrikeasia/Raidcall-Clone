@@ -559,14 +559,6 @@
   overflow: auto;
 }
 
-.server-chat-area {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
 .server-mic-area {
   position: absolute;
   bottom: 3px;
