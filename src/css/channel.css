@@ -856,6 +856,9 @@
   padding: 5px 5px;
   cursor: pointer;
   font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .server-user-operate-context-menu ul li:hover,
@@ -911,6 +914,10 @@
   cursor: auto;
 }
 
+li[data-key="10057"]:before {
+  background: url(../image/icon_memberapply.png) no-repeat center center;
+}
+
 li[data-key="30314"]:before {
   background: url(../image/icon_groupchat.png) no-repeat center center;
 }
@@ -937,4 +944,40 @@ li[data-key="30064"]:before {
 
 li[data-key="30065"]:before {
   background: url(../image/icon_collect.png) no-repeat center center;
+}
+
+li:has(span[data-key="30162"]):after {
+  background-image: url(../image/ctrl/icon_submenu.png);
+  width: 16px;
+  height: 10px;
+  transform: rotate(0deg);
+  display: block;
+}
+
+li:has([data-key="30162"]):after {
+  content: "";
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  right: 0;
+}
+
+li:has([data-key="30162"]):hover .server-user-operate-sub-menu {
+  display: block;
+}
+
+.server-user-operate-sub-menu {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1000;
+  width: 125px;
+  text-align: center;
+  left: 125px;
+  bottom: 0;
+  display: none;
 }
