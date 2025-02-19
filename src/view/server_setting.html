@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dialog</title>
   <link rel="stylesheet" href="../css/server_setting.css">
+
+
+
+  <link rel="stylesheet" href="../css/user_icon.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&amp;display=swap" rel="stylesheet">
 </head>
 
@@ -22,16 +26,16 @@
 
         <div class="server-setting-left">
           <div class="server-setting-tabs-wrapper">
-            <div class="server-setting-tab active" data-key="20105">基本資料</div>
-            <div class="server-setting-tab" data-key="20195">公告</div>
-            <div class="server-setting-tab" data-key="20107">會員管理</div>
-            <div class="server-setting-tab" data-key="20073">訪問許可權</div>
-            <div class="server-setting-tab" data-key="20108">會員申請管理</div>
-            <div class="server-setting-tab" data-key="20144">黑名單管理</div>
+            <div class="server-setting-tab" for="basic" data-key="20105">基本資料</div>
+            <div class="server-setting-tab" for="notify" data-key="20195">公告</div>
+            <div class="server-setting-tab active" for="member_management" data-key="20107">會員管理</div>
+            <div class="server-setting-tab" for="access_permission" data-key="20073">訪問許可權</div>
+            <div class="server-setting-tab" for="member_application_management" data-key="20108">會員申請管理</div>
+            <div class="server-setting-tab" for="block_management" data-key="20144">黑名單管理</div>
           </div>
         </div>
         <div class="server-setting-right">
-          <div class="server-setting-page" data-page="basic">
+          <div class="server-setting-page" data-page="basic" style="display: none;">
             <div class="server-setting-page-wrapper">
               <div class="server-setting-item-wrapper">
                 <div class="servet-setting-item-box">
@@ -42,7 +46,9 @@
                     </div>
                     <div class="server-setting-item-contain">
                       <div class="server-setting-text" data-key="20083">ID</div>
-                      <div class="server-setting-input-border"><input class="server-setting-input" value="123"></div>
+                      <div class="server-setting-input-border"><input class="server-setting-input" value="123"
+                          disabled="">
+                      </div>
                     </div>
                   </div>
                   <div class="server-setting-page-item">
@@ -200,6 +206,158 @@
               </div>
             </div>
           </div>
+          <div class="server-setting-page" data-page="member_management" style="display: block;">
+            <div class="server-setting-page-wrapper">
+              <div class="server-setting-item-wrapper">
+                <div class="server-setting-member-management-header">
+                  <div class="server-setting-text" data-key="20110">會員:%d</div>
+                  <div class="server-setting-member-search-wrapper">
+                    <div class="server-setting-member-search-border">
+                      <div class="server-setting-member-search-icon"></div><input
+                        class="server-setting-membeer-search-input" data-placeholder="30231" placeholder="輸入關鍵字或ID搜尋">
+                      <div class="server-setting-member-search-prev"></div>
+                      <div class="server-setting-member-search-next"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="server-setting-member-management-body">
+                  <div class="server-setting-member-list-wrapper">
+                    <div class="server-setting-member-list">
+                      <div class="server-setting-member-list-header">
+                        <div class="server-setting-member-list-header-th">暱稱</div>
+                        <div class="server-setting-member-list-header-th">身份</div>
+                        <div class="server-setting-member-list-header-th">貢獻值</div>
+                        <div class="server-setting-member-list-header-th">入會時間</div>
+                      </div>
+                      <div class="server-setting-member-list-body">
+                        <div class="server-setting-member-list-header-td">
+                          <div class="server-setting-member-list-item server-setting-member-user">
+
+                            <div class="server-setting-member-user-info">
+                              <div class="server-setting-member-user-role member-icon-male member-icon-super-manager">
+                              </div>
+                              <div class="server-setting-member-user-name set-channel-name">123</div>
+
+
+                            </div>
+                          </div>
+                          <div class="server-setting-member-list-item" data-key="30032"></div>
+                          <div class="server-setting-member-list-item">0</div>
+                          <div class="server-setting-member-list-item">2025-01-01</div>
+                        </div>
+                        <div class="server-setting-member-list-header-td">
+                          <div class="server-setting-member-list-item server-setting-member-user">
+
+                            <div class="server-setting-member-user-info">
+                              <div
+                                class="server-setting-member-user-role member-icon-male member-icon-customer-service">
+                              </div>
+                              <div class="server-setting-member-user-name">123</div>
+
+
+                            </div>
+                          </div>
+                          <div class="server-setting-member-list-item" data-key="30031"></div>
+                          <div class="server-setting-member-list-item">0</div>
+                          <div class="server-setting-member-list-item">2025-01-01</div>
+                        </div>
+                        <div class="server-setting-member-list-header-td">
+                          <div class="server-setting-member-list-item server-setting-member-user">
+
+                            <div class="server-setting-member-user-info">
+                              <div class="server-setting-member-user-role member-icon-male member-icon-channel-owner">
+                              </div>
+                              <div class="server-setting-member-user-name">123</div>
+
+
+                            </div>
+                          </div>
+                          <div class="server-setting-member-list-item" data-key="30030"></div>
+                          <div class="server-setting-member-list-item">0</div>
+                          <div class="server-setting-member-list-item">2025-01-01</div>
+                        </div>
+                        <div class="server-setting-member-list-header-td">
+                          <div class="server-setting-member-list-item server-setting-member-user">
+
+                            <div class="server-setting-member-user-info">
+                              <div class="server-setting-member-user-role member-icon-male member-icon-channel-manager">
+                              </div>
+                              <div class="server-setting-member-user-name">123</div>
+
+
+                            </div>
+                          </div>
+                          <div class="server-setting-member-list-item" data-key="30029"></div>
+                          <div class="server-setting-member-list-item">0</div>
+                          <div class="server-setting-member-list-item">2025-01-01</div>
+                        </div>
+                        <div class="server-setting-member-list-header-td">
+                          <div class="server-setting-member-list-item server-setting-member-user">
+
+                            <div class="server-setting-member-user-info">
+                              <div
+                                class="server-setting-member-user-role member-icon-male member-icon-channel-server-manager">
+                              </div>
+                              <div class="server-setting-member-user-name">123</div>
+
+
+                            </div>
+                          </div>
+                          <div class="server-setting-member-list-item" data-key="30423"></div>
+                          <div class="server-setting-member-list-item">0</div>
+                          <div class="server-setting-member-list-item">2025-01-01</div>
+                        </div>
+                        <div class="server-setting-member-list-header-td">
+                          <div class="server-setting-member-list-item server-setting-member-user">
+
+                            <div class="server-setting-member-user-info">
+                              <div class="server-setting-member-user-role member-icon-male member-icon-member">
+                              </div>
+                              <div class="server-setting-member-user-name">123</div>
+
+
+                            </div>
+                          </div>
+                          <div class="server-setting-member-list-item" data-key="30027"></div>
+                          <div class="server-setting-member-list-item">0</div>
+                          <div class="server-setting-member-list-item">2025-01-01</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="server-setting-text" data-key="20103">右鍵可以進行處理</div>
+                  <div class="server-setting-user-operate-context-menu">
+                    <ul>
+                      <li data-key="30080">傳送即時訊息</li>
+                      <li data-key="30081">檢視個人檔案</li>
+                      <li data-key="30082">新增好友</li>
+                      <li data-key="30157">拒聽此人語音</li>
+                      <li data-key="30306">修改群名片</li>
+                      <div class="split"></div>
+                      <li data-key="30307">移至我的頻道</li>
+                      <div class="split"></div>
+                      <li data-key="30159">禁止此人語音</li>
+                      <li data-key="30286">禁止文字</li>
+                      <li data-key="30161">踢出群</li>
+                      <li data-key="30308">封鎖</li>
+                      <div class="split"></div>
+                      <li>
+                        <span data-key="30162">會員管理</span>
+                        <div class="server-user-operate-sub-menu">
+                          <ul>
+                            <li data-key="30151">設為頻道管理員</li>
+                            <li data-key="30153">設為群管理員</li>
+                            <li data-key="30155">設為會員</li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li data-key="30163">邀請成為會員</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -212,19 +370,6 @@
   <script type="text/javascript" src="../js/require.js"></script>
   <script type="text/javascript" src="../js/key.js"></script>
   <script type="text/javascript" src="../js/server_setting.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </body>

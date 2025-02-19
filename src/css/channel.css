@@ -235,7 +235,9 @@
 }
 
 .server-channel-user:hover,
-.server-channel-name:hover {
+.server-channel-name:hover,
+.server-user-operate-context-menu ul li:hover,
+.server-settings-context-menu ul li:hover {
   background-color: #d1d5da5c;
 }
 
@@ -859,11 +861,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.server-user-operate-context-menu ul li:hover,
-.server-settings-context-menu ul li:hover {
-  background-color: #d1d5da5c;
 }
 
 .server-settings-context-menu {

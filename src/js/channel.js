@@ -49,9 +49,21 @@ class Channel {
   // 顯示右鍵菜單
   showContextMenu(event) {
     event.preventDefault();
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const menuWidth = this.userOperateMenu.offsetWidth;
+    const menuHeight = this.userOperateMenu.offsetHeight;
+    let posX = event.pageX;
+    if (posX + menuWidth > windowWidth) {
+      posX = windowWidth - menuWidth - 10;
+    }
+    let posY = event.pageY;
+    if (posY + menuHeight > windowHeight) {
+      posY = windowHeight - menuHeight - 10;
+    }
     this.userOperateMenu.style.display = 'block';
-    this.userOperateMenu.style.left = `${event.pageX}px`;
-    this.userOperateMenu.style.top = `${event.pageY}px`;
+    this.userOperateMenu.style.left = `${posX}px`;
+    this.userOperateMenu.style.top = `${posY}px`;
   }
 
   // 顯示設定菜單
