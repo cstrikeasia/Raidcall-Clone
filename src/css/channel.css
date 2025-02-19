@@ -569,7 +569,7 @@
   font-size: 18px;
   max-width: 107px;
   color: #28a0da;
-  font-family: "Noto Sans TC", "å¾®è»Ÿæ­£é»‘é«”", sans-serif;
+  font-family: "Noto Sans TC", "Ã¥Â¾Â®Ã¨Â»Å¸Ã¦Â­Â£Ã©Â»â€˜Ã©Â«â€", sans-serif;
 }
 
 .server-mic-bkg {
@@ -974,7 +974,7 @@ li:has([data-key="30162"]):hover .server-user-operate-sub-menu {
   z-index: 1000;
   width: 125px;
   text-align: center;
-  left: 125px;
+  left: 144px;
   bottom: 0;
   display: none;
 }
