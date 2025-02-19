@@ -1,6 +1,6 @@
 .server-user-info-card {
   position: absolute;
-  background: white;
+  background: #f4f6fa;
   display: none;
   border-radius: 5px;
   z-index: 1000;

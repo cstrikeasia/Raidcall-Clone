@@ -569,7 +569,7 @@
   font-size: 18px;
   max-width: 107px;
   color: #28a0da;
-  font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
+  font-family: "Noto Sans TC", "å¾®è»Ÿæ­£é»‘é«”", sans-serif;
 }
 
 .server-mic-bkg {
@@ -844,7 +844,7 @@
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   z-index: 1000;
-  width: 125px;
+  min-width: 125px;
   text-align: center;
 }
 
@@ -855,7 +855,7 @@
 }
 
 .server-user-operate-context-menu ul li {
-  padding: 5px 5px;
+  padding: 5px 10px;
   cursor: pointer;
   font-size: 13px;
   display: flex;
