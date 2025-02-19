@@ -1,8 +1,11 @@
 .badge-icon {
-  margin-left: 2px;
+  margin-left: 3px;
+  width: auto;
+  display: flex;
 }
 
 .badge-icon img {
-  height: 21px;
-  width: 21px;
+  height: 15px;
+  width: 15px;
+  margin-right: 2;
 }
