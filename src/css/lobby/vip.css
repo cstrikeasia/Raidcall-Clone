@@ -3,24 +3,51 @@
   background-position: 0 0;
   height: 14px;
   width: 14px;
+  margin-right: 2;
 }
 
-.vip-1 {
+.vip-icon.vip-1 {
   background-position: 0 0;
 }
 
-.vip-2 {
+.vip-icon.vip-2 {
   background-position: -14px 0;
 }
 
-.vip-3 {
+.vip-icon.vip-3 {
   background-position: -28px 0;
 }
 
-.vip-4 {
+.vip-icon.vip-4 {
   background-position: -42px 0;
 }
 
-.vip-5 {
+.vip-icon.vip-5 {
   background-position: -56px 0;
+}
+
+.vip-icon-big {
+  height: 14px;
+  width: 55px;
+  margin-right: 2;
+}
+
+.vip-icon-big.vip-1 {
+  background: url(../../image/channel/icon_vip1.gif) no-repeat center center;
+}
+
+.vip-icon-big.vip-2 {
+  background: url(../../image/channel/icon_vip2.gif) no-repeat center center;
+}
+
+.vip-icon-big.vip-3 {
+  background: url(../../image/channel/icon_vip3.gif) no-repeat center center;
+}
+
+.vip-icon-big.vip-4 {
+  background: url(../../image/channel/icon_vip4.gif) no-repeat center center;
+}
+
+.vip-icon-big.vip-5 {
+  background: url(../../image/channel/icon_vip5.gif) no-repeat center center;
 }

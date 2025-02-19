@@ -1,0 +1,140 @@
+.server-user-info-card {
+  position: absolute;
+  background: white;
+  display: none;
+  border-radius: 5px;
+  z-index: 1000;
+  height: 190px;
+  width: 275px;
+  border: 1px solid #e0e0e4;
+}
+
+.user-info-card-vip-1 {
+  background: url(../image/channel/ucard_vip1_bg.png) no-repeat center center;
+  border: 1px solid #ffffff00;
+}
+
+.user-info-card-vip-2 {
+  background: url(../image/channel/ucard_vip2_bg.png) no-repeat center center;
+  border: 1px solid #ffffff00;
+}
+
+.user-info-card-vip-3 {
+  background: url(../image/channel/ucard_vip3_bg.png) no-repeat center center;
+  border: 1px solid #ffffff00;
+}
+
+.user-info-card-vip-4 {
+  background: url(../image/channel/ucard_vip4_bg.png) no-repeat center center;
+  border: 1px solid #ffffff00;
+}
+
+.user-info-card-vip-5 {
+  background: url(../image/channel/ucard_vip5_bg.png) no-repeat center center;
+  border: 1px solid #ffffff00;
+}
+
+.server-user-info-picture {
+  height: 98px;
+  width: 98px;
+  position: absolute;
+  left: 12px;
+  top: 11px;
+  background: url(../image/im/IMLogo.png) no-repeat center center;
+  background-size: cover;
+}
+
+.server-user-info-right {
+  height: 100%;
+  width: 100%;
+}
+
+.server-user-info-right {
+  height: 98px;
+  width: 145px;
+  position: absolute;
+  left: 120px;
+  top: 11px;
+}
+
+.serevr-user-info-name {
+  margin-bottom: 3px;
+  font-size: 13px;
+  color: #1e667c;
+}
+
+.server-user-info-right .level-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.server-user-info-vip-text {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+.server-user-info-header {
+  height: 100%;
+  width: 100%;
+}
+
+.server-user-info-body {
+  height: 30px;
+  width: 100%;
+  position: absolute;
+  bottom: 45px;
+  display: flex;
+  align-items: center;
+}
+
+.server-user-info-body .server-channel-user-role {
+  margin-left: 10px;
+}
+
+.server-user-info-role-text:before {
+  content: "[";
+}
+
+.server-user-info-role-text:after {
+  content: "]";
+}
+
+.server-user-info-role-text {
+  color: #25476a;
+  font-size: 12px;
+}
+
+.split-r {
+  background: url(../image/channel/icon_v_split.png) no-repeat center center;
+  height: 18px;
+  width: 15px;
+  background-size: auto;
+}
+
+.server-user-info-contribution-text {
+  font-size: 12px;
+}
+
+.server-user-info-contribution-number {
+  font-size: 13px;
+  color: #777777;
+  margin-left: 4px;
+}
+
+.server-user-info-badges {
+  position: absolute;
+  bottom: -41px;
+  height: 20px;
+  width: 20px;
+  left: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.server-user-info-badges img {
+  height: 20px;
+  width: 20px;
+  margin-right: 3px;
+}
