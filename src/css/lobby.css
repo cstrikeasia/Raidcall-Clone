@@ -520,15 +520,26 @@ header {
 }
 
 .tab-item.selected::before {
-  left: -16px;
-  clip-path: inset(50% -10px 0 50%);
-  top: 12px;
+  left: -4px;
+  top: 1px;
 }
 
 .tab-item.selected::after {
-  right: -16px;
-  clip-path: inset(50% 50% 0 -10px);
-  top: 12px;
+  right: -3px;
+  top: 1px;
+}
+
+.tab-item::before,
+.tab-item::after {
+  background: url(../image/tab_item_mainframe.png) no-repeat center center;
+  background-size: cover;
+}
+.tab-item::before {
+  background-position: 0 -30px;
+}
+
+.tab-item::after {
+  background-position: -10px -30px;
 }
 
 .tab-item.selected::before,
@@ -536,10 +547,9 @@ header {
   position: absolute;
   bottom: 0;
   content: "";
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 60px;
   border-radius: 100%;
-  box-shadow: 0 0 0 40px #ffffff;
 }
 
 .tab-item {
@@ -858,6 +868,7 @@ div[data-tab="server"] .tab-bg:after {
   transform: translateY(-25%);
   cursor: pointer;
   background-color: #ffffff54;
+  z-index: 1;
 }
 
 .selected .tab-close {
