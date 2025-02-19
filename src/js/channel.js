@@ -60,11 +60,6 @@ class Channel {
       });
     });
 
-    this.userVipIcon.forEach((user) => {
-      user.addEventListener('mouseenter', (event) => this.showUserInfo(event, user));
-      user.addEventListener('mouseleave', () => this.hideUserInfo());
-    });
-
     this.settingsButton.addEventListener('click', (event) => {
       event.stopPropagation();
       this.openSettingMenu();
