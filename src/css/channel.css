@@ -376,6 +376,7 @@
 .server-channel-user-name {
   font-size: 14px;
   color: #777777;
+  margin-right: 5px;
 }
 
 .server-channel-user-name.set-channel-name {

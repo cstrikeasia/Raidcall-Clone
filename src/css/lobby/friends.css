@@ -377,15 +377,6 @@
   background-position: 0 0;
 }
 
-.friends-header-friends-header-base-info-levels {
-  width: 15px;
-  height: 15px;
-  background: url(../../image/usergrade.png) no-repeat center center;
-  background-size: auto;
-  background-position: 0 0;
-  cursor: pointer;
-}
-
 .friends-header-base-info-weath {
   width: 16px;
   height: 16px;
@@ -402,14 +393,11 @@
   font-size: 13px;
 }
 
-.friends-header-base-info-vip {
+.vip-icon.friends-vip {
   width: 14px;
   height: 14px;
-  background: url(../../image/channel/vip_icons.png) no-repeat center;
-  background-size: cover;
   border: none;
   cursor: pointer;
-  background-position: 0 0;
   margin-left: 2rem;
 }
 

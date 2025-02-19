@@ -153,7 +153,8 @@ header {
   background: url(../image/pic_ok.png) no-repeat center center;
 }
 
-.confirmed {
+.confirmed,
+.cancel {
   margin-right: 5px;
   border: 1px solid #dbdde0;
   width: auto;
@@ -251,7 +252,7 @@ input {
   width: 100%;
 }
 
-.server-setting-slogen-wrapper {
+.server-setting-slogen {
   margin-right: 8px;
   height: auto;
   width: 100%;
@@ -261,23 +262,21 @@ input {
   align-items: stretch;
 }
 
-.server-setting-slogen-wrapper .server-setting-input {
+.server-setting-about .server-setting-input,
+.server-setting-slogen .server-setting-input {
   width: 100%;
 }
 
 .server-setting-page-item {
   display: flex;
-  margin-bottom: 5px;
-}
-
-.server-setting-item-1 {
+  align-items: center;
 }
 
 .server-setting-item-wrapper {
   display: flex;
 }
 
-.server-setting-picture-wrapper {
+.server-setting-picture-box {
   height: 100%;
   width: 100%;
   display: flex;
@@ -372,11 +371,12 @@ select {
   margin-left: 5px;
 }
 
-.server-setting-select-wrapper {
+.server-setting-select-box {
   display: flex;
   align-items: center;
 }
 
+.server-setting-copy-text,
 .server-setting-type-text {
   color: #3a91d0;
   margin-left: 25px;
@@ -394,4 +394,28 @@ select {
   background: url(../image/golden_pea.png);
   background-size: cover;
   margin-left: 3px;
+}
+
+.server-setting-url {
+  font-size: 12px;
+}
+
+.server-setting-copy-text {
+  margin-left: 0;
+}
+
+.server-setting-about,
+.server-setting-page-item,
+.servet-setting-item-box {
+  width: 100%;
+}
+
+.server-setting-about .server-setting-input {
+  height: 40px;
+}
+
+.server-setting-copy-text[data-key="20241"],
+.server-setting-copy-text[data-key="20242"] {
+  margin-top: 5px;
+  color: #10469e;
 }

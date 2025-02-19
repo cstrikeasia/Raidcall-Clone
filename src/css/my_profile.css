@@ -227,15 +227,6 @@ header {
   width: 99px;
 }
 
-.profile-header-level {
-  width: 15px;
-  height: 15px;
-  background: url(../image/usergrade.png) no-repeat center center;
-  background-size: auto;
-  background-position: 0 0;
-  cursor: pointer;
-}
-
 .profile-header-base-info-weath {
   width: 16px;
   height: 16px;
