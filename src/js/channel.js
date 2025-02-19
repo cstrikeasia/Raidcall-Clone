@@ -1,7 +1,8 @@
 class Channel {
   constructor() {
     this.userOperateMenu = document.querySelector('.server-user-operate-context-menu');
-    this.users = document.querySelectorAll('.server-channel-user-info .vip-icon');
+    this.users = document.querySelectorAll('.server-channel-user-info ');
+    this.userVipIcon = document.querySelectorAll('.server-channel-user-info .vip-icon');
     this.userInfoCard = document.querySelector('.server-user-info-card');
     this.badge = document.querySelectorAll('.server-channel-user-info .badge-icon img');
     this.badgeCard = document.querySelector('.server-badge-card');
@@ -21,7 +22,7 @@ class Channel {
 
   // 初始化事件
   initEvents() {
-    this.users.forEach((user) => {
+    this.userVipIcon.forEach((user) => {
       user.addEventListener('mouseenter', (event) => this.showCardInfo(event, this.userInfoCard));
       user.addEventListener('mouseleave', () => this.hideCardInfoWithDelay(this.userInfoCard));
     });
@@ -49,6 +50,23 @@ class Channel {
     this.badgeCard.addEventListener('mouseleave', () => {
       this.isHoveringCard[this.badgeCard.classList[0]] = false;
       this.hideCardInfo(this.badgeCard);
+    });
+
+    this.users.forEach((user) => {
+      user.addEventListener('contextmenu', (event) => {
+        console.log(true);
+        this.showContextMenu(event);
+      });
+    });
+
+    this.userVipIcon.forEach((user) => {
+      user.addEventListener('mouseenter', (event) => this.showUserInfo(event, user));
+      user.addEventListener('mouseleave', () => this.hideUserInfo());
+    });
+
+    this.settingsButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      this.openSettingMenu();
     });
 
     this.memberGroupChat.addEventListener('click', (event) => {
