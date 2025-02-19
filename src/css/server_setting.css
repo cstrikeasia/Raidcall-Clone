@@ -273,7 +273,7 @@ input {
 .server-setting-item-1 {
 }
 
-.server-setting-item-contain {
+.server-setting-item-wrapper {
   display: flex;
 }
 
@@ -355,7 +355,7 @@ select {
   pointer-events: none;
 }
 
-.server-setting-name-wrapper {
+.server-setting-item-contain {
   margin: 5;
   display: flex;
   flex-direction: column;
