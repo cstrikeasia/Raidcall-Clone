@@ -26,16 +26,16 @@
 
         <div class="server-setting-left">
           <div class="server-setting-tabs-wrapper">
-            <div class="server-setting-tab" for="basic" data-key="20105">基本資料</div>
+            <div class="server-setting-tab active" for="basic" data-key="20105">基本資料</div>
             <div class="server-setting-tab" for="notify" data-key="20195">公告</div>
-            <div class="server-setting-tab active" for="member_management" data-key="20107">會員管理</div>
+            <div class="server-setting-tab" for="member_management" data-key="20107">會員管理</div>
             <div class="server-setting-tab" for="access_permission" data-key="20073">訪問許可權</div>
             <div class="server-setting-tab" for="member_application_management" data-key="20108">會員申請管理</div>
             <div class="server-setting-tab" for="block_management" data-key="20144">黑名單管理</div>
           </div>
         </div>
         <div class="server-setting-right">
-          <div class="server-setting-page" data-page="basic" style="display: none;">
+          <div class="server-setting-page" data-page="basic" style="display: block;">
             <div class="server-setting-page-wrapper">
               <div class="server-setting-item-wrapper">
                 <div class="servet-setting-item-box">
@@ -206,7 +206,7 @@
               </div>
             </div>
           </div>
-          <div class="server-setting-page" data-page="member_management" style="display: block;">
+          <div class="server-setting-page" data-page="member_management">
             <div class="server-setting-page-wrapper">
               <div class="server-setting-item-wrapper">
                 <div class="server-setting-member-management-header">
@@ -371,6 +371,48 @@
                     </ul>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="server-setting-page" data-page="access_permission">
+            <div class="server-setting-page-wrapper">
+              <div class="server-setting-item-wrapper">
+                <div class="server-setting-access-permission-header">
+                  <div class="server-setting-access-permission-title">訪問許可權</div>
+                  <div class="server-setting-access-permission-split"></div>
+                </div>
+                <div class="server-setting-access-permission-body disabled">
+                  <div class="server-setting-access-permission-radiobox-contain">
+                    <label class="server-setting-access-permission-radiobox-box">
+                      <input type="radio" name="access_permission public"
+                        class="server-setting-access-permission-radiobox">
+                      <span class="server-setting-access-permission-radiobox-text">公開群</span>
+                    </label>
+                  </div>
+                  <label class="server-setting-access-permission-radiobox-contain">
+                    <div class="server-setting-access-permission-radiobox-box">
+                      <input type="radio" name="access_permission half-public"
+                        class="server-setting-access-permission-radiobox">
+                      <span class="server-setting-access-permission-radiobox-text">半公開群</span>
+                    </div>
+                    <div class="server-setting-access-permission-radiobox-text">(非會員只允許進入大廳)</div>
+                  </label>
+                  <label class="server-setting-access-permission-radiobox-contain">
+                    <div class="server-setting-access-permission-radiobox-box">
+                      <input type="radio" name="access_permission private"
+                        class="server-setting-access-permission-radiobox">
+                      <span class="server-setting-access-permission-radiobox-text">私密群</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="server-setting-page" data-page="notify">
+            <div class="server-setting-page-wrapper">
+              <div class="server-setting-item-wrapper">
+                <div class="server-setting-notify-textarea-box"><textarea
+                    class="server-setting-notify-textarea">123</textarea></div>
               </div>
             </div>
           </div>
