@@ -3,7 +3,7 @@ class Channel {
     this.userOperateMenu = document.querySelector('.server-user-operate-context-menu');
     this.users = document.querySelectorAll('.server-channel-user-info .vip-icon');
     this.userInfoCard = document.querySelector('.server-user-info-card');
-    this.badge = document.querySelectorAll('.badge-icon img');
+    this.badge = document.querySelectorAll('.server-channel-user-info .badge-icon img');
     this.badgeCard = document.querySelector('.server-badge-card');
 
     this.settingsButton = document.querySelector('.server-settings');
