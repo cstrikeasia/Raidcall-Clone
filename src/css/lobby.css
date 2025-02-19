@@ -499,7 +499,6 @@ header {
 #MainTab {
   display: flex;
   cursor: pointer;
-  width: auto;
   height: auto;
   -webkit-app-region: no-drag;
   max-width: 450px;
