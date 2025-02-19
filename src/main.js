@@ -86,7 +86,7 @@ function createLobbyWindow() {
     return LobbyWindow.focus();
   }
   LobbyWindow = new BrowserWindow({
-    title: 'Raidcall Lobby',
+    title: 'Raidcall',
     width: 1370,
     height: 800,
     minWidth: 1030,
@@ -170,7 +170,7 @@ function createProfileWindow() {
     return;
   }
   profileWindow = new BrowserWindow({
-    title: 'Raidcall Pop',
+    title: 'Raidcall Profile',
     width: 500,
     height: 650,
     parent: LoginWindow,
