@@ -3,6 +3,8 @@ class Channel {
     this.userOperateMenu = document.querySelector('.server-user-operate-context-menu');
     this.users = document.querySelectorAll('.server-channel-user-info .vip-icon');
     this.userInfoCard = document.querySelector('.server-user-info-card');
+    this.badge = document.querySelectorAll('.badge-icon img');
+    this.badgeCard = document.querySelector('.server-badge-card');
 
     this.settingsButton = document.querySelector('.server-settings');
     this.settingsMenu = document.querySelector('.server-settings-context-menu');
@@ -11,8 +13,8 @@ class Channel {
 
     this.serverPictureWrapper = document.querySelector('.server-picture-wrapper');
 
-    this.isHoveringUser = false;
-    this.isHoveringCard = false;
+    this.isHoveringUser = {};
+    this.isHoveringCard = {};
 
     this.initEvents();
   }
@@ -20,18 +22,33 @@ class Channel {
   // 初始化事件
   initEvents() {
     this.users.forEach((user) => {
-      user.addEventListener('mouseenter', (event) => this.showUserInfo(event));
-      user.addEventListener('mouseleave', () => this.hideUserInfoWithDelay());
+      user.addEventListener('mouseenter', (event) => this.showCardInfo(event, this.userInfoCard));
+      user.addEventListener('mouseleave', () => this.hideCardInfoWithDelay(this.userInfoCard));
+    });
+
+    this.badge.forEach((user) => {
+      user.addEventListener('mouseenter', (event) => this.showCardInfo(event, this.badgeCard));
+      user.addEventListener('mouseleave', () => this.hideCardInfoWithDelay(this.badgeCard));
     });
 
     this.userInfoCard.addEventListener('mouseenter', () => {
-      this.isHoveringCard = true;
+      this.isHoveringCard[this.userInfoCard.classList[0]] = true;
       clearTimeout(this.hideTimeout);
     });
 
     this.userInfoCard.addEventListener('mouseleave', () => {
-      this.isHoveringCard = false;
-      this.hideUserInfo();
+      this.isHoveringCard[this.userInfoCard.classList[0]] = false;
+      this.hideCardInfo(this.userInfoCard);
+    });
+
+    this.badgeCard.addEventListener('mouseenter', () => {
+      this.isHoveringCard[this.badgeCard.classList[0]] = true;
+      clearTimeout(this.hideTimeout);
+    });
+
+    this.badgeCard.addEventListener('mouseleave', () => {
+      this.isHoveringCard[this.badgeCard.classList[0]] = false;
+      this.hideCardInfo(this.badgeCard);
     });
 
     this.memberGroupChat.addEventListener('click', (event) => {
@@ -45,7 +62,6 @@ class Channel {
     });
 
     document.addEventListener('click', (event) => {
-      console.log(this.settingsMenu);
       if (this.userOperateMenu && !this.userOperateMenu.contains(event.target)) {
         this.userOperateMenu.style.display = 'none';
       }
@@ -82,8 +98,9 @@ class Channel {
   }
 
   // 顯示資訊卡
-  showUserInfo(event) {
-    this.isHoveringUser = true;
+  showCardInfo(event, element) {
+    const className = element.classList[0];
+    this.isHoveringUser[className] = true;
     clearTimeout(this.hideTimeout);
     const mouseX = event.pageX;
     const mouseY = event.pageY;
@@ -93,34 +110,36 @@ class Channel {
     let posY = mouseY + offsetY;
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
-    const cardWidth = this.userInfoCard.offsetWidth;
-    const cardHeight = this.userInfoCard.offsetHeight;
+    const cardWidth = element.offsetWidth;
+    const cardHeight = element.offsetHeight;
     if (posX + cardWidth > windowWidth) {
       posX = mouseX - cardWidth - offsetX;
     }
     if (posY + cardHeight > windowHeight) {
       posY = windowHeight - cardHeight - offsetY;
     }
-    this.userInfoCard.style.left = `${posX}px`;
-    this.userInfoCard.style.top = `${posY}px`;
-    this.userInfoCard.style.display = 'block';
+    element.style.left = `${posX}px`;
+    element.style.top = `${posY}px`;
+    element.style.display = 'block';
   }
 
   // 滑鼠離開使用者時設定延遲隱藏
-  hideUserInfoWithDelay() {
-    this.isHoveringUser = false;
+  hideCardInfoWithDelay(element) {
+    const className = element.classList[0];
+    this.isHoveringUser[className] = false;
     this.hideTimeout = setTimeout(() => {
-      if (!this.isHoveringUser && !this.isHoveringCard) {
-        this.userInfoCard.style.display = 'none';
+      if (!this.isHoveringUser[className] && !this.isHoveringCard[className]) {
+        element.style.display = 'none';
       }
     }, 200);
   }
 
   // **滑鼠離開資訊卡時隱藏
-  hideUserInfo() {
-    this.isHoveringCard = false;
-    if (!this.isHoveringUser) {
-      this.userInfoCard.style.display = 'none';
+  hideCardInfo(element) {
+    const className = element.classList[0];
+    this.isHoveringCard[className] = false;
+    if (!this.isHoveringUser[className]) {
+      element.style.display = 'none';
     }
   }
 }
