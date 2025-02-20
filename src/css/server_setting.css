@@ -924,7 +924,7 @@ div[data-page="notify"] .server-setting-item-wrapper {
   .server-setting-member-list-header-th:nth-child(2) {
   width: auto;
   max-width: 90px;
-  min-width: 50px;
+  min-width: 90px;
 }
 
 .server-setting-member-application-management-body
@@ -932,7 +932,7 @@ div[data-page="notify"] .server-setting-item-wrapper {
 .server-setting-member-application-management-body
   .server-setting-member-list-header-th:nth-child(3) {
   width: auto;
-  min-width: 210px;
+  min-width: 170px;
 }
 
 .server-setting-member-application-management-body
