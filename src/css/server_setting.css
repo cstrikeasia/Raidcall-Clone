@@ -255,7 +255,6 @@ header {
 }
 
 .server-setting-input-border {
-  display: flex;
   border: 1px solid #ddd;
   padding-top: 0;
   padding-bottom: 0;
@@ -376,7 +375,6 @@ select {
 .server-setting-input-border {
   position: relative;
   display: inline-block;
-  /* width: 100%; */
 }
 
 .server-setting-select-drop-down-icon {
