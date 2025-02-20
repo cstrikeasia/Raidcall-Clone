@@ -325,9 +325,10 @@ input {
   margin-bottom: 5px;
 }
 
+.server-setting-notify-preview-button,
 .server-setting-change-picture-button {
   text-align: center;
-  height: 27px;
+  height: 24px;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -337,6 +338,7 @@ input {
   width: auto;
   border-radius: 5px;
   background: #fff;
+  min-width: 60px;
 }
 
 .server-setting-change-picture-button:hover {
@@ -484,7 +486,8 @@ div[data-page="block_management"] .server-setting-item-wrapper {
 
 .server-setting-member-application-management-header,
 .server-setting-member-management-header,
-.server-setting-block-management-header {
+.server-setting-block-management-header,
+.server-setting-notify-header {
   display: flex;
   align-items: center;
 }
@@ -492,7 +495,8 @@ div[data-page="block_management"] .server-setting-item-wrapper {
 div[data-page="member_application_management"]
   .server-setting-member-application-management-header,
 div[data-page="member_management"] .server-setting-member-management-header,
-div[data-page="block_management"] .server-setting-block-management-header {
+div[data-page="block_management"] .server-setting-block-management-header,
+div[data-page="notify"] .server-setting-notify-header {
   justify-content: space-between;
   width: 100%;
   margin-top: 5;
@@ -501,9 +505,11 @@ div[data-page="block_management"] .server-setting-block-management-header {
 
 div[data-key="20109"],
 div[data-key="20110"],
-div[data-key="50140"] {
+div[data-key="50140"],
+div[data-key="20101"] {
   margin-left: 20px;
   padding: 0;
+  max-width: 250px;
 }
 
 .server-setting-member-search-border {
@@ -892,7 +898,7 @@ input[type="radio"]:hover {
 }
 
 .server-setting-notify-textarea {
-  width: 100%;
+  width: 97%;
   display: block;
   outline: none;
   background: #ffffff;
@@ -902,11 +908,16 @@ input[type="radio"]:hover {
   font-size: 15px;
   margin: 5px;
   border: 1px solid #e0e0e4;
-  height: 405px;
+  height: 330px;
+}
+
+.server-setting-notify-preview-button {
+  margin-right: 15px;
 }
 
 div[data-page="notify"] .server-setting-item-wrapper {
   align-items: center;
+  flex-direction: column;
 }
 
 .server-setting-member-application-management-body
@@ -950,4 +961,8 @@ div[data-key="50140"]:after {
 
 .server-setting-block-management-number-box {
   display: flex;
+}
+
+.server-setting-text.markdown-title {
+  width: 95%;
 }
