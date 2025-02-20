@@ -168,6 +168,7 @@ header {
   justify-content: center;
   cursor: pointer;
   background: url(../image/im/btn-sliver.png) no-repeat center center;
+  max-width: 78px;
 }
 
 .change-group-name-account-item:first-child {
@@ -221,9 +222,4 @@ header {
 
 .change-group-name-account-box {
   display: flex;
-}
-
-.change-group-name-href {
-  margin-right: 45px;
-  color: #0f19a9;
 }

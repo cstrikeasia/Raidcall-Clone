@@ -167,6 +167,7 @@ header {
   cursor: pointer;
   background: url(../image/im/btn-sliver.png) no-repeat center center;
   margin-left: 15px;
+  max-width: 78px;
 }
 
 .apply-member-picture {

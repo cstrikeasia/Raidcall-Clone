@@ -365,8 +365,8 @@
 
 .server-channel-user-role {
   height: 15px;
-  width: 15px;
   margin-right: 2px;
+  min-width: 15px;
 }
 
 .server-channel-user-info {
@@ -375,10 +375,18 @@
   flex-direction: row;
 }
 
+.server-channel-mic-queue-users .server-channel-user-name {
+  max-width: 100px;
+}
+
 .server-channel-user-name {
   font-size: 14px;
   color: #777777;
   margin-right: 5px;
+  max-width: 145px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .server-channel-user-name.set-channel-name {
@@ -819,9 +827,9 @@
   content: "";
   background-size: cover;
   height: 12px;
-  width: 12px;
   display: block;
   margin-right: 5px;
+  min-width: 12px;
 }
 
 .server-chat-system-msg.msg-nt-notify:before {
@@ -870,11 +878,12 @@
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   z-index: 1000;
-  width: 125px;
+  width: auto;
   text-align: center;
   top: 22px;
   left: 30px;
   display: none;
+  min-width: 125px;
 }
 
 .server-settings-context-menu ul {
@@ -888,6 +897,8 @@
   cursor: pointer;
   font-size: 13px;
   display: flex;
+  text-align: start;
+  align-items: center;
 }
 
 .server-settings-context-menu li:before {
@@ -896,7 +907,8 @@
   height: 16px;
   background-size: cover;
   display: block;
-  margin-right: 3px;
+  margin-right: 5px;
+  min-width: 20px;
 }
 
 .split {

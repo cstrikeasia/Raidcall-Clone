@@ -61,6 +61,10 @@
   margin-bottom: 3px;
   font-size: 13px;
   color: #1e667c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
 }
 
 .server-user-info-right .level-icon {

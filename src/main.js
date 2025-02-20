@@ -133,7 +133,7 @@ function createPopWindow(data, height, width, type, resize) {
     frame: false,
     transparent: true,
     resizable: resize || false,
-    icon: path.join(__dirname, 'raidcall.ico'),
+    icon: 'raidcall.ico',
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,

@@ -17,6 +17,7 @@ class ServerSetting {
   initEvents() {
     this.closeBtn.addEventListener('click', () => this.closeWindow());
     this.confirmedBtn.addEventListener('click', () => this.closeWindow());
+    window.addEventListener('storage', () => StoreModule.initLanguage());
     this.users.forEach((user) => {
       user.addEventListener('contextmenu', (event) => this.showContextMenu(event));
     });

@@ -187,6 +187,7 @@ header {
   justify-content: center;
   cursor: pointer;
   background: url(../image/im/btn-sliver.png) no-repeat center center;
+  max-width: 78px;
 }
 
 .invitation-friend-box {
@@ -236,6 +237,7 @@ header {
   background: url(../image/im/btn-sliver.png) no-repeat center center;
   background-size: cover;
   background-position: 0 0;
+  max-width: 78px;
 }
 
 .invitation-friend-button:hover {

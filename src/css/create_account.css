@@ -143,6 +143,7 @@ header {
   justify-content: center;
   cursor: pointer;
   background: url(../image/im/btn-sliver.png) no-repeat center center;
+  max-width: 78px;
 }
 
 .dialog-body {

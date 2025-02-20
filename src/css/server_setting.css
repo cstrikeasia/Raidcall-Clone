@@ -176,7 +176,7 @@ header {
   margin-right: 5px;
   border: 1px solid #dbdde0;
   width: auto;
-  min-width: 76px;
+  min-width: 78px;
   border-radius: 5px;
   text-align: center;
   font-size: 13px;
@@ -186,6 +186,7 @@ header {
   justify-content: center;
   cursor: pointer;
   background: url(../image/im/btn-sliver.png) no-repeat center center;
+  max-width: 78px;
 }
 
 .server-setting-left {
@@ -205,7 +206,8 @@ header {
 }
 
 .server-setting-tab {
-  height: 28px;
+  height: auto;
+  min-height: 28px;
   width: 100%;
   text-align: center;
   display: flex;
@@ -332,6 +334,7 @@ input {
   cursor: pointer;
   background: url(../image/im/btn-sliver.png) no-repeat center center;
   background-position: 0 0;
+  max-width: 78px;
 }
 
 .server-setting-change-picture-button:hover {
@@ -452,6 +455,7 @@ select {
 .server-setting-copy-text[data-key="20242"] {
   margin-top: 5px;
   color: #10469e;
+  text-decoration: underline;
 }
 
 div[data-page="member_management"] .server-setting-item-wrapper {
@@ -617,8 +621,10 @@ div[data-key="20103"] {
 .server-setting-member-list-item:first-child {
   border-left: 0;
 }
+
 .server-setting-member-list-item {
-  height: 25px;
+  min-height: 25px;
+  height: 100%;
   width: 100%;
   border: 1px solid #ccc;
   border-right: 0;
@@ -626,6 +632,33 @@ div[data-key="20103"] {
   padding-left: 5;
   display: flex;
   align-items: center;
+}
+
+.server-setting-member-list-item:nth-child(1),
+.server-setting-member-list-header-th:nth-child(1) {
+  width: auto;
+  max-width: 105px;
+  min-width: 105px;
+}
+
+.server-setting-member-list-item:nth-child(2),
+.server-setting-member-list-header-th:nth-child(2) {
+  width: auto;
+  max-width: 162px;
+  min-width: 162px;
+}
+
+.server-setting-member-list-item:nth-child(3),
+.server-setting-member-list-header-th:nth-child(3) {
+  width: auto;
+  max-width: 90px;
+  min-width: 50px;
+}
+
+.server-setting-member-list-item:nth-child(4),
+.server-setting-member-list-header-th:nth-child(4) {
+  width: auto;
+  min-width: 75px;
 }
 
 .server-setting-member-user-info {
@@ -649,6 +682,10 @@ div[data-key="20103"] {
 
 .server-setting-member-user-name {
   color: #777777;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80px;
 }
 
 .server-setting-member-search-icon {

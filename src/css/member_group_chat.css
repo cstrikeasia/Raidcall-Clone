@@ -196,15 +196,16 @@ header {
 
 .member-group-chat-left-header-left {
   display: flex;
+  align-items: center;
 }
 
 .member-group-chat-left-header-search {
   background: url(../image/channel/search.png) no-repeat center center;
   background-position: 0 0;
   height: 16px;
-  width: 16px;
   margin-right: 8px;
   cursor: pointer;
+  min-width: 16px;
 }
 
 .member-group-bottom .member-group-user {
@@ -227,6 +228,10 @@ header {
 
 .member-group-user-name.set-channel-name {
   color: #6e849b;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .member-group-user {
@@ -418,9 +423,9 @@ header {
   content: "";
   background-size: cover;
   height: 12px;
-  width: 12px;
   display: block;
   margin-right: 5px;
+  min-width: 12px;
 }
 
 .member-group-text-area div {
