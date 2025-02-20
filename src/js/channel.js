@@ -124,8 +124,8 @@ class Channel {
     this.badgeCard.style.display = 'none';
     const mouseX = event.pageX;
     const mouseY = event.pageY;
-    const offsetX = 3;
-    const offsetY = 3;
+    const offsetX = 5;
+    const offsetY = 5;
     let posX = mouseX + offsetX;
     let posY = mouseY + offsetY;
     const windowWidth = window.innerWidth;
