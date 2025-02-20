@@ -247,7 +247,8 @@ header {
 .server-setting-page[data-page="basic"],
 .server-setting-page[data-page="member_management"],
 .server-setting-page[data-page="access_permission"],
-.server-setting-page[data-page="notify"] {
+.server-setting-page[data-page="notify"],
+.server-setting-page[data-page="member_application_management"] {
   display: none;
 }
 
@@ -452,12 +453,18 @@ select {
 }
 
 .server-setting-copy-text[data-key="20241"],
-.server-setting-copy-text[data-key="20242"] {
+.server-setting-copy-text[data-key="20242"],
+div[data-key="20198"] {
   margin-top: 5px;
   color: #10469e;
   text-decoration: underline;
 }
 
+div[data-key="20198"] {
+  margin-right: 15px;
+}
+
+div[data-page="member_application_management"] .server-setting-item-wrapper,
 div[data-page="member_management"] .server-setting-item-wrapper {
   height: 45px;
   align-items: center;
@@ -470,11 +477,14 @@ div[data-page="member_management"] .server-setting-item-wrapper {
   margin-right: 15px;
 }
 
+.server-setting-member-application-management-header,
 .server-setting-member-management-header {
   display: flex;
   align-items: center;
 }
 
+div[data-page="member_application_management"]
+  .server-setting-member-application-management-header,
 div[data-page="member_management"] .server-setting-member-management-header {
   justify-content: space-between;
   width: 100%;
@@ -482,6 +492,7 @@ div[data-page="member_management"] .server-setting-member-management-header {
   height: 35px;
 }
 
+div[data-key="20109"],
 div[data-key="20110"] {
   margin-left: 20px;
   padding: 0;
@@ -544,6 +555,7 @@ input:focus {
   cursor: pointer;
 }
 
+.server-setting-member-application-management-body,
 .server-setting-member-management-body {
   height: auto;
   width: auto;
@@ -634,29 +646,37 @@ div[data-key="20103"] {
   align-items: center;
 }
 
-.server-setting-member-list-item:nth-child(1),
-.server-setting-member-list-header-th:nth-child(1) {
+.server-setting-member-management-body
+  .server-setting-member-list-item:nth-child(1),
+.server-setting-member-management-body
+  .server-setting-member-list-header-th:nth-child(1) {
   width: auto;
   max-width: 105px;
   min-width: 105px;
 }
 
-.server-setting-member-list-item:nth-child(2),
-.server-setting-member-list-header-th:nth-child(2) {
+.server-setting-member-management-body
+  .server-setting-member-list-item:nth-child(2),
+.server-setting-member-management-body
+  .server-setting-member-list-header-th:nth-child(2) {
   width: auto;
   max-width: 162px;
   min-width: 162px;
 }
 
-.server-setting-member-list-item:nth-child(3),
-.server-setting-member-list-header-th:nth-child(3) {
+.server-setting-member-management-body
+  .server-setting-member-list-item:nth-child(3),
+.server-setting-member-management-body
+  .server-setting-member-list-header-th:nth-child(3) {
   width: auto;
   max-width: 90px;
   min-width: 50px;
 }
 
-.server-setting-member-list-item:nth-child(4),
-.server-setting-member-list-header-th:nth-child(4) {
+.server-setting-member-management-body
+  .server-setting-member-list-item:nth-child(4),
+.server-setting-member-management-body
+  .server-setting-member-list-header-th:nth-child(4) {
   width: auto;
   min-width: 75px;
 }
@@ -878,4 +898,39 @@ input[type="radio"]:hover {
 
 div[data-page="notify"] .server-setting-item-wrapper {
   align-items: center;
+}
+
+.server-setting-member-application-management-body
+  .server-setting-member-list-item:nth-child(1),
+.server-setting-member-application-management-body
+  .server-setting-member-list-header-th:nth-child(1) {
+  width: auto;
+  max-width: 95px;
+  min-width: 138px;
+}
+
+.server-setting-member-application-management-body
+  .server-setting-member-list-item:nth-child(2),
+.server-setting-member-application-management-body
+  .server-setting-member-list-header-th:nth-child(2) {
+  width: auto;
+  max-width: 90px;
+  min-width: 50px;
+}
+
+.server-setting-member-application-management-body
+  .server-setting-member-list-item:nth-child(3),
+.server-setting-member-application-management-body
+  .server-setting-member-list-header-th:nth-child(3) {
+  width: auto;
+  min-width: 210px;
+}
+
+.server-setting-member-application-management-body
+  .server-setting-member-list-item:nth-child(4),
+.server-setting-member-application-management-body
+  .server-setting-member-list-header-th:nth-child(4) {
+  width: auto;
+  max-width: 162px;
+  min-width: 162px;
 }
