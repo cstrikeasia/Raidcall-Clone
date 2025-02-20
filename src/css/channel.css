@@ -109,6 +109,19 @@
   left: -5px;
 }
 
+.verify-group-icon {
+  width: 12px;
+  height: 12px;
+  background: url(../image/icon_verify.png) no-repeat center center;
+  background-size: cover;
+  margin-right: 2;
+}
+
+.server-name-box {
+  display: flex;
+  align-items: center;
+}
+
 .server-name {
   font-size: 13px;
 }
