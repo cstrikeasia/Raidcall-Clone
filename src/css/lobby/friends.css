@@ -495,6 +495,7 @@
   height: 16px;
   width: 16px;
   margin-right: 5px;
+  min-width: 16px;
 }
 
 .friends-add-friend:before {
@@ -503,4 +504,5 @@
   height: 16px;
   width: 16px;
   margin-right: 5px;
+  min-width: 16px;
 }
