@@ -974,3 +974,15 @@ div[data-key="50140"]:after {
 .server-setting-text.markdown-title {
   width: 95%;
 }
+
+.split {
+  background: url(../image/channel/spliter_SpecialMenu.png) no-repeat center
+    center;
+  width: 100%;
+  height: 1px;
+  background-size: contain;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  cursor: auto;
+}
