@@ -226,19 +226,18 @@ header {
 }
 
 .invitation-friend-button {
-  width: 103px;
-  border-radius: 5px;
   text-align: center;
-  font-size: 13px;
   height: 29px;
   align-items: center;
   display: flex;
   justify-content: center;
   cursor: pointer;
-  background: url(../image/im/btn-sliver.png) no-repeat center center;
-  background-size: cover;
   background-position: 0 0;
-  max-width: 79px;
+  border: 1px solid #cbcccd;
+  width: auto;
+  border-radius: 5px;
+  background: #fff;
+  min-width: 60px;
 }
 
 .invitation-friend-button:hover {
