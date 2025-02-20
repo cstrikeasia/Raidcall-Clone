@@ -330,10 +330,31 @@ header {
   background: #fff;
 }
 
+.profile-form-button:hover {
+  background: #fafafa;
+}
+
+.profile-form-button:active {
+  background: #f5f5f5;
+}
+
 .profile-form-button.blue {
   background: url(../image/im/btn-blue.png) no-repeat center center;
+  background-size: auto;
   color: #fff;
   border: 0;
+  background-position: 0 0;
+  min-width: 80px;
+  max-width: 80px;
+  height: 28px;
+}
+
+.profile-form-button.blue:hover {
+  background-position: -80px 0;
+}
+
+.profile-form-button.blue:active {
+  background-position: -160px 0;
 }
 
 .profile-form-buttons {

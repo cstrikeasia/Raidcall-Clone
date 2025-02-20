@@ -489,6 +489,14 @@
   min-height: 19px;
 }
 
+.friends-footer-button:hover {
+  background: #fafafa;
+}
+
+.friends-footer-button:active {
+  background: #f5f5f5;
+}
+
 .friends-add-group:before {
   content: "";
   background: url(../../image/add_group.png) no-repeat center center;

@@ -170,6 +170,16 @@ header {
   background: #fff;
 }
 
+.apply:hover,
+.cancel:hover {
+  background: #fafafa;
+}
+
+.apply:active,
+.cancel:active {
+  background: #f5f5f5;
+}
+
 .apply-member-picture {
   height: 50px;
   width: 50px;

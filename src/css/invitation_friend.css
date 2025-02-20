@@ -241,11 +241,11 @@ header {
 }
 
 .invitation-friend-button:hover {
-  background-position: -83px 0;
+  background: #fafafa;
 }
 
 .invitation-friend-button:active {
-  background-position: -166px 0;
+  background: #f5f5f5;
 }
 
 .invitation-friend-body {

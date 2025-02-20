@@ -341,12 +341,20 @@ input {
   min-width: 60px;
 }
 
+.confirmed:hover,
+.cancel:hover,
+.use:hover,
+.server-setting-notify-preview-button:hover,
 .server-setting-change-picture-button:hover {
-  background-position: -80px 0;
+  background: #fafafa;
 }
 
+.confirmed:active,
+.cancel:active,
+.use:active,
+.server-setting-notify-preview-button:active,
 .server-setting-change-picture-button:active {
-  background-position: -160px 0;
+  background: #f5f5f5;
 }
 
 .server-setting-select {
