@@ -5,6 +5,7 @@ class Channel {
     this.userInfoCard = document.querySelector('.server-user-info-card');
     this.badge = document.querySelectorAll('.server-channel-user-info .badge-icon img');
     this.badgeCard = document.querySelector('.server-badge-card');
+    this.invitationFriend = document.querySelector('.server-invitation');
 
     this.settingsButton = document.querySelector('.server-settings');
     this.settingsMenu = document.querySelector('.server-settings-context-menu');
@@ -57,7 +58,6 @@ class Channel {
 
     this.users.forEach((user) => {
       user.addEventListener('contextmenu', (event) => {
-        console.log(true);
         this.showContextMenu(event);
       });
     });
@@ -83,6 +83,10 @@ class Channel {
       event.stopPropagation();
       this.settingsMenu.style.display = 'none';
       ipcRenderer.send('open-pop-window', { code: null, titleCode: 10068, textCode: null, icon: 'warning' }, 320, 500, 'apply_member', false);
+    });
+
+    this.invitationFriend.addEventListener('click', () => {
+      ipcRenderer.send('open-pop-window', { code: null, titleCode: 30147, textCode: null, icon: 'warning' }, 330, 500, 'invitation_friend', false);
     });
 
     this.serverPictureWrapper.addEventListener('click', () => ipcRenderer.send('open-pop-window', { code: null, titleCode: null, textCode: null, icon: 'warning' }, 500, 600, 'server_setting', false));
