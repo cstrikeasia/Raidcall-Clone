@@ -77,9 +77,7 @@ class Channel {
       ipcRenderer.send('open-pop-window', { code: 1005, titleCode: 30051, textCode: null, icon: 'warning' }, 250, 420, 'change_group_name', false);
     });
 
-    this.serverPictureWrapper.addEventListener('click', () => {
-      ipcRenderer.send('open-pop-window', { code: null, titleCode: null, textCode: null, icon: 'warning' }, 500, 600, 'server_setting', false);
-    });
+    this.serverPictureWrapper.addEventListener('click', () => ipcRenderer.send('open-pop-window', { code: null, titleCode: null, textCode: null, icon: 'warning' }, 500, 600, 'server_setting', false));
 
     document.addEventListener('click', (event) => {
       if (this.userOperateMenu && !this.userOperateMenu.contains(event.target)) {
@@ -122,6 +120,8 @@ class Channel {
     const className = element.classList[0];
     this.isHoveringUser[className] = true;
     clearTimeout(this.hideTimeout);
+    this.userInfoCard.style.display = 'none';
+    this.badgeCard.style.display = 'none';
     const mouseX = event.pageX;
     const mouseY = event.pageY;
     const offsetX = 3;
@@ -150,11 +150,17 @@ class Channel {
     this.hideTimeout = setTimeout(() => {
       if (!this.isHoveringUser[className] && !this.isHoveringCard[className]) {
         element.style.display = 'none';
+        if (element === this.userInfoCard) {
+          this.badgeCard.style.display = 'none';
+        }
+        else if (element === this.badgeCard) {
+          this.userInfoCard.style.display = 'none';
+        }
       }
     }, 200);
   }
 
-  // **滑鼠離開資訊卡時隱藏
+  // 滑鼠離開資訊卡時隱藏
   hideCardInfo(element) {
     const className = element.classList[0];
     this.isHoveringCard[className] = false;
