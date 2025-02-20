@@ -152,7 +152,9 @@ header {
   background: url(../image/pic_ok.png) no-repeat center center;
 }
 
-.confirmed {
+.confirmed,
+.cancel,
+.use {
   margin-right: 5px;
   border: 1px solid #dbdde0;
   width: auto;
@@ -214,7 +216,6 @@ header {
   position: relative;
   display: inline-block;
   margin-top: 10px;
-  background: url(../image/channel_input.png) no-repeat center center;
   vertical-align: middle;
 }
 
