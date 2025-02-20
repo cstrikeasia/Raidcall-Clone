@@ -326,17 +326,17 @@ input {
 }
 
 .server-setting-change-picture-button {
-  width: 79px;
-  border-radius: 5px;
   text-align: center;
   height: 27px;
   align-items: center;
   display: flex;
   justify-content: center;
   cursor: pointer;
-  background: url(../image/im/btn-sliver.png) no-repeat center center;
   background-position: 0 0;
-  max-width: 79px;
+  border: 1px solid #cbcccd;
+  width: auto;
+  border-radius: 5px;
+  background: #fff;
 }
 
 .server-setting-change-picture-button:hover {
@@ -464,6 +464,8 @@ div[data-key="20198"] {
 div[data-key="20198"] {
   margin-right: 15px;
   cursor: pointer;
+  text-align: right;
+  max-width: 150px;
 }
 
 div[data-page="member_application_management"] .server-setting-item-wrapper,
