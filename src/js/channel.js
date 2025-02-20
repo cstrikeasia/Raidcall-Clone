@@ -89,7 +89,7 @@ class Channel {
       ipcRenderer.send('open-pop-window', { code: null, titleCode: 30147, textCode: null, icon: 'warning' }, 330, 500, 'invitation_friend', false);
     });
 
-    this.serverPictureWrapper.addEventListener('click', () => ipcRenderer.send('open-pop-window', { code: null, titleCode: null, textCode: null, icon: 'warning' }, 500, 600, 'server_setting', false));
+    this.serverPictureWrapper.addEventListener('click', () => ipcRenderer.send('open-pop-window', { code: null, titleCode: 10158, textCode: null, icon: 'warning' }, 500, 600, 'server_setting', false));
 
     document.addEventListener('click', (event) => {
       if (this.userOperateMenu && !this.userOperateMenu.contains(event.target)) {

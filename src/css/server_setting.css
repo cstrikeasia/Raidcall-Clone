@@ -248,7 +248,8 @@ header {
 .server-setting-page[data-page="member_management"],
 .server-setting-page[data-page="access_permission"],
 .server-setting-page[data-page="notify"],
-.server-setting-page[data-page="member_application_management"] {
+.server-setting-page[data-page="member_application_management"],
+.server-setting-page[data-page="block_management"] {
   display: none;
 }
 
@@ -335,7 +336,7 @@ input {
   cursor: pointer;
   background: url(../image/im/btn-sliver.png) no-repeat center center;
   background-position: 0 0;
-  max-width: 78px;
+  max-width: 79px;
 }
 
 .server-setting-change-picture-button:hover {
@@ -462,10 +463,12 @@ div[data-key="20198"] {
 
 div[data-key="20198"] {
   margin-right: 15px;
+  cursor: pointer;
 }
 
 div[data-page="member_application_management"] .server-setting-item-wrapper,
-div[data-page="member_management"] .server-setting-item-wrapper {
+div[data-page="member_management"] .server-setting-item-wrapper,
+div[data-page="block_management"] .server-setting-item-wrapper {
   height: 45px;
   align-items: center;
   flex-direction: column;
@@ -478,14 +481,16 @@ div[data-page="member_management"] .server-setting-item-wrapper {
 }
 
 .server-setting-member-application-management-header,
-.server-setting-member-management-header {
+.server-setting-member-management-header,
+.server-setting-block-management-header {
   display: flex;
   align-items: center;
 }
 
 div[data-page="member_application_management"]
   .server-setting-member-application-management-header,
-div[data-page="member_management"] .server-setting-member-management-header {
+div[data-page="member_management"] .server-setting-member-management-header,
+div[data-page="block_management"] .server-setting-block-management-header {
   justify-content: space-between;
   width: 100%;
   margin-top: 5;
@@ -493,7 +498,8 @@ div[data-page="member_management"] .server-setting-member-management-header {
 }
 
 div[data-key="20109"],
-div[data-key="20110"] {
+div[data-key="20110"],
+div[data-key="50140"] {
   margin-left: 20px;
   padding: 0;
 }
@@ -556,7 +562,8 @@ input:focus {
 }
 
 .server-setting-member-application-management-body,
-.server-setting-member-management-body {
+.server-setting-member-management-body,
+.server-setting-block-management-body {
   height: auto;
   width: auto;
   margin-top: 10px;
@@ -933,4 +940,12 @@ div[data-page="notify"] .server-setting-item-wrapper {
   width: auto;
   max-width: 162px;
   min-width: 162px;
+}
+
+div[data-key="50140"]:after {
+  content: ":";
+}
+
+.server-setting-block-management-number-box {
+  display: flex;
 }
