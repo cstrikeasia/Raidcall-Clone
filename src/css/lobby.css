@@ -893,35 +893,40 @@ div[data-tab="server"] .tab-bg:after {
 }
 
 .join-group-loading-box {
-  height: 90px;
-  width: 285px;
-  border: 1px solid #def1ff;
-  border-radius: 3px;
-  background: #ffffff;
+  flex-direction: column;
+  pointer-events: auto;
+  width: 300px;
+  height: 100px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  border: 1px solid #d3d8db;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
+  justify-content: center;
   position: relative;
-  pointer-events: auto;
 }
 
 .join-group-loading-gif {
   background: url(../image/icon_loading.gif) no-repeat center center;
   background-position: 0 0;
-  height: 12px;
   width: 256px;
+  height: 12px;
+  background-size: contain;
+  margin-top: 15px;
 }
 
 .join-group-loading-close {
   position: absolute;
-  background: url(../image/loading_close.png) no-repeat center center;
-  background-position: 0 0;
-  height: 18px;
+  top: 5px;
+  right: 6px;
   width: 18px;
-  right: 3px;
-  top: 3px;
+  height: 18px;
+  background: url(../image/loading_close.png) no-repeat center center;
+  background-size: cover;
+  border: none;
   cursor: pointer;
+  background-position: 0 0;
 }
 
 .join-group-loading-close:hover {
@@ -933,8 +938,10 @@ div[data-tab="server"] .tab-bg:after {
 }
 
 .join-group-loading-title-contain {
-  font-size: 13px;
   display: flex;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 5px;
 }
 
 .join-group-loading-group-id {
