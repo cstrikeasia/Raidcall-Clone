@@ -858,7 +858,7 @@ div[data-tab="server"] .tab-bg:after {
 .tab-close {
   width: 13px;
   height: 13px;
-  background: url(../image/im/icon_Close.png) no-repeat center center;
+  background: url(../image/ctrl/tabitem_button.png) no-repeat center center;
   background-position: -13px 0;
   background-size: cover;
   border-radius: 50%;
@@ -866,10 +866,17 @@ div[data-tab="server"] .tab-bg:after {
   right: 3px;
   transform: translateY(-25%);
   cursor: pointer;
-  background-color: #ffffff54;
   z-index: 1;
 }
 
 .selected .tab-close {
-  background-color: #0073c6;
+  background-position: 0 0;
+}
+
+.selected .tab-close:hover {
+  background-position: -13px 0;
+}
+
+.selected .tab-close:active {
+  background-position: -26px 0;
 }
