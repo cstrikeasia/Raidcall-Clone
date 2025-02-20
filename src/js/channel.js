@@ -1,8 +1,7 @@
 class Channel {
   constructor() {
     this.userOperateMenu = document.querySelector('.server-user-operate-context-menu');
-    this.users = document.querySelectorAll('.server-channel-user-info ');
-    this.userVipIcon = document.querySelectorAll('.server-channel-user-info .vip-icon');
+    this.users = document.querySelectorAll('.server-channel-user');
     this.userInfoCard = document.querySelector('.server-user-info-card');
     this.badge = document.querySelectorAll('.server-channel-user-info .badge-icon img');
     this.badgeCard = document.querySelector('.server-badge-card');
@@ -18,12 +17,14 @@ class Channel {
     this.isHoveringUser = {};
     this.isHoveringCard = {};
 
+    this.showTimeout = null;
+
     this.initEvents();
   }
 
   // 初始化事件
   initEvents() {
-    this.userVipIcon.forEach((user) => {
+    this.users.forEach((user) => {
       user.addEventListener('mouseenter', (event) => this.showCardInfo(event, this.userInfoCard));
       user.addEventListener('mouseleave', () => this.hideCardInfoWithDelay(this.userInfoCard));
     });
@@ -119,34 +120,43 @@ class Channel {
   showCardInfo(event, element) {
     const className = element.classList[0];
     this.isHoveringUser[className] = true;
-    clearTimeout(this.hideTimeout);
-    this.userInfoCard.style.display = 'none';
-    this.badgeCard.style.display = 'none';
-    const mouseX = event.pageX;
-    const mouseY = event.pageY;
-    const offsetX = 5;
-    const offsetY = 5;
-    let posX = mouseX + offsetX;
-    let posY = mouseY + offsetY;
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    const cardWidth = element.offsetWidth;
-    const cardHeight = element.offsetHeight;
-    if (posX + cardWidth > windowWidth) {
-      posX = mouseX - cardWidth - offsetX;
+    if (this.showTimeout) {
+      clearTimeout(this.showTimeout);
     }
-    if (posY + cardHeight > windowHeight) {
-      posY = windowHeight - cardHeight - offsetY;
-    }
-    element.style.left = `${posX}px`;
-    element.style.top = `${posY}px`;
-    element.style.display = 'block';
+    this.showTimeout = setTimeout(() => {
+      if (this.isHoveringUser[className]) {
+        this.userInfoCard.style.display = 'none';
+        this.badgeCard.style.display = 'none';
+        const mouseX = event.pageX;
+        const mouseY = event.pageY;
+        const offsetX = 5;
+        const offsetY = 5;
+        let posX = mouseX + offsetX;
+        let posY = mouseY + offsetY;
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const cardWidth = element.offsetWidth;
+        const cardHeight = element.offsetHeight;
+        if (posX + cardWidth > windowWidth) {
+          posX = mouseX - cardWidth - offsetX;
+        }
+        if (posY + cardHeight > windowHeight) {
+          posY = windowHeight - cardHeight - offsetY;
+        }
+        element.style.left = `${posX}px`;
+        element.style.top = `${posY}px`;
+        element.style.display = 'block';
+      }
+    }, 300);
   }
 
   // 滑鼠離開使用者時設定延遲隱藏
   hideCardInfoWithDelay(element) {
     const className = element.classList[0];
     this.isHoveringUser[className] = false;
+    if (this.showTimeout) {
+      clearTimeout(this.showTimeout);
+    }
     this.hideTimeout = setTimeout(() => {
       if (!this.isHoveringUser[className] && !this.isHoveringCard[className]) {
         element.style.display = 'none';
