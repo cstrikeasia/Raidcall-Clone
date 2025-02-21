@@ -188,27 +188,63 @@
                           <option data-key="20151">石階走廊</option>
                         </select>
                         <div class="system-setting-select-drop-down-icon"></div>
-
                       </div>
-
                     </label>
                     <div class="system-setting-slider-bar-box">
                       <div class="system-setting-slider-bar"></div>
                       <div class="system-setting-slider-drager"></div>
                     </div>
                   </div>
-
                   <div class="system-setting-tick-contain">
                     <label class="system-setting-tick-box">
                       <input type="radio" class="system-setting-radiobox" name="sound_effect_se">
                       <span class="system-setting-radiobox-text" data-key="20139">自動設定(根據不同場景自動設定最優音效)</span>
                     </label>
                   </div>
-
+                  <div class="system-setting-tick-contain">
+                    <label class="system-setting-tick-box">
+                      <input checked="" type="radio" class="system-setting-radiobox" name="sound_effect_se">
+                      <span class="system-setting-radiobox-text" data-key="20140">手動設定</span>
+                    </label>
+                    <label class="system-setting-tick-box sound-effect-manual sub">
+                      <input checked="" type="checkbox" class="system-setting-radiobox">
+                      <span class="system-setting-radiobox-text" data-key="20017">回音消除</span>
+                      <span class="system-setting-radiobox-text" data-key="20046">(出現回音時使用)</span>
+                    </label>
+                    <label class="system-setting-tick-box sound-effect-manual sub">
+                      <input checked="" type="checkbox" class="system-setting-radiobox">
+                      <span class="system-setting-radiobox-text" data-key="30126">麥克風降噪</span>
+                      <span class="system-setting-radiobox-text" data-key="30127">(出現雜訊時使用)</span>
+                    </label>
+                    <label class="system-setting-tick-box sound-effect-manual sub">
+                      <input checked="" type="checkbox" class="system-setting-radiobox">
+                      <span class="system-setting-radiobox-text" data-key="30125">麥克風放大</span>
+                    </label>
+                  </div>
                 </div>
               </div>
-
-
+              <div class="system-setting-item-wrapper">
+                <div class="system-setting-text-line-header">
+                  <div class="system-setting-text-line-title" data-key="20045">音效</div>
+                  <div class="system-setting-text-line-split"></div>
+                </div>
+                <div class="system-setting-basic-body ">
+                  <div class="system-setting-tick-contain">
+                    <label class="system-setting-tick-box">
+                      <input checked="" type="checkbox" class="system-setting-radiobox">
+                      <span class="system-setting-radiobox-text" data-key="50053">自訂混合電腦聲音</span>
+                    </label>
+                    <label class="system-setting-tick-box sound-effect-mix sub">
+                      <input checked="" type="radio" class="system-setting-radiobox" name="sound_effect_mix">
+                      <span class="system-setting-radiobox-text" data-key="50054">混合電腦發出的所有聲音（需要硬體驅動支持）</span>
+                    </label>
+                    <label class="system-setting-tick-box sound-effect-mix sub">
+                      <input type="radio" class="system-setting-radiobox" name="sound_effect_mix">
+                      <span class="system-setting-radiobox-text" data-key="50055">混合軟體的聲音</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -222,6 +258,10 @@
   <script type="text/javascript" src="../js/require.js"></script>
   <script type="text/javascript" src="../js/key.js"></script>
   <script type="text/javascript" src="../js/system_setting.js"></script>
+
+
+
+
 </body>
 
 </html>

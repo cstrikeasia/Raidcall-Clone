@@ -418,7 +418,6 @@ div[data-page="sound_effect"] .system-setting-item-wrapper {
 .system-setting-tick-contain {
   display: flex;
   align-items: flex-start;
-  gap: 5px;
   flex-direction: column;
   height: auto;
 }
@@ -431,7 +430,7 @@ div[data-page="sound_effect"] .system-setting-item-wrapper {
 .system-setting-tick-box {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: auto;
 }
 
 .disabled div,
@@ -451,6 +450,8 @@ input[type="checkbox"] {
   margin-left: 5px;
   border: none;
   padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 input[type="radio"] {
@@ -513,6 +514,7 @@ input[type="radio"]:hover {
   margin-left: 25px;
   width: 185px;
   margin-bottom: 10px;
+  margin-top: 4px;
 }
 
 .system-setting-slider-bar {
@@ -527,20 +529,23 @@ input[type="radio"]:hover {
 
 .system-setting-slider-drager {
   background: url(../image/ctrl/SliderBar_drager.png);
-  background-size: auto;
-  background-position: 0 0;
   cursor: pointer;
   height: 14px;
   width: 14px;
   position: absolute;
-  display: flex;
   top: 50%;
-  right: 0;
-  transform: translate(50%, -50%);
-  justify-content: center;
+  transform: translateY(-50%);
+  left: 171px;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .system-setting-button.voice-check {
   width: 115px;
+}
+
+.sound-effect-manual,
+.sound-effect-mix {
+  margin-left: 15px;
 }

@@ -6,8 +6,10 @@ class SystemSetting {
     this.confirmedBtn = document.querySelector('.confirmed');
     this.tabs = document.querySelectorAll('.system-setting-tab');
     this.pages = document.querySelectorAll('.system-setting-page');
+    this.sliderBar = document.querySelector('.system-setting-slider-bar');
+    this.sliderDrager = document.querySelector('.system-setting-slider-drager');
+    this.isDragging = false;
     this.langData = null;
-
     this.initLanguage();
     this.initEvents();
   }
@@ -19,7 +21,7 @@ class SystemSetting {
     this.tabs.forEach((tab) => {
       tab.addEventListener('click', () => this.switchPage(tab));
     });
-
+    this.sliderDrager.addEventListener('mousedown', (event) => this.startDrag(event));
     ipcRenderer.removeAllListeners('set-code');
     ipcRenderer.on('set-code', (event, code, titleCode, textCode, icon) => {
       console.log(code, titleCode, textCode, icon);
@@ -27,6 +29,34 @@ class SystemSetting {
       this.initLanguage();
     });
   }
+
+  startDrag() {
+    this.isDragging = true;
+    document.addEventListener('mousemove', this.onDrag);
+    document.addEventListener('mouseup', this.onStopDrag);
+  }
+
+  onDrag = (event) => {
+    if (!this.isDragging) {
+      return;
+    }
+    const sliderRect = this.sliderBar.getBoundingClientRect();
+    const dragerWidth = this.sliderDrager.offsetWidth;
+    let newLeft = event.clientX - sliderRect.left;
+    if (newLeft < 0) {
+      newLeft = -5;
+    }
+    else if (newLeft > sliderRect.width - dragerWidth) {
+      newLeft = sliderRect.width - dragerWidth;
+    }
+    this.sliderDrager.style.left = newLeft + 'px';
+  };
+
+  onStopDrag = () => {
+    this.isDragging = false;
+    document.removeEventListener('mousemove', this.onDrag);
+    document.removeEventListener('mouseup', this.onStopDrag);
+  };
 
   switchPage(selectedTab) {
     this.tabs.forEach((tab) => tab.classList.remove('active'));
