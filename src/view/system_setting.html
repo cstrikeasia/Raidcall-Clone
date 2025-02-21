@@ -21,8 +21,8 @@
       <div class="dialog-message-contain">
         <div class="system-setting-left">
           <div class="system-setting-tabs-wrapper">
-            <div class="system-setting-tab" for="basic" data-key="20040">基本設定</div>
-            <div class="system-setting-tab active" for="sound_effect" data-key="20128">音頻音效</div>
+            <div class="system-setting-tab active" for="basic" data-key="20040">基本設定</div>
+            <div class="system-setting-tab" for="sound_effect" data-key="20128">音頻音效</div>
             <div class="system-setting-tab" for="voice_setting" data-key="20043">語音設定</div>
             <div class="system-setting-tab" for="privacy_setting" data-key="20041">隱私設定</div>
             <div class="system-setting-tab" for="hot_key_setting" data-key="20044">熱鍵設定</div>
@@ -139,7 +139,7 @@
               </div>
             </div>
           </div>
-          <div class="system-setting-page" data-page="sound_effect" style="display: block;">
+          <div class="system-setting-page" data-page="sound_effect" style="display: none;">
             <div class="system-setting-page-wrapper">
               <div class="system-setting-item-wrapper">
                 <div class="system-setting-text-line-header">
@@ -175,7 +175,7 @@
                   <div class="system-setting-text-line-title" data-key="20045">音效</div>
                   <div class="system-setting-text-line-split"></div>
                 </div>
-                <div class="system-setting-basic-body ">
+                <div class="system-setting-sound-effect-body ">
                   <div class="system-setting-tick-contain">
                     <label class="system-setting-tick-box">
                       <input checked="" type="checkbox" class="system-setting-radiobox">
@@ -192,7 +192,7 @@
                     </label>
                     <div class="system-setting-slider-bar-box">
                       <div class="system-setting-slider-bar"></div>
-                      <div class="system-setting-slider-drager"></div>
+                      <div class="system-setting-slider-drager" style="left: 171px;"></div>
                     </div>
                   </div>
                   <div class="system-setting-tick-contain">
@@ -228,7 +228,7 @@
                   <div class="system-setting-text-line-title" data-key="20045">音效</div>
                   <div class="system-setting-text-line-split"></div>
                 </div>
-                <div class="system-setting-basic-body ">
+                <div class="system-setting-sound-effect-body ">
                   <div class="system-setting-tick-contain">
                     <label class="system-setting-tick-box">
                       <input checked="" type="checkbox" class="system-setting-radiobox">
@@ -245,6 +245,49 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="system-setting-page" data-page="voice_setting" style="display: block;">
+            <div class="system-setting-page-wrapper">
+
+              <div class="system-setting-item-wrapper">
+                <div class="system-setting-text-line-header">
+                  <div class="system-setting-text-line-title" data-key="20248">默認說話方式</div>
+                  <div class="system-setting-text-line-split"></div>
+                </div>
+                <div class="system-setting-voice-setting-body ">
+
+                  <div class="system-setting-tick-contain">
+                    <label class="system-setting-tick-box">
+                      <input type="radio" class="system-setting-radiobox" name="voice_setting">
+                      <span class="system-setting-radiobox-text" data-key="20015">按鍵說話</span>
+                    </label>
+                    <div class="system-setting-input-border voice-setting-key sub"><input class="system-setting-input"
+                        value="123"></div>
+                    <div class="system-setting-text voice-setting-key sub" data-key="20038">點擊鍵盤或滑鼠設定說話的按鍵</div>
+                  </div>
+                  <div class="system-setting-tick-contain">
+                    <label class="system-setting-tick-box">
+                      <input checked="" type="radio" class="system-setting-radiobox" name="voice_setting">
+                      <span class="system-setting-radiobox-text" data-key="20014">自動感應</span>
+                    </label>
+
+
+
+                  </div>
+                  <div class="system-setting-tick-contain">
+
+                    <label class="system-setting-tick-box ">
+                      <input checked="" type="checkbox" class="system-setting-radiobox">
+                      <span class="system-setting-radiobox-text" data-key="10169">進入語音頻道時自動恢復為按鍵發話</span>
+
+                    </label>
+
+
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
