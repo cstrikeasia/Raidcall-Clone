@@ -243,14 +243,16 @@ header {
 .system-setting-page[data-page="basic"],
 .system-setting-page[data-page="sound_effect"],
 .system-setting-page[data-page="voice_setting"],
-.system-setting-page[data-page="hot_key_setting"] {
+.system-setting-page[data-page="hot_key_setting"],
+.system-setting-page[data-page="sound_reminder"] {
   padding: 10px;
 }
 
 .system-setting-page[data-page="basic"],
 .system-setting-page[data-page="sound_effect"],
 .system-setting-page[data-page="voice_setting"],
-.system-setting-page[data-page="hot_key_setting"] {
+.system-setting-page[data-page="hot_key_setting"],
+.system-setting-page[data-page="sound_reminder"] {
   display: none;
 }
 
@@ -402,7 +404,8 @@ select {
 div[data-page="basic"] .system-setting-item-wrapper,
 div[data-page="sound_effect"] .system-setting-item-wrapper,
 div[data-page="voice_setting"] .system-setting-item-wrapper,
-div[data-page="hot_key_setting"] .system-setting-item-wrapper {
+div[data-page="hot_key_setting"] .system-setting-item-wrapper,
+div[data-page="sound_reminder"] .system-setting-item-wrapper {
   height: auto;
   display: flex;
   flex-direction: column;
@@ -414,7 +417,8 @@ div[data-page="hot_key_setting"] .system-setting-item-wrapper {
 .system-setting-basic-body,
 .system-setting-sound-effect-body,
 .system-setting-voice-setting-body,
-.system-setting-hot-key-setting-body {
+.system-setting-hot-key-setting-body,
+.system-setting-sound-reminder-setting-body {
   margin-top: 8px;
   display: flex;
   flex-direction: column;
@@ -442,12 +446,6 @@ div[data-page="hot_key_setting"] .system-setting-item-wrapper {
   display: flex;
   align-items: center;
   width: auto;
-}
-
-.disabled div,
-.disabled label {
-  pointer-events: none;
-  color: #8f8f8f;
 }
 
 input[type="checkbox"] {
@@ -552,8 +550,9 @@ input[type="radio"]:hover {
   justify-content: center;
 }
 
-.system-setting-button.voice-check-button {
-  width: 115px;
+.change-directory-button,
+.voice-check-button {
+  min-width: 105px;
 }
 
 .sound-effect-manual,
@@ -575,7 +574,7 @@ input[type="radio"]:hover {
 }
 
 .system-setting-hot-key-setting-body .system-setting-input-border {
-  width: 100%;
+  width: 98%;
   margin-bottom: 8px;
 }
 
@@ -583,4 +582,164 @@ input[type="radio"]:hover {
   right: 3%;
   position: absolute;
   bottom: 27%;
+}
+
+.basic-status-minutes-input {
+  width: 50px;
+}
+
+div[data-page="sound_reminder"] .system-setting-radiobox {
+  margin-left: 0;
+}
+
+.system-setting-sound-reminder-list-body {
+  margin-top: 5;
+}
+
+.system-setting-sound-reminder-list-body .system-setting-text {
+  margin-top: 2px;
+  margin-bottom: 6px;
+}
+
+.system-setting-sound-reminder-list-wrapper {
+  height: auto;
+  width: auto;
+}
+
+.system-setting-sound-reminder-list {
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #ccc;
+  flex-direction: column;
+}
+
+.system-setting-sound-reminder-list-header {
+  height: 30px;
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+
+.system-setting-sound-reminder-list-box {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  background: #fff;
+}
+
+.system-setting-sound-reminder-list-box::-webkit-scrollbar {
+  width: 0;
+}
+
+.system-setting-sound-reminder-list-header-th:first-child {
+  border-left: 0;
+}
+
+.system-setting-sound-reminder-list-box
+  .system-setting-sound-reminder-list-item:nth-child(1) {
+  width: auto;
+  max-width: 147px;
+  min-width: 147px;
+}
+
+.system-setting-sound-reminder-list-box
+  .system-setting-sound-reminder-list-item:nth-child(2) {
+  width: auto;
+  max-width: 149px;
+  min-width: 149px;
+}
+
+.system-setting-sound-reminder-list-box
+  .system-setting-sound-reminder-list-item:nth-child(3) {
+  width: auto;
+  max-width: 146px;
+  min-width: 146px;
+}
+
+.system-setting-sound-reminder-list-box
+  .system-setting-sound-reminder-list-item:nth-child(4) {
+  width: auto;
+  min-width: 75px;
+}
+
+.system-setting-sound-reminder-list-header-th {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #e9ebec;
+  border: 1px solid #ccc;
+  border-right: 0;
+  border-top: 0;
+  padding-left: 5;
+}
+
+.system-setting-sound-reminder-list-header-td {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.system-setting-member-user-info {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.system-setting-member-user-role {
+  height: 15px;
+  width: 15px;
+  margin-right: 2px;
+}
+
+.system-setting-member-user-name {
+  color: #777777;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80px;
+}
+
+.system-setting-sound-reminder-list-item {
+  min-height: 25px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #ffffff00;
+  border-right: 0;
+  border-top: 0;
+  padding-left: 5;
+  display: flex;
+  align-items: center;
+}
+
+.sound-reminder-list-playback {
+  background: url(../image/playback.png) no-repeat center center;
+  background-size: auto;
+  background-position: 0 0;
+  cursor: pointer;
+  appearance: none;
+  height: 17px;
+  width: 17px;
+}
+
+.disabled div[data-key="60027"],
+.disabled .change-directory-button,
+.disabled .system-setting-input {
+  pointer-events: none;
+  color: #8f8f8f;
+}
+
+.sound-reminder-directory {
+  margin-left: 0;
+  width: 100%;
+}
+
+.system-setting-sound-reminder-directory-box {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 }
