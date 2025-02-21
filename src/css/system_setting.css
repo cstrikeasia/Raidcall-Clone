@@ -415,7 +415,7 @@ div[data-page="sound_effect"] .system-setting-item-wrapper {
   width: 100%;
 }
 
-.system-setting-radiobox-contain {
+.system-setting-tick-contain {
   display: flex;
   align-items: flex-start;
   gap: 5px;
@@ -423,7 +423,7 @@ div[data-page="sound_effect"] .system-setting-item-wrapper {
   height: auto;
 }
 
-.system-setting-radiobox-contain span {
+.system-setting-tick-contain span {
   /* flex-grow: 1; */
   min-width: 0;
 }
