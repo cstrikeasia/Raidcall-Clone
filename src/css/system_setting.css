@@ -242,13 +242,15 @@ header {
 
 .system-setting-page[data-page="basic"],
 .system-setting-page[data-page="sound_effect"],
-.system-setting-page[data-page="voice_setting"] {
+.system-setting-page[data-page="voice_setting"],
+.system-setting-page[data-page="hot_key_setting"] {
   padding: 10px;
 }
 
 .system-setting-page[data-page="basic"],
 .system-setting-page[data-page="sound_effect"],
-.system-setting-page[data-page="voice_setting"] {
+.system-setting-page[data-page="voice_setting"],
+.system-setting-page[data-page="hot_key_setting"] {
   display: none;
 }
 
@@ -399,7 +401,8 @@ select {
 
 div[data-page="basic"] .system-setting-item-wrapper,
 div[data-page="sound_effect"] .system-setting-item-wrapper,
-div[data-page="voice_setting"] .system-setting-item-wrapper {
+div[data-page="voice_setting"] .system-setting-item-wrapper,
+div[data-page="hot_key_setting"] .system-setting-item-wrapper {
   height: auto;
   display: flex;
   flex-direction: column;
@@ -410,12 +413,17 @@ div[data-page="voice_setting"] .system-setting-item-wrapper {
 
 .system-setting-basic-body,
 .system-setting-sound-effect-body,
-.system-setting-voice-setting-body {
+.system-setting-voice-setting-body,
+.system-setting-hot-key-setting-body {
   margin-top: 8px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
+}
+
+.system-setting-hot-key-setting-body {
+  margin-top: 0;
 }
 
 .system-setting-tick-contain {
@@ -544,7 +552,7 @@ input[type="radio"]:hover {
   justify-content: center;
 }
 
-.system-setting-button.voice-check {
+.system-setting-button.voice-check-button {
   width: 115px;
 }
 
@@ -564,4 +572,15 @@ input[type="radio"]:hover {
 
 .system-setting-voice-setting-body .system-setting-tick-contain {
   margin-bottom: 8px;
+}
+
+.system-setting-hot-key-setting-body .system-setting-input-border {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.hot-key-reset-button {
+  right: 3%;
+  position: absolute;
+  bottom: 27%;
 }
