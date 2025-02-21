@@ -428,7 +428,7 @@ div[data-page="sound_effect"] .system-setting-item-wrapper {
   min-width: 0;
 }
 
-.system-setting-radiobox-box {
+.system-setting-tick-box {
   display: flex;
   align-items: center;
   width: 100%;
