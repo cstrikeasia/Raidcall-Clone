@@ -30,6 +30,7 @@ class Lobby {
     this.createGroupBtn = document.querySelector('.groups-header button[data-key="30014"]');
     this.myBtn = document.querySelector('.groups-header button[data-key="60004"]');
     this.changeThemeBtn = document.querySelector('.menu-option[data-key="60028"]');
+    this.systemSettingBtn = document.querySelector('div[data-key="30066"]');
 
     this.errorPageDom = path.join(__dirname, 'error.html');
     this.langData = null;
@@ -54,6 +55,7 @@ class Lobby {
     this.createGroupBtn.addEventListener('click', () => this.createGroup());
     this.myBtn.addEventListener('click', () => this.my());
     this.changeThemeBtn.addEventListener('click', () => this.changeTheme());
+    this.systemSettingBtn.addEventListener('click', () => this.systemSetting());
     this.submenuOptions.forEach((option) => this.submenuOptionsEvent(option));
     this.mainTabItems.forEach((item) => this.mainTabItemsEvent(item));
     this.friendTabItems.forEach((item) => this.friendTabItemsEvent(item));
@@ -213,6 +215,11 @@ class Lobby {
   // 更換主題
   changeTheme() {
     ipcRenderer.send('open-pop-window', null, 371, 480, 'change_theme', false);
+  }
+
+  // 系統設定
+  systemSetting() {
+    ipcRenderer.send('open-pop-window', null, 550, 650, 'system_setting', false);
   }
 }
 new Lobby();

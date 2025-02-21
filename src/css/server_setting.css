@@ -817,18 +817,18 @@ li:has([data-key="30162"]):hover .server-user-operate-sub-menu {
   display: none;
 }
 
-.server-setting-access-permission-split {
+.server-setting-text-line-split {
   width: 100%;
   height: 1px;
   background: #0073c6;
 }
 
-.server-setting-access-permission-title {
+.server-setting-text-line-title {
   width: auto;
   min-width: 70px;
 }
 
-.server-setting-access-permission-header {
+.server-setting-text-line-header {
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -851,7 +851,7 @@ div[data-page="access_permission"] .server-setting-item-wrapper {
   align-items: flex-start;
 }
 
-.server-setting-access-permission-radiobox-contain {
+.server-setting-radiobox-contain {
   display: flex;
   align-items: flex-start;
   gap: 5px;
@@ -859,12 +859,12 @@ div[data-page="access_permission"] .server-setting-item-wrapper {
   margin-bottom: 20px;
 }
 
-.server-setting-access-permission-radiobox-contain span {
+.server-setting-radiobox-contain span {
   flex-grow: 1;
   min-width: 0;
 }
 
-.server-setting-access-permission-radiobox-box {
+.server-setting-radiobox-box {
   display: flex;
   align-items: center;
 }
