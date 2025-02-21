@@ -286,13 +286,15 @@ input {
 
 .confirmed:hover,
 .cancel:hover,
-.use:hover {
+.use:hover,
+.system-setting-button:hover {
   background: #fafafa;
 }
 
 .confirmed:active,
 .cancel:active,
-.use:active {
+.use:active,
+.system-setting-button:active {
   background: #f5f5f5;
 }
 
