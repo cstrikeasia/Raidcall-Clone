@@ -1,6 +1,6 @@
 const logger = require('../js/core/logger');
 const StoreModule = require('../js/store');
-
+require('../js/change_theme');
 class ApplyMember {
   constructor() {
     this.closeBtn = document.querySelector('.close');
@@ -14,7 +14,6 @@ class ApplyMember {
   initEvents() {
     this.closeBtn.addEventListener('click', () => this.closeWindow());
     this.applyBtn.addEventListener('click', () => this.closeWindow());
-    window.addEventListener('storage', () => StoreModule.initLanguage());
     this.applyElements.forEach((element) => {
       element.addEventListener('click', () => ipcRenderer.send('open-pop-window', { code: null, titleCode: null, textCode: null, icon: 'warning' }, 500, 600, 'server_setting', false));
     });
@@ -24,6 +23,12 @@ class ApplyMember {
       logger.info('code:', code, 'textCode:', textCode);
       this.initLanguage();
       this.updateTextWithCode(code, titleCode, textCode, icon);
+    });
+    window.addEventListener('storage', () => StoreModule.initLanguage());
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'selectedTheme' || event.key === 'selectedThemeColor') {
+        StoreModule.applySavedTheme();
+      }
     });
   }
 

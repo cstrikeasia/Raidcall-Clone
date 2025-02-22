@@ -1,5 +1,6 @@
 const logger = require('../js/core/logger');
 const StoreModule = require('../js/store');
+require('../js/change_theme');
 class SystemSetting {
   constructor() {
     this.closeBtn = document.querySelector('.close');
@@ -17,7 +18,6 @@ class SystemSetting {
   initEvents() {
     this.closeBtn.addEventListener('click', () => this.closeWindow());
     this.confirmedBtn.addEventListener('click', () => this.closeWindow());
-    window.addEventListener('storage', () => StoreModule.initLanguage());
     this.tabs.forEach((tab) => {
       tab.addEventListener('click', () => this.switchPage(tab));
     });
@@ -27,6 +27,12 @@ class SystemSetting {
       console.log(code, titleCode, textCode, icon);
       logger.info('code:', code, 'textCode:', textCode);
       this.initLanguage();
+    });
+    window.addEventListener('storage', () => StoreModule.initLanguage());
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'selectedTheme' || event.key === 'selectedThemeColor') {
+        StoreModule.applySavedTheme();
+      }
     });
   }
 

@@ -1,4 +1,5 @@
 const StoreModule = require('../js/store');
+require('../js/change_theme');
 class CreateGroup {
   constructor() {
     this.userOperateMenu = document.querySelector('.member-group-operate-context-menu');
@@ -12,15 +13,18 @@ class CreateGroup {
 
   initEvents() {
     this.closeBtn.addEventListener('click', () => this.closeWindow());
-    window.addEventListener('storage', () => StoreModule.initLanguage());
-
     this.users.forEach((user) => {
       user.addEventListener('contextmenu', (event) => this.showContextMenu(event));
     });
-
     document.addEventListener('click', (event) => {
       if (this.userOperateMenu && !this.userOperateMenu.contains(event.target)) {
         this.userOperateMenu.style.display = 'none';
+      }
+    });
+    window.addEventListener('storage', () => StoreModule.initLanguage());
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'selectedTheme' || event.key === 'selectedThemeColor') {
+        StoreModule.applySavedTheme();
       }
     });
   }

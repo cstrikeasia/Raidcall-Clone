@@ -2,6 +2,7 @@ const logger = require('../js/core/logger');
 const StoreModule = require('../js/store');
 const path = require('path');
 const fs = require('fs');
+require('../js/change_theme');
 
 class Lobby {
   constructor() {
@@ -60,6 +61,11 @@ class Lobby {
     this.mainTabItems.forEach((item) => this.mainTabItemsEvent(item));
     this.friendTabItems.forEach((item) => this.friendTabItemsEvent(item));
     window.addEventListener('storage', () => StoreModule.initLanguage());
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'selectedTheme' || event.key === 'selectedThemeColor') {
+        StoreModule.applySavedTheme();
+      }
+    });
   }
 
   // 最小化視窗

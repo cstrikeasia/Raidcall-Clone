@@ -1,4 +1,5 @@
 const logger = require('../js/core/logger');
+require('../js/change_theme');
 class Dialog {
   constructor() {
     this.closeBtn = document.querySelector('.close');
@@ -17,6 +18,11 @@ class Dialog {
       logger.info('code:', code, 'textCode:', textCode);
       this.initLanguage();
       this.updateTextWithCode(code, titleCode, textCode, icon);
+    });
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'selectedTheme' || event.key === 'selectedThemeColor') {
+        StoreModule.applySavedTheme();
+      }
     });
   }
 

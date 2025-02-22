@@ -43,5 +43,24 @@ class StoreManager {
       });
     });
   }
+
+  // 套用主題或顏色
+  applySavedTheme() {
+    const savedTheme = localStorage.getItem('selectedTheme');
+    const savedColor = localStorage.getItem('selectedThemeColor');
+    const element = document.querySelector('header');
+    element.classList.forEach((className) => {
+      if (className.startsWith('theme-')) {
+        element.classList.remove(className);
+      }
+    });
+    if (savedTheme) {
+      element.style.backgroundColor = '';
+      element.classList.add(savedTheme);
+    }
+    else if (savedColor) {
+      element.style.backgroundColor = savedColor;
+    }
+  }
 }
 module.exports = new StoreManager();

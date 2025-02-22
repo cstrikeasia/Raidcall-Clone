@@ -1,4 +1,5 @@
 const StoreModule = require('../js/store');
+require('../js/change_theme');
 class CreateGroup {
   constructor() {
     this.closeBtn = document.querySelector('.close');
@@ -13,6 +14,11 @@ class CreateGroup {
     this.closeBtn.addEventListener('click', () => this.closeWindow());
     this.confirmedBtn.addEventListener('click', () => this.closeWindow());
     window.addEventListener('storage', () => StoreModule.initLanguage());
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'selectedTheme' || event.key === 'selectedThemeColor') {
+        StoreModule.applySavedTheme();
+      }
+    });
   }
 
   initLanguage() {
