@@ -244,7 +244,8 @@ header {
 .system-setting-page[data-page="sound_effect"],
 .system-setting-page[data-page="voice_setting"],
 .system-setting-page[data-page="hot_key_setting"],
-.system-setting-page[data-page="sound_reminder"] {
+.system-setting-page[data-page="sound_reminder"],
+.system-setting-page[data-page="privacy_setting"] {
   padding: 10px;
 }
 
@@ -252,7 +253,8 @@ header {
 .system-setting-page[data-page="sound_effect"],
 .system-setting-page[data-page="voice_setting"],
 .system-setting-page[data-page="hot_key_setting"],
-.system-setting-page[data-page="sound_reminder"] {
+.system-setting-page[data-page="sound_reminder"],
+.system-setting-page[data-page="privacy_setting"] {
   display: none;
 }
 
@@ -405,7 +407,8 @@ div[data-page="basic"] .system-setting-item-wrapper,
 div[data-page="sound_effect"] .system-setting-item-wrapper,
 div[data-page="voice_setting"] .system-setting-item-wrapper,
 div[data-page="hot_key_setting"] .system-setting-item-wrapper,
-div[data-page="sound_reminder"] .system-setting-item-wrapper {
+div[data-page="sound_reminder"] .system-setting-item-wrapper,
+div[data-page="privacy_setting"] .system-setting-item-wrapper {
   height: auto;
   display: flex;
   flex-direction: column;
@@ -418,7 +421,8 @@ div[data-page="sound_reminder"] .system-setting-item-wrapper {
 .system-setting-sound-effect-body,
 .system-setting-voice-setting-body,
 .system-setting-hot-key-setting-body,
-.system-setting-sound-reminder-setting-body {
+.system-setting-sound-reminder-setting-body,
+.system-setting-privacy-setting-body {
   margin-top: 8px;
   display: flex;
   flex-direction: column;
@@ -742,4 +746,9 @@ div[data-page="sound_reminder"] .system-setting-radiobox {
   display: flex;
   align-items: center;
   margin-top: 20px;
+}
+
+.system-setting-privacy-setting-body
+  .system-setting-tick-contain:not(:last-child) {
+  margin-bottom: 10px;
 }
