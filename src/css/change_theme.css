@@ -349,3 +349,11 @@ header {
   height: 58px;
   grid-column: -2 / -1;
 }
+
+.add-color-button:hover {
+  background-position: -61px -1px;
+}
+
+.add-color-button:active {
+  background-position: -121px -1px;
+}
