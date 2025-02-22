@@ -223,15 +223,12 @@ header {
   background: #f19ebc;
 }
 .color-box:nth-child(8) {
-  background: url(../image/palette.png) no-repeat center;
-}
-.color-box:nth-child(9) {
   background: #31996a;
 }
-.color-box:nth-child(10) {
+.color-box:nth-child(9) {
   background: #e67b1d;
 }
-.color-box:nth-child(11) {
+.color-box:nth-child(10) {
   background: #6d95da;
 }
 
