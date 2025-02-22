@@ -46,20 +46,21 @@ class StoreManager {
 
   // 套用主題或顏色
   applySavedTheme() {
+    const element = document.querySelector('header');
     const savedTheme = localStorage.getItem('selectedTheme');
     const savedColor = localStorage.getItem('selectedThemeColor');
-    const element = document.querySelector('header');
-    element.classList.forEach((className) => {
-      if (className.startsWith('theme-')) {
-        element.classList.remove(className);
-      }
-    });
+    const savedCustomImage = localStorage.getItem('customThemeImage');
+    element.className = '';
+    element.style.backgroundColor = '';
+    element.style.backgroundImage = '';
     if (savedTheme) {
-      element.style.backgroundColor = '';
       element.classList.add(savedTheme);
     }
     else if (savedColor) {
       element.style.backgroundColor = savedColor;
+    }
+    else if (savedCustomImage) {
+      element.style.backgroundImage = `url(${savedCustomImage})`;
     }
   }
 }

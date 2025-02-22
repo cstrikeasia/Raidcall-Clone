@@ -15,7 +15,7 @@ class CreateGroup {
     this.confirmedBtn.addEventListener('click', () => this.closeWindow());
     window.addEventListener('storage', () => StoreModule.initLanguage());
     window.addEventListener('storage', (event) => {
-      if (event.key === 'selectedTheme' || event.key === 'selectedThemeColor') {
+      if (event.key === 'selectedTheme' || event.key === 'selectedThemeColor' || event.key === 'customThemeImage') {
         StoreModule.applySavedTheme();
       }
     });

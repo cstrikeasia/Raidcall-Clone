@@ -1,3 +1,4 @@
+const StoreModule = require('../js/store');
 const logger = require('../js/core/logger');
 require('../js/change_theme');
 class Dialog {
@@ -20,7 +21,7 @@ class Dialog {
       this.updateTextWithCode(code, titleCode, textCode, icon);
     });
     window.addEventListener('storage', (event) => {
-      if (event.key === 'selectedTheme' || event.key === 'selectedThemeColor') {
+      if (event.key === 'selectedTheme' || event.key === 'selectedThemeColor' || event.key === 'customThemeImage') {
         StoreModule.applySavedTheme();
       }
     });
