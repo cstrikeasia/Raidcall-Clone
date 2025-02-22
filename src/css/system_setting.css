@@ -541,7 +541,8 @@ input[type="radio"]:hover {
 
 .change-directory-button,
 .voice-check-button,
-.hot-key-reset-button {
+.hot-key-reset-button,
+.game-mini-window-reset-button {
   min-width: 105px;
 }
 
@@ -723,12 +724,14 @@ div[data-page="sound_reminder"] .system-setting-radiobox {
   color: #8f8f8f;
 }
 
-.system-setting-files-management-body {
+.system-setting-files-management-body,
+.system-setting-game-mini-window-body {
   margin-top: 15px;
 }
 
 .files-management-directory,
-.sound-reminder-directory {
+.sound-reminder-directory,
+.game-mini-window-key-down {
   margin-left: 0;
   width: 100%;
 }
@@ -740,7 +743,8 @@ div[data-page="sound_reminder"] .system-setting-radiobox {
   margin-top: 20px;
 }
 
-.system-setting-files-management-directory-box {
+.system-setting-files-management-directory-box,
+.system-setting-game-mini-window-key-down-box {
   margin-top: 5px;
   margin-bottom: 15px;
 }
@@ -748,4 +752,10 @@ div[data-page="sound_reminder"] .system-setting-radiobox {
 .system-setting-privacy-setting-body
   .system-setting-tick-contain:not(:last-child) {
   margin-bottom: 10px;
+}
+
+.system-setting-button.game-mini-window-reset-button {
+  left: 25%;
+  position: absolute;
+  bottom: 45%;
 }
