@@ -825,7 +825,8 @@ li:has([data-key="30162"]):hover .server-user-operate-sub-menu {
 
 .server-setting-text-line-title {
   width: auto;
-  min-width: 70px;
+  white-space: nowrap;
+  margin-right: 5px;
 }
 
 .server-setting-text-line-header {

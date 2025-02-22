@@ -390,7 +390,7 @@ select {
   align-items: center;
   flex-direction: row;
   width: 100%;
-  margin-top: 5px;
+  margin-top: 3px;
 }
 
 .system-setting-item-wrapper {
@@ -408,7 +408,7 @@ select {
 .system-setting-hot-key-setting-body,
 .system-setting-sound-reminder-setting-body,
 .system-setting-privacy-setting-body {
-  margin-top: 8px;
+  margin-top: 3px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -450,6 +450,7 @@ input[type="checkbox"] {
   padding: 0;
   margin-top: 0;
   margin-bottom: 0;
+  min-width: 20px;
 }
 
 input[type="radio"] {
@@ -463,6 +464,7 @@ input[type="radio"] {
   margin-left: 5px;
   border: none;
   padding: 0;
+  min-width: 20px;
 }
 
 input[type="checkbox"]:checked,
@@ -598,7 +600,7 @@ div[data-page="sound_reminder"] .system-setting-radiobox {
 }
 
 .system-setting-sound-reminder-list {
-  height: 320px;
+  height: 305px;
   display: flex;
   justify-content: center;
   border: 1px solid #ccc;
