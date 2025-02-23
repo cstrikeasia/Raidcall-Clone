@@ -237,14 +237,14 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin-left: 10px;
+  padding-left: 10px;
+  padding-top: 2;
+  padding-bottom: 2;
   font-size: 15px;
   cursor: pointer;
   height: 23px;
-  padding: 2px;
   border-radius: 5px;
-  max-width: 245px;
-  align-content: center;
+  max-width: 250px;
 }
 
 .server-channel-user:hover,
@@ -345,35 +345,35 @@
   height: 12px;
   width: 12px;
   background-position: 0 0;
+  opacity: 0;
   margin-right: 5px;
+  margin-left: 5px;
+  min-width: 12px;
 }
 
 .server-channel-user {
   width: 95%;
   display: flex;
   align-items: center;
-  height: 20px;
+  height: 23px;
   cursor: pointer;
   padding: 3px;
-  border-radius: 2px;
-}
-
-.server-channel-bottom .server-channel-user {
-  margin-left: 10px;
-  width: 88%;
   border-radius: 5px;
 }
 
 .play .server-channel-user-state {
   background-position: 0 0;
+  opacity: 1;
 }
 
 .unplay .server-channel-user-state {
   background-position: -12px 0;
+  opacity: 1;
 }
 
 .muted .server-channel-user-state {
   background-position: -24px 0;
+  opacity: 1;
 }
 
 .server-channel-user-role {
@@ -1002,4 +1002,25 @@ li:has([data-key="30162"]):hover .server-user-operate-sub-menu {
   left: 144px;
   bottom: 0;
   display: none;
+}
+
+.server-channel-box.sub .server-channel-name {
+  padding-left: 23px;
+  width: 237px;
+}
+
+.server-channel-box.sub .server-channel-user {
+  padding-left: 38px;
+  width: 222px;
+}
+
+.server-channel-bottom .server-channel-user {
+  padding-right: 0;
+  padding-left: 23px;
+  width: 237px;
+}
+
+.server-channel-box {
+  display: flex;
+  flex-direction: column;
 }
