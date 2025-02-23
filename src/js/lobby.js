@@ -54,7 +54,6 @@ class Lobby {
     this.menuBtn.addEventListener('click', () => this.showMenu());
     this.logOutBtn.addEventListener('click', () => this.logOut());
     this.createGroupBtn.addEventListener('click', () => this.createGroup());
-    this.myBtn.addEventListener('click', () => this.my());
     this.changeThemeBtn.addEventListener('click', () => this.changeTheme());
     this.systemSettingBtn.addEventListener('click', () => this.systemSetting());
     this.submenuOptions.forEach((option) => this.submenuOptionsEvent(option));
@@ -208,14 +207,6 @@ class Lobby {
   // 創建語音群
   createGroup() {
     ipcRenderer.send('open-pop-window', null, 435, 480, 'create_group', false);
-  }
-
-  // 個人專屬
-  my() {
-    const liveAnchor = document.querySelector('.live-anchors webview');
-    const my = document.querySelector('.groups-my');
-    liveAnchor.style.display = 'none';
-    my.style.display = 'block';
   }
 
   // 更換主題

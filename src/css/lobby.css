@@ -630,15 +630,10 @@ div[data-tab="server"] .tab-bg:after {
   width: 100%;
 }
 
-.live-anchors {
+.groups-my-wrapper {
   height: 100%;
   width: 100%;
   background: #f4f6fa;
-}
-
-.live-anchors webview {
-  height: 100%;
-  width: 100%;
 }
 
 .groups-header {
@@ -778,6 +773,8 @@ div[data-tab="server"] .tab-bg:after {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  min-height: 195px;
+  min-width: 790px;
 }
 
 .groups-my-last-box:not(:last-child) .groups-my-items {
