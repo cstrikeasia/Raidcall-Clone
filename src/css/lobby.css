@@ -633,6 +633,7 @@ div[data-tab="server"] .tab-bg:after {
 .live-anchors {
   height: 100%;
   width: 100%;
+  background: #f4f6fa;
 }
 
 .live-anchors webview {
@@ -755,36 +756,93 @@ div[data-tab="server"] .tab-bg:after {
   background-color: #666;
 }
 
-.live-card {
-  position: relative;
-  width: 160px;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-.live-card img {
-  width: 100%;
-  height: auto;
-}
-
-.live-badge {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  background: red;
-  color: white;
-  font-size: 12px;
-  padding: 2px 5px;
-  border-radius: 4px;
-}
-
-.live-info {
-  padding: 5px;
+.groups-my {
   display: flex;
-  justify-content: space-between;
-  font-size: 12px;
+  justify-content: center;
+  overflow: auto;
+  max-height: calc(100vh - 135px);
+  padding: 25px;
+}
+
+.groups-my-view {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.groups-my-items {
+  height: auto;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.groups-my-last-box:not(:last-child) .groups-my-items {
+  margin-bottom: 62px;
+}
+
+.groups-my-item-picture {
+  width: auto;
+  height: 70px;
+  background: url(../image/im/IMLogo.png) no-repeat center center;
+  background-size: cover;
+  background-position: 0 0;
+  min-width: 70px;
+}
+
+.groups-my-item {
+  border: 1px solid #e0e0e4;
+  padding: 12px;
+  width: 230px;
+  display: flex;
+  padding-bottom: 10;
+  padding-top: 10;
+  height: 70px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.groups-my-item-name {
+  color: #10469e;
+  font-size: 14px;
+}
+
+.groups-my-item-right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 7px;
+  width: 100%;
+}
+
+.groups-my-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.groups-my-item-id-box {
+  display: flex;
+  font-size: 13px;
+  margin-top: 8px;
+  color: #777777;
+}
+
+.groups-my-item-id-box.groups-my-item-owner .groups-my-item-id-title:before {
+  content: "";
+  width: 13px;
+  height: 15px;
+  background: url(../image/icon_creator.png) no-repeat center center;
+  background-size: cover;
+  background-position: 0 0;
+  display: block;
+  margin-right: 2px;
+}
+
+.groups-my-item-id-title {
+  display: flex;
+  align-items: flex-start;
 }
 
 .direction {
@@ -906,6 +964,7 @@ div[data-tab="server"] .tab-bg:after {
   align-items: center;
   justify-content: center;
   position: relative;
+  display: none;
 }
 
 .join-group-loading-gif {
